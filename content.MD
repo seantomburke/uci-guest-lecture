@@ -1,67 +1,63 @@
-# Content
+# From College to Career: A Tech Journey
 
-Overview:
-## Life
-- Life at UCI
-- Life at UCSD
-- Internships
-- Linkedin
-- GoLinks
+## 1. My Journey
+- Graduated UCI with Electrical Engineering & Business Information Management
+- Early career struggles
+  - Failed interviews (Microsoft, Facebook, and others)
+  - The choice: Western Digital vs. Graduate School
+- Graduate studies at UCSD
+- More interview challenges, rejected from Redfin, twitter, Google, Space X, Thumbtack, Pinterest, etc.
+- Passed 1 and only 1 interview at LinkedIn
+- Started GoLinks
 
-## GoLinks
-- What is it?
-- How did it start?
-- Tech Stack
-- Learnings
+## 2. Understanding Tech Environments
+- Big Tech Experience (LinkedIn)
+  - Structure, resources, scale
+- Startup Experience (GoLinks)
+  - What is GoLinks?
+  - Origin story
+  - Tech stack
+  - Key learnings
 
-## Tech at Tech Companies
-- Linkedin - Big Tech
-- GoLinks - Startup
+## 3. Essential Skills for New Graduates
+- Understanding the business ecosystem
+  - How engineering connects with marketing, sales, and product
+  - Your role in the product lifecycle
+- Adapting to evolving roles
+- Focusing on industry-relevant skills
 
-## What should you be learning?
-- Business need Marketing, Sales, Product
-- You are part of Product
-- Positions and roles are always changing
-- Learn skills relevant to the industry
-
-## Industry trends
-- AI Code generation
+## 4. Current Industry Trends
+- AI-assisted development
 - React Server Components
-- Full stack engineers, Frontend, Backend, DevOps, Design
-- Always learning and adapting
+- Full-stack expectations
+- Frontend, Backend, DevOps, Design
+- The importance of continuous learning
 
-## Finding a job and interviews
-- Show them, don't tell them
-- Tell them a story
-    - Build up your Github
-        - Green Squares
-        - Contribute to open source
-        - Add a picture, a name, links, starred repos
-    - Build up your Linkedin
-        - Profile pic, banner image
-        - Add a portfolio
-        - Add blog articles
-    - Build a portfolio
-        Use your webdev skills, add it to your github
-    - Build a Blog
-        - Write some articles about your learnings
-        - Don't have a personal project? Write about a class project
-- 
+## 5. Standing Out in the Job Market
+- Show, don't tell: Demonstrating your abilities
+- Tell a story
+- Building your digital presence:
+  - GitHub portfolio
+    - Green Squares
+    - Open source participation
+    - Complete profile with links
+    - Fill out the README.md
+  - LinkedIn optimization
+    - Professional imagery
+    - Portfolio integration
+    - Content creation
+  - Personal website/portfolio
+  - Technical blog
+    - Sharing your learning journey
+    - Showcasing class projects
 
+## 6. Modern Interview Processes
+- 2594 applicants -> 313 screened -> 210 invited to quiz -> 30 passed quiz -> 20 projects -> 7 selected
+- Technical assessments (Hacker Rank, no AI)
+- Project-based challenges (e.g., Wordle clone) AI allowed
+- Adaptation exercises (with AI allowed)
 
-
-
-
-
-Graduated UCI with EE and BIM
-picture of broken down car
-
-Failed Microsoft interview, failed facebook interview, failed multiple
-Chose Grad School
-Choice between Western Digital and Grad School.
-
-Grad school
-Failed redfin, etc. 
-Linkedin.
-
-Levels FYI also a UCI Alumni
+## 7. Resources
+- Levels.fyi (founded by UCI alumni)
+- Networking opportunities
+- Continuous learning platforms
