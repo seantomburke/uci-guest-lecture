@@ -1,0 +1,31 @@
+{
+  "autocomplete": {
+    "enabled": true,
+    "model": "claude-3-5-sonnet",
+    "language": {
+      "html": true,
+      "css": true,
+      "javascript": true
+    }
+  },
+  "commands": {
+    "enabled": true,
+    "model": "claude-3-5-sonnet"
+  },
+  "context": {
+    "includePatterns": [
+      "**/*.html",
+      "**/*.css",
+      "**/*.js",
+      "**/*.json"
+    ],
+    "excludePatterns": [
+      "**/.git/**",
+      "**/.DS_Store"
+    ]
+  },
+  "chat": {
+    "defaultModel": "claude-3-5-sonnet",
+    "systemPromptAddendum": "This is a web presentation project using HTML, CSS, and JavaScript. Focus on helping with responsive design, animation, and interactive elements. Prioritize providing assistance with the presentation's visual appeal and user experience."
+  }
+} 

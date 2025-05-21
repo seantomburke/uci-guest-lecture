@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "ritwickdey.LiveServer",
+    "ms-vscode.live-server",
+    "formulahendry.auto-rename-tag",
+    "streetsidesoftware.code-spell-checker",
+    "naumovs.color-highlight",
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.js-debug",
+    "kisstkondoros.vscode-codemetrics"
+  ]
+} 

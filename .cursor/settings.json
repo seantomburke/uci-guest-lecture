@@ -1,0 +1,31 @@
+{
+  "vscode": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "editor.wordWrap": "on",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.autoSave": "onFocusChange",
+    "html.format.wrapLineLength": 100,
+    "html.format.wrapAttributes": "auto",
+    "emmet.includeLanguages": {
+      "javascript": "html"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "css.validate": true,
+    "html.validate.scripts": true,
+    "html.validate.styles": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true
+    },
+    "explorer.compactFolders": false
+  },
+  "cursor": {
+    "ai.autocomplete.enable": true,
+    "ai.enableInlineCompletion": true,
+    "ai.contextLength": 10
+  }
+} 
