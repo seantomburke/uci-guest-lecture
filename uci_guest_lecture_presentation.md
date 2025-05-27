@@ -12,6 +12,12 @@
 - **The Crossroads**: Industry vs. Graduate School decision
 - **UCSD Masters**: Computer Science
 
+![Sean Burke Graduation](lecture/photos/sean_burke_graduating_and_car_breaking_down.jpg)
+*The journey begins - graduation day (and yes, my car broke down that day!)*
+
+![Commencement Speech](lecture/photos/sean_burke_giving_the_commencement_speech.JPG)
+*Giving back to the UCI community*
+
 ### The Struggle is Real
 - **Failed interviews**: Microsoft, Facebook, Google, SpaceX, Twitter, Redfin, Thumbtack, Pinterest...
 - **The numbers game**: Rejections are part of the journey
@@ -23,6 +29,9 @@
 - **The leap**: Starting GoLinks with UCI fraternity brothers
 - **YC startup**: Building something from scratch
 
+![Y Combinator](lecture/photos/sean_burke_standing_in_front_of_ycombinator_sign.jpeg)
+*At Y Combinator - the startup accelerator that changed everything*
+
 ---
 
 ## 2. The Power of Networks: Your UCI Advantage
@@ -31,6 +40,15 @@
 - **Fraternity connections** → Co-founders at GoLinks
 - **UCI alumni network** → Opportunities everywhere
 - **Professional relationships** → Career acceleration
+
+![UCI Alumni Network](lecture/photos/UCI Alumni at LinkedIn booth.jpg)
+*UCI Alumni networking at LinkedIn - your future colleagues are everywhere*
+
+![Professional Network](lecture/photos/Sean's Professional Linkedin Network Map.jpeg)
+*The power of professional networking - connections lead to opportunities*
+
+![UCI Alumni Event](lecture/photos/uci-alumni-event-at-Linkedin.jpg)
+*UCI alumni events - building lifelong professional relationships*
 
 ### Building Your Network Starting Now
 - Join student organizations
@@ -59,6 +77,18 @@
 - **My role**: Built and scaled the engineering team
 - **Key learning**: Hiring and team building is as important as coding
 
+![Co-founders](lecture/photos/3-cofounders.jpg)
+*The three co-founders - all UCI alumni*
+
+![Early Days](lecture/photos/3-cofounders-at-a-wework.jpg)
+*Early days at WeWork - building the dream*
+
+![Founders and Families](lecture/photos/3-cofounders-and-wives-all-from-uc-irvine.jpg)
+*Co-founders and wives - all connected through UC Irvine*
+
+![TechCrunch](lecture/photos/founders-at-the-early-days-at-tech-crunch.jpg)
+*Early days at TechCrunch events - building in public*
+
 ### Startup vs. Big Tech
 | Big Tech (LinkedIn) | Startup (GoLinks) |
 |---------------------|-------------------|
@@ -74,6 +104,9 @@
 ### Recent Intern Hiring Insights (2024)
 - **Application volume**: 2,594 applicants → 7 final hires
 - **The funnel**: 313 screened → 210 quiz → 30 passed → 20 projects → 7 selected
+
+![AWS Conference Hiring](lecture/photos/AWS-conference-with-hiring-a-uci-amuni.jpg)
+*Hiring UCI alumni at AWS conference - the network effect in action*
 
 ### Beyond the Resume
 1. **Problem-solving ability** over memorized algorithms
@@ -134,6 +167,15 @@
 4. **Teach others** what you've learned
 5. **Use AI strategically** to learn faster, not as a crutch
 
+![Hackathon Team](lecture/photos/golinks-co-founders-at-hackathon.jpg)
+*Co-founders at hackathons - building and creating together*
+
+![LinkedIn Hackathon](lecture/photos/linkedin-developer-hackathon.jpg)
+*LinkedIn developer hackathon - where ideas come to life*
+
+![Founders Hackathon](lecture/photos/founders-at-a-hackathon.jpg)
+*Early hackathon days - the creator mindset in action*
+
 ---
 
 ## 7. Important Distinctions for Your Career
@@ -156,6 +198,9 @@
 - Writing maintainable, scalable code
 - Considering system design and architecture
 - Using AI to enhance your understanding, not replace it
+
+![AI Coding Evolution](lecture/photos/evolution-of-ai-coding-strategies-industry-prediction-of-vibe-coding.png)
+*The evolution of AI coding strategies - from vibe coding to engineering excellence*
 
 ---
 

@@ -102,7 +102,7 @@
         }
         
         .image-right {
-            flex: 0 0 400px;
+            flex: 0 0 500px;
             align-self: flex-start;
         }
         
@@ -182,6 +182,39 @@
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
         }
+        
+        /* Image and caption styles */
+        .slide-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .slide-image-large {
+            width: 100%;
+            max-width: 700px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .image-caption {
+            font-style: italic;
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.75em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .image-caption-large {
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.8);
+        }
     </style>
 
 </head>
@@ -206,9 +239,8 @@
                 <h2>Navigating the Modern Tech Landscape</h2>
             </div>
             <div class="slide-content">
-                <div class="image-placeholder">
-                    <p>[Image: Tech Career Journey Visualization - College to Success]</p>
-                </div>
+                <img src="lecture/photos/sean_burke_giving_the_commencement_speech.JPG" alt="Sean Burke Commencement Speech" class="slide-image-large">
+                <p class="image-caption-large">Giving back to the UCI community</p>
                 <p><strong>Sean Burke</strong> - UCI Alumni (EE + BIM) → LinkedIn → GoLinks Founder</p>
                 <p>Use arrow keys to navigate →</p>
             </div>
@@ -229,9 +261,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: UCI Campus and Academic Journey Timeline]</p>
-                    </div>
+                    <img src="lecture/photos/sean_burke_graduating_and_car_breaking_down.jpg" alt="Sean Burke Graduation" class="slide-image">
+                    <p class="image-caption">The journey begins - graduation day (and yes, my car broke down that day!)</p>
                 </div>
             </div>
         </div>
@@ -250,9 +281,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Interview Rejection vs Success Visualization]</p>
-                    </div>
+                    <img src="lecture/photos/animation-of-linkedin-onboarding-day.gif" alt="LinkedIn Onboarding Day" class="slide-image">
+                    <p class="image-caption">Finally! My first day at LinkedIn after all those rejections</p>
                 </div>
             </div>
         </div>
@@ -270,9 +300,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: LinkedIn to GoLinks Transition - Entrepreneur Journey]</p>
-                    </div>
+                    <img src="lecture/photos/sean_burke_standing_in_front_of_ycombinator_sign.jpeg" alt="Y Combinator" class="slide-image">
+                    <p class="image-caption">At Y Combinator - the startup accelerator that changed everything</p>
                 </div>
             </div>
         </div>
@@ -284,10 +313,9 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Persistence pays off - every rejection taught me something</li>
-                        <li>Network effects are real - UCI connections led to opportunities</li>
-                        <li>Graduate school can be a game-changer for career pivots</li>
-                        <li>Big tech experience provides valuable foundation for startups</li>
+                        <li>You will face a lot of rejection, it is part of the process</li>
+                        <li>Relationships matter, build your network</li>
+                        <li>Always build your brand and skills</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -336,9 +364,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Network Visualization - UCI Alumni Connections]</p>
-                    </div>
+                    <img src="lecture/photos/UCI Alumni at LinkedIn booth.jpg" alt="UCI Alumni Network" class="slide-image">
+                    <p class="image-caption">UCI Alumni networking at LinkedIn - your future colleagues are everywhere</p>
                 </div>
             </div>
         </div>
@@ -424,9 +451,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Professional Networking Best Practices Guide]</p>
-                    </div>
+                    <img src="lecture/photos/Sean's Professional Linkedin Network Map.jpeg" alt="Professional Network Map" class="slide-image">
+                    <p class="image-caption">The power of professional networking - connections lead to opportunities</p>
                 </div>
             </div>
         </div>
@@ -444,17 +470,15 @@
                         <li><strong>Four core products</strong>:
                             <ul>
                                 <li>GoLinks: Short link management</li>
-                                <li>Go Search: Enterprise search</li>
-                                <li>Profiles: Team directory</li>
-                                <li>Scope: Resource discovery</li>
+                                <li>GoSearch: Enterprise search</li>
+                                <li>GoProfiles: Team directory</li>
                             </ul>
                         </li>
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: GoLinks Product Suite Dashboard]</p>
-                    </div>
+                    <img src="lecture/photos/golinks-current-customers.png" alt="GoLinks Current Customers" class="slide-image">
+                    <p class="image-caption">Trusted by thousands of companies worldwide</p>
                 </div>
             </div>
         </div>
@@ -473,9 +497,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Company Growth Chart - 3 to 50 People]</p>
-                    </div>
+                    <img src="lecture/photos/3-cofounders.jpg" alt="Co-founders" class="slide-image">
+                    <p class="image-caption">The three co-founders - all UCI alumni</p>
                 </div>
             </div>
         </div>
@@ -550,9 +573,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Team Building and Leadership Principles]</p>
-                    </div>
+                    <img src="lecture/photos/3-cofounders-at-a-wework.jpg" alt="Early Days at WeWork" class="slide-image">
+                    <p class="image-caption">Early days at WeWork - building the dream</p>
                 </div>
             </div>
         </div>
@@ -568,9 +590,8 @@
                 </ul>
             </div>
             <div class="image-right">
-                <div class="image-placeholder">
-                    <p>[Image: Hiring Funnel Visualization - 2594 to 7]</p>
-                </div>
+                <img src="lecture/photos/AWS-conference-with-hiring-a-uci-amuni.jpg" alt="AWS Conference Hiring" class="slide-image">
+                <p class="image-caption">Hiring UCI alumni at AWS conference - the network effect in action</p>
             </div>
         </div>
 
@@ -827,9 +848,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Creator Journey - From Learning to Teaching]</p>
-                    </div>
+                    <img src="lecture/photos/golinks-co-founders-at-hackathon.jpg" alt="Hackathon Team" class="slide-image">
+                    <p class="image-caption">Co-founders at hackathons - building and creating together</p>
                 </div>
             </div>
         </div>
@@ -870,9 +890,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Creator Compound Effect - Content to Opportunities]</p>
-                    </div>
+                    <img src="lecture/photos/linkedin-developer-hackathon.jpg" alt="LinkedIn Developer Hackathon" class="slide-image">
+                    <p class="image-caption">LinkedIn developer hackathon - where ideas come to life</p>
                 </div>
             </div>
         </div>
@@ -915,9 +934,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Vibe Coding Warning Signs]</p>
-                    </div>
+                    <img src="lecture/photos/evolution-of-ai-coding-strategies-industry-prediction-of-vibe-coding.png" alt="AI Coding Evolution" class="slide-image">
+                    <p class="image-caption">The evolution of AI coding strategies - from vibe coding to engineering excellence</p>
                 </div>
             </div>
         </div>
@@ -1581,6 +1599,7 @@
         }
     </script>
 
+    <script src="lecture/d3.v7.min.js"></script>
     <script src="lecture/impress2.js"></script>
     <script>
         var api = impress();
