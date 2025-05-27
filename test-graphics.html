@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Graphics Test</title>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .graphic-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .graphic-container {
+            margin: 20px 0;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+        
+        h1, h2 {
+            text-align: center;
+        }
+        
+        h1 {
+            color: #4a90e2;
+        }
+        
+        h2 {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SVG.js Graphics Preview</h1>
+        <p>Testing the cool graphics created for the UCI Guest Lecture presentation.</p>
+        
+        <div class="graphic-section">
+            <h2>Rejection vs Acceptance Visualization</h2>
+            <div id="rejection-acceptance-viz" class="graphic-container"></div>
+        </div>
+        
+        <div class="graphic-section">
+            <h2>Success Metrics Dashboard</h2>
+            <div id="success-metrics-viz" class="graphic-container"></div>
+        </div>
+        
+        <div class="graphic-section">
+            <h2>Compound Effect Visualization</h2>
+            <div id="compound-effect-viz" class="graphic-container"></div>
+        </div>
+        
+        <div class="graphic-section">
+            <h2>Network Visualization</h2>
+            <div id="networks-1" class="graphic-container">
+                <div class="image-placeholder" style="width: 400px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 5px;"></div>
+            </div>
+        </div>
+        
+        <div class="graphic-section">
+            <h2>Skills Radar Chart</h2>
+            <div id="skills-1" class="graphic-container">
+                <div class="image-placeholder" style="width: 400px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 5px;"></div>
+            </div>
+        </div>
+        
+        <div class="graphic-section">
+            <h2>Career Path Animation</h2>
+            <div id="journey-1" class="graphic-container">
+                <div class="image-placeholder" style="width: 400px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 5px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lecture/svg.js"></script>
+    <script src="lecture/svg-graphics.js"></script>
+</body>
+</html> 

@@ -75,13 +75,20 @@
             text-align: left;
             margin-left: 1em;
             list-style-type: disc;
+            font-size: 0.9em;
+        }
+        
+        p {
+            font-size: 0.9em;
         }
         
         .step {
-            width: 1900px;
+            width: 100vw;
             padding: 40px;
             display: flex;
             flex-direction: column;
+            height: 100vh;
+            overflow-y: hidden;
         }
         
         .slide-title {
@@ -102,7 +109,7 @@
         }
         
         .image-right {
-            flex: 0 0 500px;
+            flex: 0 0 600px;
             align-self: flex-start;
         }
         
@@ -124,17 +131,17 @@
         }
         
         h1 {
-            font-size: 1.8em;
+            font-size: 1.5em;
             margin-bottom: 0.5em;
         }
         
         h2 {
-            font-size: 1.8em;
+            font-size: 1.5em;
             margin-bottom: 0.5em;
         }
         
         h3 {
-            font-size: 1.4em;
+            font-size: 1.2em;
             margin-bottom: 0.4em;
             color: #4a90e2;
         }
@@ -175,7 +182,7 @@
         
         .quote {
             font-style: italic;
-            font-size: 1.2em;
+            font-size: 1.0em;
             text-align: center;
             margin: 20px 0;
             padding: 20px;
@@ -186,16 +193,18 @@
         /* Image and caption styles */
         .slide-image {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
             border-radius: 8px;
         }
         
         .slide-image-large {
             width: 100%;
-            max-width: 700px;
-            height: 450px;
-            object-fit: cover;
+            max-width: 900px;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
             border-radius: 12px;
             margin: 20px 0;
         }
@@ -204,7 +213,7 @@
             font-style: italic;
             text-align: center;
             margin-top: 8px;
-            font-size: 0.75em;
+            font-size: 0.65em;
             color: rgba(255, 255, 255, 0.8);
         }
         
@@ -212,7 +221,7 @@
             font-style: italic;
             text-align: center;
             margin-bottom: 20px;
-            font-size: 0.8em;
+            font-size: 0.7em;
             color: rgba(255, 255, 255, 0.8);
         }
     </style>
@@ -233,7 +242,7 @@
     <div id="impress" data-transition-duration="1000">
 
         <!-- Title Slide -->
-        <div id="title" class="step single-column" data-x="0" data-y="0" data-z="0" data-scale="1">
+        <div id="title" class="step single-column" data-x="3000" data-y="-2000" data-z="0" data-scale="0.5">
             <div class="slide-title">
                 <h1>From College to Career: A Tech Journey</h1>
                 <h2>Navigating the Modern Tech Landscape</h2>
@@ -243,6 +252,28 @@
                 <p class="image-caption-large">Giving back to the UCI community</p>
                 <p><strong>Sean Burke</strong> - UCI Alumni (EE + BIM) → LinkedIn → GoLinks Founder</p>
                 <p>Use arrow keys to navigate →</p>
+            </div>
+        </div>
+
+        <!-- Overview Slide -->
+        <div id="overview-slide" class="step" data-x="3000" data-y="-1000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Presentation Overview</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>What We'll Cover Today</h3>
+                    <ul>
+                        <li><strong>My Journey: UCI to Now</strong></li>
+                        <li><strong>Industry Technology Trends</strong></li>
+                        <li><strong>The Job Market</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Presentation Journey Map - From College to Career Success]</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -267,7 +298,7 @@
             </div>
         </div>
 
-        <div id="journey-2" class="step" data-x="6000" data-y="0" data-z="0" data-scale="1">
+        <div id="journey-2" class="step" data-x="3000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Struggle is Real</h2>
             </div>
@@ -287,7 +318,7 @@
             </div>
         </div>
 
-        <div id="journey-3" class="step" data-x="9000" data-y="0" data-z="0" data-scale="1">
+        <div id="journey-3" class="step" data-x="3000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>From Employee to Entrepreneur</h2>
             </div>
@@ -306,7 +337,7 @@
             </div>
         </div>
 
-        <div id="journey-4" class="step" data-x="12000" data-y="0" data-z="0" data-scale="1">
+        <div id="journey-4" class="step" data-x="3000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Key Lessons from My Journey</h2>
             </div>
@@ -326,7 +357,7 @@
             </div>
         </div>
 
-        <div id="journey-5" class="step" data-x="15000" data-y="0" data-z="0" data-scale="1">
+        <div id="journey-5" class="step" data-x="3000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Power of One "Yes"</h2>
             </div>
@@ -342,15 +373,13 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Success Mindset - From Rejection to Acceptance]</p>
-                    </div>
+                    <div id="rejection-acceptance-viz" style="width: 500px; height: 400px;"></div>
                 </div>
             </div>
         </div>
 
         <!-- Section 2: The Power of Networks (5 slides) -->
-        <div id="networks-1" class="step" data-x="18000" data-y="0" data-z="0" data-scale="1">
+        <div id="networks-1" class="step" data-x="6000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>2. The Power of Networks: Your UCI Advantage</h2>
             </div>
@@ -370,7 +399,7 @@
             </div>
         </div>
 
-        <div id="networks-2" class="step" data-x="21000" data-y="0" data-z="0" data-scale="1">
+        <div id="networks-2" class="step" data-x="6000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Building Your Network Starting Now</h2>
             </div>
@@ -392,7 +421,7 @@
             </div>
         </div>
 
-        <div id="networks-3" class="step" data-x="24000" data-y="0" data-z="0" data-scale="1">
+        <div id="networks-3" class="step" data-x="6000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Compound Effect of Relationships</h2>
             </div>
@@ -408,14 +437,12 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Relationship Building Timeline]</p>
-                    </div>
+                    <div id="relationship-timeline-viz" style="width: 500px; height: 300px;"></div>
                 </div>
             </div>
         </div>
 
-        <div id="networks-4" class="step" data-x="27000" data-y="0" data-z="0" data-scale="1">
+        <div id="networks-4" class="step" data-x="6000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>UCI Alumni Success Stories</h2>
             </div>
@@ -436,7 +463,7 @@
             </div>
         </div>
 
-        <div id="networks-5" class="step" data-x="30000" data-y="0" data-z="0" data-scale="1">
+        <div id="networks-5" class="step" data-x="6000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Networking Best Practices</h2>
             </div>
@@ -458,7 +485,7 @@
         </div>
 
         <!-- Section 3: GoLinks Story (5 slides) -->
-        <div id="golinks-1" class="step" data-x="33000" data-y="0" data-z="0" data-scale="1">
+        <div id="golinks-1" class="step" data-x="9000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>3. GoLinks: From Idea to 50-Person Company</h2>
             </div>
@@ -483,7 +510,7 @@
             </div>
         </div>
 
-        <div id="golinks-2" class="step" data-x="36000" data-y="0" data-z="0" data-scale="1">
+        <div id="golinks-2" class="step" data-x="9000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Growth Story</h2>
             </div>
@@ -503,7 +530,7 @@
             </div>
         </div>
 
-        <div id="golinks-3" class="step" data-x="39000" data-y="0" data-z="0" data-scale="1">
+        <div id="golinks-3" class="step" data-x="9000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Startup vs. Big Tech</h2>
             </div>
@@ -538,7 +565,7 @@
             </div>
         </div>
 
-        <div id="golinks-4" class="step" data-x="42000" data-y="0" data-z="0" data-scale="1">
+        <div id="golinks-4" class="step" data-x="9000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Technical Challenges at Scale</h2>
             </div>
@@ -559,7 +586,7 @@
             </div>
         </div>
 
-        <div id="golinks-5" class="step" data-x="45000" data-y="0" data-z="0" data-scale="1">
+        <div id="golinks-5" class="step" data-x="9000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Lessons from Building a Team</h2>
             </div>
@@ -580,7 +607,7 @@
         </div>
 
         <!-- Section 4: What Hiring Managers Look For (5 slides) -->
-        <div id="hiring-1" class="step" data-x="48000" data-y="0" data-z="0" data-scale="1">
+        <div id="hiring-1" class="step" data-x="12000" data-y="0" data-z="0" data-scale="1">
             <div class="content-left">
                 <h2>4. What Hiring Managers Actually Look For</h2>
                 <h3>Recent Intern Hiring Insights (2024)</h3>
@@ -595,7 +622,7 @@
             </div>
         </div>
 
-        <div id="hiring-2" class="step" data-x="51000" data-y="0" data-z="0" data-scale="1">
+        <div id="hiring-2" class="step" data-x="12000" data-y="2000" data-z="0" data-scale="1">
             <div class="content-left">
                 <h2>Beyond the Resume</h2>
                 <ul>
@@ -606,14 +633,12 @@
                     <li><strong>Cultural fit</strong> - will you thrive in our environment?</li>
                 </ul>
             </div>
-            <div class="image-right">
-                <div class="image-placeholder">
-                    <p>[Image: Skills Assessment Matrix - Technical vs Soft Skills]</p>
+                            <div class="image-right">
+                    <div id="skills-matrix-viz" style="width: 500px; height: 400px;"></div>
                 </div>
-            </div>
         </div>
 
-        <div id="hiring-3" class="step" data-x="54000" data-y="0" data-z="0" data-scale="1">
+        <div id="hiring-3" class="step" data-x="12000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>What Engineering Managers Want</h2>
             </div>
@@ -627,14 +652,12 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Engineering Manager Priorities Wheel]</p>
-                    </div>
+                    <div id="priorities-wheel-viz" style="width: 400px; height: 400px;"></div>
                 </div>
             </div>
         </div>
 
-        <div id="hiring-4" class="step" data-x="57000" data-y="0" data-z="0" data-scale="1">
+        <div id="hiring-4" class="step" data-x="12000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Red Flags in Interviews</h2>
             </div>
@@ -656,7 +679,7 @@
             </div>
         </div>
 
-        <div id="hiring-5" class="step" data-x="60000" data-y="0" data-z="0" data-scale="1">
+        <div id="hiring-5" class="step" data-x="12000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>How to Stand Out</h2>
             </div>
@@ -679,7 +702,7 @@
         </div>
 
         <!-- Section 5: Industry Trends (5 slides) -->
-        <div id="trends-1" class="step" data-x="63000" data-y="0" data-z="0" data-scale="1">
+        <div id="trends-1" class="step" data-x="15000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>5. Industry Trends: The AI Revolution Changes Everything</h2>
             </div>
@@ -694,14 +717,12 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Modern Tech Stack Evolution Timeline]</p>
-                    </div>
+                    <div id="tech-stack-timeline-viz" style="width: 500px; height: 300px;"></div>
                 </div>
             </div>
         </div>
 
-        <div id="trends-2" class="step" data-x="66000" data-y="0" data-z="0" data-scale="1">
+        <div id="trends-2" class="step" data-x="15000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Leveling Effect of AI</h2>
             </div>
@@ -722,7 +743,7 @@
             </div>
         </div>
 
-        <div id="trends-3" class="step" data-x="69000" data-y="0" data-z="0" data-scale="1">
+        <div id="trends-3" class="step" data-x="15000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Challenge: Higher Expectations</h2>
             </div>
@@ -743,7 +764,7 @@
             </div>
         </div>
 
-        <div id="trends-4" class="step" data-x="72000" data-y="0" data-z="0" data-scale="1">
+        <div id="trends-4" class="step" data-x="15000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Industry-Relevant Skills (2024-2025)</h2>
             </div>
@@ -765,7 +786,7 @@
             </div>
         </div>
 
-        <div id="trends-5" class="step" data-x="75000" data-y="0" data-z="0" data-scale="1">
+        <div id="trends-5" class="step" data-x="15000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Preparing for the Future</h2>
             </div>
@@ -788,7 +809,7 @@
         </div>
 
         <!-- Section 6: Creators vs Consumers (5 slides) -->
-        <div id="creators-1" class="step" data-x="78000" data-y="0" data-z="0" data-scale="1">
+        <div id="creators-1" class="step" data-x="18000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>6. Creators vs. Consumers: Your Competitive Edge</h2>
             </div>
@@ -811,7 +832,7 @@
             </div>
         </div>
 
-        <div id="creators-2" class="step" data-x="81000" data-y="0" data-z="0" data-scale="1">
+        <div id="creators-2" class="step" data-x="18000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Consumer Trap</h2>
             </div>
@@ -833,7 +854,7 @@
             </div>
         </div>
 
-        <div id="creators-3" class="step" data-x="84000" data-y="0" data-z="0" data-scale="1">
+        <div id="creators-3" class="step" data-x="18000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>How to Become a Creator</h2>
             </div>
@@ -854,7 +875,7 @@
             </div>
         </div>
 
-        <div id="creators-4" class="step" data-x="87000" data-y="0" data-z="0" data-scale="1">
+        <div id="creators-4" class="step" data-x="18000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Building Your Creator Portfolio</h2>
             </div>
@@ -876,7 +897,7 @@
             </div>
         </div>
 
-        <div id="creators-5" class="step" data-x="90000" data-y="0" data-z="0" data-scale="1">
+        <div id="creators-5" class="step" data-x="18000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Compound Effect of Creating</h2>
             </div>
@@ -897,7 +918,7 @@
         </div>
 
         <!-- Section 7: Important Distinctions (5 slides) -->
-        <div id="distinctions-1" class="step" data-x="93000" data-y="0" data-z="0" data-scale="1">
+        <div id="distinctions-1" class="step" data-x="21000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>7. Important Distinctions for Your Career</h2>
             </div>
@@ -912,14 +933,12 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Computer Science vs Coding Venn Diagram]</p>
-                    </div>
+                    <div id="venn-diagram-viz" style="width: 400px; height: 300px;"></div>
                 </div>
             </div>
         </div>
 
-        <div id="distinctions-2" class="step" data-x="96000" data-y="0" data-z="0" data-scale="1">
+        <div id="distinctions-2" class="step" data-x="21000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>"Vibe Coding" vs "Engineering Excellence"</h2>
             </div>
@@ -940,7 +959,7 @@
             </div>
         </div>
 
-        <div id="distinctions-3" class="step" data-x="99000" data-y="0" data-z="0" data-scale="1">
+        <div id="distinctions-3" class="step" data-x="21000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Engineering Excellence</h2>
             </div>
@@ -961,7 +980,7 @@
             </div>
         </div>
 
-        <div id="distinctions-4" class="step" data-x="102000" data-y="0" data-z="0" data-scale="1">
+        <div id="distinctions-4" class="step" data-x="21000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Importance of Fundamentals</h2>
             </div>
@@ -982,7 +1001,7 @@
             </div>
         </div>
 
-        <div id="distinctions-5" class="step" data-x="105000" data-y="0" data-z="0" data-scale="1">
+        <div id="distinctions-5" class="step" data-x="21000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Building Strong Foundations</h2>
             </div>
@@ -1005,7 +1024,7 @@
         </div>
 
         <!-- Section 8: Modern Interview Processes (5 slides) -->
-        <div id="interviews-1" class="step" data-x="108000" data-y="0" data-z="0" data-scale="1">
+        <div id="interviews-1" class="step" data-x="24000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>8. Modern Interview Processes</h2>
             </div>
@@ -1027,7 +1046,7 @@
             </div>
         </div>
 
-        <div id="interviews-2" class="step" data-x="111000" data-y="0" data-z="0" data-scale="1">
+        <div id="interviews-2" class="step" data-x="24000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Standing Out in Interviews</h2>
             </div>
@@ -1048,7 +1067,7 @@
             </div>
         </div>
 
-        <div id="interviews-3" class="step" data-x="114000" data-y="0" data-z="0" data-scale="1">
+        <div id="interviews-3" class="step" data-x="24000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The New Reality: AI in Interviews</h2>
             </div>
@@ -1069,7 +1088,7 @@
             </div>
         </div>
 
-        <div id="interviews-4" class="step" data-x="117000" data-y="0" data-z="0" data-scale="1">
+        <div id="interviews-4" class="step" data-x="24000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Project-Based Assessments</h2>
             </div>
@@ -1091,7 +1110,7 @@
             </div>
         </div>
 
-        <div id="interviews-5" class="step" data-x="120000" data-y="0" data-z="0" data-scale="1">
+        <div id="interviews-5" class="step" data-x="24000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Interview Preparation Strategy</h2>
             </div>
@@ -1114,7 +1133,7 @@
         </div>
 
         <!-- Section 9: Building Digital Presence (5 slides) -->
-        <div id="presence-1" class="step" data-x="123000" data-y="0" data-z="0" data-scale="1">
+        <div id="presence-1" class="step" data-x="27000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>9. Building Your Digital Presence</h2>
             </div>
@@ -1136,7 +1155,7 @@
             </div>
         </div>
 
-        <div id="presence-2" class="step" data-x="126000" data-y="0" data-z="0" data-scale="1">
+        <div id="presence-2" class="step" data-x="27000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>LinkedIn Optimization</h2>
             </div>
@@ -1157,7 +1176,7 @@
             </div>
         </div>
 
-        <div id="presence-3" class="step" data-x="129000" data-y="0" data-z="0" data-scale="1">
+        <div id="presence-3" class="step" data-x="27000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Technical Blog</h2>
             </div>
@@ -1178,7 +1197,7 @@
             </div>
         </div>
 
-        <div id="presence-4" class="step" data-x="132000" data-y="0" data-z="0" data-scale="1">
+        <div id="presence-4" class="step" data-x="27000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Personal Website/Portfolio</h2>
             </div>
@@ -1200,7 +1219,7 @@
             </div>
         </div>
 
-        <div id="presence-5" class="step" data-x="135000" data-y="0" data-z="0" data-scale="1">
+        <div id="presence-5" class="step" data-x="27000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Content Strategy</h2>
             </div>
@@ -1223,7 +1242,7 @@
         </div>
 
         <!-- Section 10: Practical Next Steps (5 slides) -->
-        <div id="next-steps-1" class="step" data-x="138000" data-y="0" data-z="0" data-scale="1">
+        <div id="next-steps-1" class="step" data-x="30000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>10. Practical Next Steps</h2>
             </div>
@@ -1245,7 +1264,7 @@
             </div>
         </div>
 
-        <div id="next-steps-2" class="step" data-x="141000" data-y="0" data-z="0" data-scale="1">
+        <div id="next-steps-2" class="step" data-x="30000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Focus on Fundamentals</h2>
             </div>
@@ -1267,7 +1286,7 @@
             </div>
         </div>
 
-        <div id="next-steps-3" class="step" data-x="144000" data-y="0" data-z="0" data-scale="1">
+        <div id="next-steps-3" class="step" data-x="30000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Build Your First Portfolio Project</h2>
             </div>
@@ -1289,7 +1308,7 @@
             </div>
         </div>
 
-        <div id="next-steps-4" class="step" data-x="147000" data-y="0" data-z="0" data-scale="1">
+        <div id="next-steps-4" class="step" data-x="30000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Start Your Professional Network</h2>
             </div>
@@ -1311,7 +1330,7 @@
             </div>
         </div>
 
-        <div id="next-steps-5" class="step" data-x="150000" data-y="0" data-z="0" data-scale="1">
+        <div id="next-steps-5" class="step" data-x="30000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Create Your Learning Plan</h2>
             </div>
@@ -1334,7 +1353,7 @@
         </div>
 
         <!-- Section 11: Resources and Community (5 slides) -->
-        <div id="resources-1" class="step" data-x="153000" data-y="0" data-z="0" data-scale="1">
+        <div id="resources-1" class="step" data-x="33000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>11. Resources and Community</h2>
             </div>
@@ -1357,7 +1376,7 @@
             </div>
         </div>
 
-        <div id="resources-2" class="step" data-x="156000" data-y="0" data-z="0" data-scale="1">
+        <div id="resources-2" class="step" data-x="33000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Continuous Learning</h2>
             </div>
@@ -1379,7 +1398,7 @@
             </div>
         </div>
 
-        <div id="resources-3" class="step" data-x="159000" data-y="0" data-z="0" data-scale="1">
+        <div id="resources-3" class="step" data-x="33000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>UCI-Specific Resources</h2>
             </div>
@@ -1401,7 +1420,7 @@
             </div>
         </div>
 
-        <div id="resources-4" class="step" data-x="162000" data-y="0" data-z="0" data-scale="1">
+        <div id="resources-4" class="step" data-x="33000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Building Your Learning Community</h2>
             </div>
@@ -1416,14 +1435,12 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Learning Community Network Visualization]</p>
-                    </div>
+                    <div id="network-viz" style="width: 500px; height: 400px;"></div>
                 </div>
             </div>
         </div>
 
-        <div id="resources-5" class="step" data-x="165000" data-y="0" data-z="0" data-scale="1">
+        <div id="resources-5" class="step" data-x="33000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Staying Current with Industry</h2>
             </div>
@@ -1446,7 +1463,7 @@
         </div>
 
         <!-- Section 12: Final Thoughts (5 slides) -->
-        <div id="final-1" class="step" data-x="168000" data-y="0" data-z="0" data-scale="1">
+        <div id="final-1" class="step" data-x="36000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>12. Final Thoughts: The Long Game</h2>
             </div>
@@ -1461,14 +1478,12 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Success Metrics Dashboard - Impact, Growth, Relationships, Value]</p>
-                    </div>
+                    <div id="success-metrics-viz" style="width: 500px; height: 300px;"></div>
                 </div>
             </div>
         </div>
 
-        <div id="final-2" class="step" data-x="171000" data-y="0" data-z="0" data-scale="1">
+        <div id="final-2" class="step" data-x="36000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The UCI Advantage</h2>
             </div>
@@ -1489,7 +1504,7 @@
             </div>
         </div>
 
-        <div id="final-3" class="step" data-x="174000" data-y="0" data-z="0" data-scale="1">
+        <div id="final-3" class="step" data-x="36000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Remember These Key Points</h2>
             </div>
@@ -1510,7 +1525,7 @@
             </div>
         </div>
 
-        <div id="final-4" class="step" data-x="177000" data-y="0" data-z="0" data-scale="1">
+        <div id="final-4" class="step" data-x="36000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>The Power of Starting Now</h2>
             </div>
@@ -1526,14 +1541,12 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div class="image-placeholder">
-                        <p>[Image: Time Compound Effect - Starting Early vs Starting Late]</p>
-                    </div>
+                    <div id="compound-effect-viz" style="width: 500px; height: 300px;"></div>
                 </div>
             </div>
         </div>
 
-        <div id="final-5" class="step" data-x="180000" data-y="0" data-z="0" data-scale="1">
+        <div id="final-5" class="step" data-x="36000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Your Next Action</h2>
             </div>
@@ -1556,7 +1569,7 @@
         </div>
 
         <!-- Q&A Slide -->
-        <div id="qa" class="step single-column" data-x="183000" data-y="0" data-z="0" data-scale="1">
+        <div id="qa" class="step single-column" data-x="39000" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h1>Q&A</h1>
                 <h2>Questions? Let's discuss your specific challenges and opportunities.</h2>
@@ -1571,7 +1584,7 @@
         </div>
 
         <!-- Thank You Slide -->
-        <div id="thank-you" class="step single-column" data-x="186000" data-y="0" data-z="0" data-scale="3">
+        <div id="thank-you" class="step single-column" data-x="39000" data-y="2000" data-z="0" data-scale="3">
             <h1>Thank You!</h1>
             <h2>Start Building Your Future Today</h2>
             <div class="image-placeholder">
@@ -1599,7 +1612,10 @@
         }
     </script>
 
+    <script src="lecture/svg.js"></script>
+    <script src="lecture/svg-graphics.js"></script>
     <script src="lecture/d3.v7.min.js"></script>
+    <script src="lecture/d3-graphics.js"></script>
     <script src="lecture/impress2.js"></script>
     <script>
         var api = impress();
