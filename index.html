@@ -33,7 +33,7 @@
     <link rel="icon" type="image/x-icon" href="lecture/favicon.ico" />
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
 
     <link href="lecture/styles.css" rel="stylesheet" />
@@ -179,7 +179,8 @@
         }
         
         li strong {
-            font-weight: 600;
+            font-weight: bold;
+            color: white;
         }
         
         /* Layout */
@@ -191,7 +192,7 @@
             height: 100vh;
             overflow-y: hidden;
             background: linear-gradient(135deg, #091f32 0%, #000000 100%);
-            color: white;
+            color: rgb(180, 180, 180);
         }
         
         .slide-title {
@@ -224,7 +225,7 @@
         
         .content-left p,
         .content-left li {
-            color: rgba(255, 255, 255, 0.95);
+            color: rgb(150, 150, 150, .95);
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         
@@ -479,12 +480,12 @@
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <h3>What We'll Cover Today</h3>
+                    <h3>Overview</h3>
                     <ul>
-                        <li>🎓 <strong>My Journey: UCI to Now</strong></li>
-                        <li>🚀 <strong>GoLinks</strong></li>
-                        <li>⚡ <strong>Tech Stack</strong></li>
-                        <li>📈 <strong>Industry Technology Trends</strong></li>
+                        <li>🎓 My Journey: UCI to Now</li>
+                        <li>🚀 GoLinks</li>
+                        <li>⚡ Tech Stack</li>
+                        <li>📈 Industry Technology Trends</li>
                         <li>💼 <strong>The Job Market</strong></li>
                     </ul>
                 </div>
@@ -824,34 +825,42 @@
 
         <!-- Section 4: What Hiring Managers Look For (5 slides) -->
         <div id="hiring-1" class="step" data-x="12000" data-y="0" data-z="0" data-scale="1">
-            <div class="content-left">
+            <div class="slide-title">
                 <h2>4. What Hiring Managers Actually Look For</h2>
-                <h3>Recent Intern Hiring Insights (2024)</h3>
-                <ul>
-                    <li>📊 <strong>Application volume</strong>: 2,594 applicants → 7 final hires</li>
-                    <li>🔍 <strong>The funnel</strong>: 313 screened → 210 quiz → 30 passed → 20 projects → 7 selected</li>
-                </ul>
             </div>
-            <div class="image-right">
-                <img src="lecture/photos/AWS-conference-with-hiring-a-uci-amuni.jpg" alt="AWS Conference Hiring" class="slide-image">
-                <p class="image-caption">Hiring UCI alumni at AWS conference - the network effect in action</p>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Recent Intern Hiring Insights (2024)</h3>
+                    <ul>
+                        <li>📊 <strong>Application volume</strong>: 2,594 applicants → 7 final hires</li>
+                        <li>🔍 <strong>The funnel</strong>: 313 screened → 210 quiz → 30 passed → 20 projects → 7 selected</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/AWS-conference-with-hiring-a-uci-amuni.jpg" alt="AWS Conference Hiring" class="slide-image">
+                    <p class="image-caption">Hiring UCI alumni at AWS conference - the network effect in action</p>
+                </div>
             </div>
         </div>
 
         <div id="hiring-2" class="step" data-x="12000" data-y="2000" data-z="0" data-scale="1">
-            <div class="content-left">
+            <div class="slide-title">
                 <h2>Beyond the Resume</h2>
-                <ul>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
                     <li>🧩 <strong>Problem-solving ability</strong> over memorized algorithms</li>
                     <li>🔄 <strong>Adaptability</strong> in uncertain situations</li>
                     <li>💬 <strong>Communication skills</strong> - can you explain your thinking?</li>
                     <li>🌱 <strong>Growth mindset</strong> - how do you handle feedback?</li>
                     <li>🤝 <strong>Cultural fit</strong> - will you thrive in our environment?</li>
                 </ul>
-            </div>
-                            <div class="image-right">
+                </div>  
+                <div class="image-right">
                     <div id="skills-matrix-viz" style="width: 500px; height: 400px;"></div>
                 </div>
+            </div>
         </div>
 
         <div id="hiring-3" class="step" data-x="12000" data-y="4000" data-z="0" data-scale="1">
@@ -1033,11 +1042,11 @@
                 <div class="content-left">
                     <h3>The Creator Mindset</h3>
                     <ul>
-                        <li>Build projects and share them</li>
-                        <li>Write technical blogs about their learning</li>
-                        <li>Contribute to open source</li>
-                        <li>Create tutorials and help others</li>
-                        <li>Use AI as a tool to amplify their capabilities</li>
+                        <li>🔨 Build projects and share them</li>
+                        <li>📝 Write technical blogs about their learning</li>
+                        <li>🌍 Contribute to open source</li>
+                        <li>📚 Create tutorials and help others</li>
+                        <li>🤖 Use AI as a tool to amplify their capabilities</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1056,10 +1065,10 @@
                 <div class="content-left">
                     <h3>Consumers:</h3>
                     <ul>
-                        <li>Only consume content and tutorials</li>
-                        <li>Copy code without understanding</li>
-                        <li>Rely entirely on AI without learning fundamentals</li>
-                        <li>Don't share their knowledge or experiences</li>
+                        <li>📺 Only consume content and tutorials</li>
+                        <li>📋 Copy code without understanding</li>
+                        <li>🤖 Rely entirely on AI without learning fundamentals</li>
+                        <li>🤐 Don't share their knowledge or experiences</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1077,11 +1086,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li><strong>Document your learning journey</strong> through blogs</li>
-                        <li><strong>Build projects</strong> that solve real problems</li>
-                        <li><strong>Share your code</strong> on GitHub with detailed READMEs</li>
-                        <li><strong>Teach others</strong> what you've learned</li>
-                        <li><strong>Use AI strategically</strong> to learn faster, not as a crutch</li>
+                        <li>📝 <strong>Document your learning journey</strong> through blogs</li>
+                        <li>🔨 <strong>Build projects</strong> that solve real problems</li>
+                        <li>💻 <strong>Share your code</strong> on GitHub with detailed READMEs</li>
+                        <li>👨‍🏫 <strong>Teach others</strong> what you've learned</li>
+                        <li>🎯 <strong>Use AI strategically</strong> to learn faster, not as a crutch</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1098,11 +1107,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Start with class projects - document your process</li>
-                        <li>Build something you're passionate about</li>
-                        <li>Write about challenges and solutions</li>
-                        <li>Share your failures and what you learned</li>
-                        <li>Help other students with similar problems</li>
+                        <li>🎓 Start with class projects - document your process</li>
+                        <li>❤️ Build something you're passionate about</li>
+                        <li>📝 Write about challenges and solutions</li>
+                        <li>💡 Share your failures and what you learned</li>
+                        <li>🤝 Help other students with similar problems</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1120,10 +1129,10 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Your content becomes your portfolio</li>
-                        <li>Teaching others solidifies your own learning</li>
-                        <li>You build a reputation in the community</li>
-                        <li>Opportunities find you instead of you chasing them</li>
+                        <li>📁 Your content becomes your portfolio</li>
+                        <li>🧠 Teaching others solidifies your own learning</li>
+                        <li>🌟 You build a reputation in the community</li>
+                        <li>🎯 Opportunities find you instead of you chasing them</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1142,10 +1151,10 @@
                 <div class="content-left">
                     <h3>Computer Science ≠ Coding</h3>
                     <ul>
-                        <li><strong>CS fundamentals</strong>: Algorithms, data structures, system design</li>
-                        <li><strong>Problem-solving</strong>: Breaking down complex problems</li>
-                        <li><strong>Mathematical thinking</strong>: Logic and optimization</li>
-                        <li><strong>Coding</strong>: Just the implementation tool</li>
+                        <li>🧠 <strong>CS fundamentals</strong>: Algorithms, data structures, system design</li>
+                        <li>🧩 <strong>Problem-solving</strong>: Breaking down complex problems</li>
+                        <li>🔢 <strong>Mathematical thinking</strong>: Logic and optimization</li>
+                        <li>💻 <strong>Coding</strong>: Just the implementation tool</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1162,10 +1171,10 @@
                 <div class="content-left">
                     <h3>Vibe Coding (What to avoid):</h3>
                     <ul>
-                        <li>Writing code without understanding the problem</li>
-                        <li>Copying solutions without learning principles</li>
-                        <li>No consideration for maintainability or scale</li>
-                        <li>Using AI to generate code you can't explain</li>
+                        <li>🤷‍♂️ Writing code without understanding the problem</li>
+                        <li>📋 Copying solutions without learning principles</li>
+                        <li>🚫 No consideration for maintainability or scale</li>
+                        <li>🤖 Using AI to generate code you can't explain</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1182,10 +1191,10 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Understanding the "why" behind every decision</li>
-                        <li>Writing maintainable, scalable code</li>
-                        <li>Considering system design and architecture</li>
-                        <li>Using AI to enhance your understanding, not replace it</li>
+                        <li>🤔 Understanding the "why" behind every decision</li>
+                        <li>🏗️ Writing maintainable, scalable code</li>
+                        <li>🏛️ Considering system design and architecture</li>
+                        <li>🤖 Using AI to enhance your understanding, not replace it</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1203,10 +1212,10 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Frameworks change, principles endure</li>
-                        <li>Strong fundamentals enable quick adaptation</li>
-                        <li>Understanding "why" helps you debug and optimize</li>
-                        <li>Fundamentals are your competitive advantage</li>
+                        <li>🔄 Frameworks change, principles endure</li>
+                        <li>💪 Strong fundamentals enable quick adaptation</li>
+                        <li>🔍 Understanding "why" helps you debug and optimize</li>
+                        <li>🏆 Fundamentals are your competitive advantage</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1224,11 +1233,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Master data structures and algorithms</li>
-                        <li>Understand system design principles</li>
-                        <li>Learn debugging and problem-solving methodologies</li>
-                        <li>Practice explaining complex concepts simply</li>
-                        <li>Focus on code quality and best practices</li>
+                        <li>🧠 Master data structures and algorithms</li>
+                        <li>🏗️ Understand system design principles</li>
+                        <li>🔧 Learn debugging and problem-solving methodologies</li>
+                        <li>💬 Practice explaining complex concepts simply</li>
+                        <li>✨ Focus on code quality and best practices</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1248,10 +1257,10 @@
                 <div class="content-left">
                     <h3>Technical Assessments</h3>
                     <ul>
-                        <li><strong>HackerRank style</strong>: No AI allowed, fundamentals testing</li>
-                        <li><strong>Project-based</strong>: Build something real (AI allowed)</li>
-                        <li><strong>Adaptation exercises</strong>: Problem-solving with constraints</li>
-                        <li><strong>System design</strong>: How do you think about scale?</li>
+                        <li>💻 <strong>HackerRank style</strong>: No AI allowed, fundamentals testing</li>
+                        <li>🔨 <strong>Project-based</strong>: Build something real (AI allowed)</li>
+                        <li>🧩 <strong>Adaptation exercises</strong>: Problem-solving with constraints</li>
+                        <li>🏗️ <strong>System design</strong>: How do you think about scale?</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1269,10 +1278,10 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li><strong>Show, don't tell</strong>: Have projects that demonstrate your skills</li>
-                        <li><strong>Tell a compelling story</strong>: Connect your experiences</li>
-                        <li><strong>Ask thoughtful questions</strong>: Show genuine interest</li>
-                        <li><strong>Demonstrate learning</strong>: How do you grow from feedback?</li>
+                        <li>🎯 <strong>Show, don't tell</strong>: Have projects that demonstrate your skills</li>
+                        <li>📖 <strong>Tell a compelling story</strong>: Connect your experiences</li>
+                        <li>❓ <strong>Ask thoughtful questions</strong>: Show genuine interest</li>
+                        <li>📈 <strong>Demonstrate learning</strong>: How do you grow from feedback?</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1290,10 +1299,10 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Some assessments allow AI, others don't</li>
-                        <li>You need to be comfortable both ways</li>
-                        <li>Interviewers will ask about your AI usage</li>
-                        <li>Focus on problem-solving process, not just solutions</li>
+                        <li>⚖️ Some assessments allow AI, others don't</li>
+                        <li>🤹‍♂️ You need to be comfortable both ways</li>
+                        <li>❓ Interviewers will ask about your AI usage</li>
+                        <li>🧩 Focus on problem-solving process, not just solutions</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1311,11 +1320,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Build a real application (e.g., Wordle clone)</li>
-                        <li>Demonstrate full-stack capabilities</li>
-                        <li>Show code quality and documentation</li>
-                        <li>Explain your technical decisions</li>
-                        <li>Deploy and share your work</li>
+                        <li>🎮 Build a real application (e.g., Wordle clone)</li>
+                        <li>🥞 Demonstrate full-stack capabilities</li>
+                        <li>✨ Show code quality and documentation</li>
+                        <li>🤔 Explain your technical decisions</li>
+                        <li>🚀 Deploy and share your work</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1333,11 +1342,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Practice coding without AI first</li>
-                        <li>Build a portfolio of diverse projects</li>
-                        <li>Prepare stories about your experiences</li>
-                        <li>Research the company and role thoroughly</li>
-                        <li>Practice explaining your thought process</li>
+                        <li>💻 Practice coding without AI first</li>
+                        <li>📁 Build a portfolio of diverse projects</li>
+                        <li>📖 Prepare stories about your experiences</li>
+                        <li>🔍 Research the company and role thoroughly</li>
+                        <li>💭 Practice explaining your thought process</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1357,10 +1366,10 @@
                 <div class="content-left">
                     <h3>GitHub Portfolio</h3>
                     <ul>
-                        <li><strong>Green squares</strong>: Consistent contributions matter</li>
-                        <li><strong>Quality projects</strong>: Complete, documented, deployed</li>
-                        <li><strong>Open source participation</strong>: Show collaboration skills</li>
-                        <li><strong>Professional README</strong>: Tell your story</li>
+                        <li>🟢 <strong>Green squares</strong>: Consistent contributions matter</li>
+                        <li>⭐ <strong>Quality projects</strong>: Complete, documented, deployed</li>
+                        <li>🌍 <strong>Open source participation</strong>: Show collaboration skills</li>
+                        <li>📄 <strong>Professional README</strong>: Tell your story</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1378,10 +1387,10 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li><strong>Professional imagery</strong>: First impressions count</li>
-                        <li><strong>Portfolio integration</strong>: Link to your best work</li>
-                        <li><strong>Content creation</strong>: Share your learning journey</li>
-                        <li><strong>Network actively</strong>: Connect with classmates and professionals</li>
+                        <li>📸 <strong>Professional imagery</strong>: First impressions count</li>
+                        <li>🔗 <strong>Portfolio integration</strong>: Link to your best work</li>
+                        <li>📝 <strong>Content creation</strong>: Share your learning journey</li>
+                        <li>🤝 <strong>Network actively</strong>: Connect with classmates and professionals</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1399,10 +1408,10 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li><strong>Document your projects</strong>: Explain your decisions</li>
-                        <li><strong>Share learning experiences</strong>: Others learn from your journey</li>
-                        <li><strong>Showcase problem-solving</strong>: Walk through challenges</li>
-                        <li><strong>Build your voice</strong>: Establish thought leadership</li>
+                        <li>📝 <strong>Document your projects</strong>: Explain your decisions</li>
+                        <li>🎓 <strong>Share learning experiences</strong>: Others learn from your journey</li>
+                        <li>🧩 <strong>Showcase problem-solving</strong>: Walk through challenges</li>
+                        <li>🎤 <strong>Build your voice</strong>: Establish thought leadership</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1420,11 +1429,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Showcase your best projects</li>
-                        <li>Tell your story and background</li>
-                        <li>Demonstrate your design and development skills</li>
-                        <li>Make it easy for recruiters to contact you</li>
-                        <li>Keep it updated with recent work</li>
+                        <li>🌟 Showcase your best projects</li>
+                        <li>📖 Tell your story and background</li>
+                        <li>🎨 Demonstrate your design and development skills</li>
+                        <li>📞 Make it easy for recruiters to contact you</li>
+                        <li>🔄 Keep it updated with recent work</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1442,11 +1451,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Share your class projects and learnings</li>
-                        <li>Write about challenges you've overcome</li>
-                        <li>Create tutorials for concepts you've mastered</li>
-                        <li>Engage with the developer community</li>
-                        <li>Be consistent but authentic</li>
+                        <li>🎓 Share your class projects and learnings</li>
+                        <li>💪 Write about challenges you've overcome</li>
+                        <li>📚 Create tutorials for concepts you've mastered</li>
+                        <li>🤝 Engage with the developer community</li>
+                        <li>✨ Be consistent but authentic</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1466,10 +1475,10 @@
                 <div class="content-left">
                     <h3>For Current Students</h3>
                     <ul>
-                        <li><strong>Start building today</strong>: Don't wait for the "perfect" project</li>
-                        <li><strong>Use AI strategically</strong>: Learn with it, don't let it replace learning</li>
-                        <li><strong>Network intentionally</strong>: Your classmates are your future colleagues</li>
-                        <li><strong>Document everything</strong>: Your learning journey is valuable content</li>
+                        <li>🚀 <strong>Start building today</strong>: Don't wait for the "perfect" project</li>
+                        <li>🎯 <strong>Use AI strategically</strong>: Learn with it, don't let it replace learning</li>
+                        <li>🤝 <strong>Network intentionally</strong>: Your classmates are your future colleagues</li>
+                        <li>📝 <strong>Document everything</strong>: Your learning journey is valuable content</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1487,11 +1496,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>AI changes, principles don't</li>
-                        <li>Master data structures and algorithms</li>
-                        <li>Understand system design concepts</li>
-                        <li>Learn debugging and problem-solving methodologies</li>
-                        <li>Practice explaining complex concepts simply</li>
+                        <li>🔄 AI changes, principles don't</li>
+                        <li>🧠 Master data structures and algorithms</li>
+                        <li>🏗️ Understand system design concepts</li>
+                        <li>🔧 Learn debugging and problem-solving methodologies</li>
+                        <li>💬 Practice explaining complex concepts simply</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1509,11 +1518,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Choose a problem you're passionate about</li>
-                        <li>Build a full-stack solution</li>
-                        <li>Deploy it and make it accessible</li>
-                        <li>Document your process and decisions</li>
-                        <li>Share it with the community</li>
+                        <li>❤️ Choose a problem you're passionate about</li>
+                        <li>🥞 Build a full-stack solution</li>
+                        <li>🚀 Deploy it and make it accessible</li>
+                        <li>📝 Document your process and decisions</li>
+                        <li>🌍 Share it with the community</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1531,11 +1540,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Connect with classmates on LinkedIn</li>
-                        <li>Join relevant Discord/Slack communities</li>
-                        <li>Attend virtual and in-person meetups</li>
-                        <li>Participate in hackathons</li>
-                        <li>Engage with open source projects</li>
+                        <li>💼 Connect with classmates on LinkedIn</li>
+                        <li>💬 Join relevant Discord/Slack communities</li>
+                        <li>🎪 Attend virtual and in-person meetups</li>
+                        <li>💻 Participate in hackathons</li>
+                        <li>🌍 Engage with open source projects</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1553,11 +1562,11 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>Identify skills gaps for your target roles</li>
-                        <li>Set up a consistent learning schedule</li>
-                        <li>Mix theoretical learning with practical projects</li>
-                        <li>Track your progress publicly</li>
-                        <li>Adjust based on industry feedback</li>
+                        <li>🎯 Identify skills gaps for your target roles</li>
+                        <li>📅 Set up a consistent learning schedule</li>
+                        <li>⚖️ Mix theoretical learning with practical projects</li>
+                        <li>📊 Track your progress publicly</li>
+                        <li>🔄 Adjust based on industry feedback</li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1577,11 +1586,11 @@
                 <div class="content-left">
                     <h3>Essential Platforms</h3>
                     <ul>
-                        <li><strong>Levels.fyi</strong>: Salary transparency (founded by UCI alumni!)</li>
-                        <li><strong>GitHub</strong>: Your professional portfolio</li>
-                        <li><strong>LinkedIn</strong>: Professional networking</li>
-                        <li><strong>Stack Overflow</strong>: Technical community</li>
-                        <li><strong>Discord/Slack</strong>: Developer communities</li>
+                        <li>💰 <strong>Levels.fyi</strong>: Salary transparency (founded by UCI alumni!)</li>
+                        <li>💻 <strong>GitHub</strong>: Your professional portfolio</li>
+                        <li>💼 <strong>LinkedIn</strong>: Professional networking</li>
+                        <li>❓ <strong>Stack Overflow</strong>: Technical community</li>
+                        <li>💬 <strong>Discord/Slack</strong>: Developer communities</li>
                     </ul>
                 </div>
                 <div class="image-right">
