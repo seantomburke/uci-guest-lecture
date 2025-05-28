@@ -77,6 +77,23 @@
             box-sizing: border-box;
         }
         
+        /* Global image quality optimization */
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: bicubic;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Override for photos to use high quality rendering */
+        .slide-image,
+        .slide-image-large {
+            image-rendering: high-quality !important;
+            image-rendering: -webkit-optimize-contrast !important;
+        }
+        
         /* Typography Scale - Bootstrap inspired */
         h1, .h1 {
             font-size: 3.5rem;
@@ -326,7 +343,7 @@
         
         .quote {
             font-style: italic;
-            font-size: 1.25rem;
+            font-size: 2rem;
             font-weight: 300;
             text-align: center;
             margin: 2rem 0;
@@ -394,6 +411,18 @@
             max-height: 500px;
             object-fit: contain;
             border-radius: 0.5rem;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* Prevent blurry scaling */
+            -ms-interpolation-mode: bicubic;
+            max-width: 100%;
+            display: block;
         }
         
         .slide-image-large {
@@ -406,6 +435,18 @@
             margin: 1.5rem 0;
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* Prevent blurry scaling */
+            -ms-interpolation-mode: bicubic;
+            max-width: 100%;
+            display: block;
         }
         
         .image-caption {
@@ -878,7 +919,7 @@
                             <img src="lecture/images/GoLinks Glyph Color.png" alt="GoLinks Logo" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
                             <span style="display: none; color: #ffc107; font-weight: bold;">🔗</span>
                             <div>
-                                <strong style="color: #ffc107;">GoLinks</strong>: Link Directory
+                                <strong style="color: #ffc107;"><a href="https://golinks.io" target="_blank" style="color: #ffc107; text-decoration: none;">GoLinks</a></strong>: Link Directory
                                 <div style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">Memorable short links for instant access</div>
                             </div>
                         </div>
@@ -886,7 +927,7 @@
                             <img src="lecture/images/GoSearch Glyph Color.png" alt="GoSearch Logo" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
                             <span style="display: none; color: #ffc107; font-weight: bold;">🔍</span>
                             <div>
-                                <strong style="color: #ffc107;">GoSearch</strong>: Enterprise Search
+                                <strong style="color: #ffc107;"><a href="https://gosearch.ai" target="_blank" style="color: #ffc107; text-decoration: none;">GoSearch</a></strong>: Enterprise Search
                                 <div style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">AI-powered search across all company data</div>
                             </div>
                         </div>
@@ -894,7 +935,7 @@
                             <img src="lecture/images/GoProfiles Glyph Color.png" alt="GoProfiles Logo" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
                             <span style="display: none; color: #ffc107; font-weight: bold;">👥</span>
                             <div>
-                                <strong style="color: #ffc107;">GoProfiles</strong>: Employee Profiles
+                                <strong style="color: #ffc107;"><a href="https://goprofiles.io" target="_blank" style="color: #ffc107; text-decoration: none;">GoProfiles</a></strong>: Employee Profiles
                                 <div style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">AI employee directory and recognition platform</div>
                             </div>
                         </div>
@@ -955,7 +996,7 @@
                         <li>⚛️ Frontend: React (Most popular), Vue.js, Angular, Svelte (up and coming)</li>
                         <li>☕ Backend: Node.js, Python, Go, Rust, PHP</li>
                         <li>🐘 PHP still used by: Facebook, Instagram, Etsy, Tumblr, Slack, Wikipedia, Yahoo, Shopify</li>
-                        <li>Learn the stacks of the companies you want to work for: <a href="https://stackshare.io/" target="_blank">https://stackshare.io/</a></li>
+                        <li>Learn the stacks of the companies you want to work for: <a href="https://stackshare.io/" target="_blank">stackshare.io</a></li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1207,7 +1248,7 @@
                         <li>🔄 Adapting to evolving roles</li>
                         <li>🤝 Product Departments might not need as many engineers</li>
                         <li>🤖 Opportunities as Sales Engineers, Marketing Engineers, AI Engineers, Data Engineers</li>
-                        <li>🎯 Focusing on industry-relevant skills</li>
+                        <li>🎯 Focusing on industry-relevant skills: <a href="https://roadmap.sh/" target="_blank">roadmap.sh</a></li>
                     </ul>
                 </div>
                 <div class="image-right">
@@ -1318,8 +1359,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/founders-at-a-hackathon-building-then-presenting.jpg" alt="Founders at hackathon building and presenting" class="slide-image">
-                    <div class="image-caption">GoLinks founders at hackathons - always building and presenting</div>
+                    <img src="lecture/photos/sean-portfolio-with-story.png" alt="Sean's portfolio showcasing his story" class="slide-image">
+                    <div class="image-caption">Portfolio showcasing a personal story</div>
                 </div>
             </div>
         </div>
@@ -1369,12 +1410,12 @@
                 <div class="content-left">
                     <h3>Our Journey as Creators</h3>
                     <ul>
-                        <li>👨‍💻 Jorge and I started as technical founders</li>
+                        <li>👨‍💻 Jorge and I built the Sigma Nu Website</li>
                         <li>🏆 Attended and competed in many hackathons</li>
-                        <li>🔨 Always built something concrete to present</li>
+                        <li>🔨 Always built something to present</li>
                         <li>🌱 Each project was a learning opportunity</li>
                         <li>🚀 Built momentum through consistent creation</li>
-                        <li>💡 Created solutions to real problems</li>
+                        <li>💡 Disciplined in always launching something</li>
                         <li>🤝 Connected with other creators and builders</li>
                     </ul>
 
@@ -1383,7 +1424,7 @@
                     </div>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/founders-at-a-hackathon-building-then-presenting.jpg" alt="Founders at hackathon building and presenting" class="slide-image">
+                    <img src="lecture/photos/golinks-co-founders-at-hackathon.jpg" alt="Founders at hackathon building and presenting" class="slide-image">
                     <div class="image-caption">GoLinks founders at hackathons - always building and presenting</div>
                 </div>
             </div>
@@ -1403,14 +1444,14 @@
                             <li class="typewriter-item" data-text="• Learned Claude Code with Opus 4 (Launched last Thursday)"></li>
                             <li class="typewriter-item" data-text="• Learned new presentation technologies"></li>
                             <li class="typewriter-item" data-text="• Learning how to improve prompts"></li>
-                            <li class="typewriter-item" data-text="• Went overboard with the emojis"></li>
+                            <li class="typewriter-item" data-text="• Went overboard 🚢 with the emojis 🙃"></li>
                             <li class="typewriter-item" data-text="• Always build, always present"></li>
                         </ul>
                     </div>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/linkedin-developer-hackathon.jpg" alt="LinkedIn developer hackathon" class="slide-image">
-                    <div class="image-caption">Always learning, always building - developer hackathon at LinkedIn</div>
+                    <img src="lecture/photos/founders-at-a-hackathon-building-then-presenting.jpg" alt="Founders at a hackathon building then presenting" class="slide-image">
+                    <div class="image-caption">Presenting at a hackathon, even though judge said no</div>
                 </div>
             </div>
         </div>
@@ -1421,17 +1462,17 @@
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <h3>Levels.fyi - Salary & Career Insights</h3>
+                    <h3><a href="https://levels.fyi" target="_blank">Levels.fyi</a> - Salary & Career Insights</h3>
                     <ul>
-                        <li>🎓 Founded by UCI Alumni Zaheer Mohiuddin</li>
+                        <li>🎓 Founded by UCI Alumni <strong>Zaheer Mohiuddin</strong></li>
                         <li>💰 Detailed compensation data across tech companies</li>
                         <li>📈 Career progression paths and levels</li>
                         <li>📚 Interview preparation resources</li>
                     </ul>
                     
-                    <h3>WorkHap.com - Job Search Platform</h3>
+                    <h3><a href="https://workhap.com" target="_blank">WorkHap.com</a> - Job Search Platform</h3>
                     <ul>
-                        <li>🎓 Founded by UCI Alumni Sho Dowan</li>
+                        <li>🎓 Founded by UCI Alumni <strong>Sho Dewan</strong></li>
                         <li>💼 Career advice and industry insights</li>
                         <li>🎯 Job search strategies</li>
                         <li>📝 Interview preparation tips</li>
@@ -1476,17 +1517,53 @@
             </div>
         </div>
 
-        <!-- Q&A Slide -->
-        <div id="qa" class="step single-column" data-x="15000" data-y="4000" data-z="0" data-scale="1">
+        <!-- Contact Information Slide -->
+        <div id="contact" class="step" data-x="15000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h1>Thank You!</h1>
-                <h2>Questions?</h2>
+                <h2>Thank you!</h2>
             </div>
             <div class="slide-content">
-                <img src="lecture/photos/3-golink-founders-posing-in-hawaii.jpg" alt="3 GoLinks founders posing in Hawaii" class="slide-image-large">
-                <div class="image-caption-large">Connect with me on LinkedIn<br>Check out GoLinks at golinks.io</div>
+                <div class="content-left">
+                    <h3>Sean Thomas Burke</h3>
+                    <div class="quote">
+                        <strong>The best way to reach me: Send me a Linkedin Message</strong>
+                    </div>
+                    <ul>
+                        <li>📧 <strong>Email:</strong> <a href="mailto:sean@seantburke.com" target="_blank">sean@seantburke.com</a></li>
+                        <li>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/seantomburke" target="_blank">linkedin.com/in/seantomburke</a></li>
+                        <li>🌐 <strong>Website:</strong> <a href="https://www.seantburke.com" target="_blank">seantburke.com</a></li>
+                        <li>💻 <strong>GitHub:</strong> <a href="https://github.com/seantomburke" target="_blank">github.com/seantomburke</a></li>
+                        <li>🔗 <strong>GoLinks:</strong> <a href="https://golinks.io" target="_blank">golinks.io</a></li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/3-golink-founders-posing-in-hawaii.jpg" alt="3 GoLinks founders posing in Hawaii" class="slide-image">
+                    <div class="image-caption">Feel free to reach out - I'm always happy to help fellow Anteaters!</div>
+                </div>
             </div>
         </div>
+
+        <!-- Q&A Slide -->
+        <div id="qa" class="step single-column" data-x="15000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Thank You!</h1>
+                <h2>Questions & Answers</h2>
+            </div>
+            <div class="slide-content">
+                <div class="qa-content">
+                    <h3>🤔 Any Questions?</h3>
+                    <p>I'm here to help with anything about:</p>
+                    <ul>
+                        <li>🚀 Starting your career in tech</li>
+                        <li>💼 Job search strategies</li>
+                        <li>🤖 AI and industry trends</li>
+                        <li>🏢 Startup life and entrepreneurship</li>
+                        <li>🎓 Making the most of your UCI experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Overview -->
         <div id="overview" class="step" data-x="7500" data-y="3000" data-z="1000" data-scale="10">
@@ -1617,10 +1694,10 @@
                 
                 // Add a delay between items
                 if (i > 0) {
-                    await new Promise(resolve => setTimeout(resolve, 300));
+                    await new Promise(resolve => setTimeout(resolve, 150));
                 }
                 
-                await typewriterEffect(item, text, 80);
+                await typewriterEffect(item, text, 30);
             }
         }
         
