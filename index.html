@@ -272,10 +272,10 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         
-        .image-right {
+        /* .image-right {
             flex: 0 0 500px;
             align-self: flex-start;
-        }
+        } */
         
         /* Special layouts for specific slide types */
         .step.single-column {
@@ -409,6 +409,7 @@
             width: 100%;
             height: auto;
             max-height: 500px;
+            max-width: 800px;
             object-fit: contain;
             border-radius: 0.5rem;
             image-rendering: high-quality;
@@ -421,15 +422,14 @@
             -moz-osx-font-smoothing: grayscale;
             /* Prevent blurry scaling */
             -ms-interpolation-mode: bicubic;
-            max-width: 100%;
             display: block;
         }
         
         .slide-image-large {
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             height: auto;
-            max-height: 600px;
+            max-height: 700px;
             object-fit: contain;
             border-radius: 0.75rem;
             margin: 1.5rem 0;
@@ -445,7 +445,6 @@
             -moz-osx-font-smoothing: grayscale;
             /* Prevent blurry scaling */
             -ms-interpolation-mode: bicubic;
-            max-width: 100%;
             display: block;
         }
         
@@ -795,6 +794,66 @@
             box-shadow: none !important;
             text-shadow: none !important;
         }
+        
+        /* Scattered AI Company Logos */
+        .ai-logos {
+            position: relative;
+            height: 600px;
+            width: 100%;
+        }
+        
+        .ai-logo {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            animation: float1 6s ease-in-out infinite;
+        }
+        
+        @keyframes float1 {
+            0%, 100% { transform: rotate(-10deg) translateY(0px) translateX(0px); }
+            25% { transform: rotate(-8deg) translateY(-10px) translateX(5px); }
+            50% { transform: rotate(-12deg) translateY(-15px) translateX(-3px); }
+            75% { transform: rotate(-9deg) translateY(-8px) translateX(8px); }
+        }
+        
+        @keyframes float2 {
+            0%, 100% { transform: rotate(8deg) translateY(0px) translateX(0px); }
+            33% { transform: rotate(10deg) translateY(-12px) translateX(-5px); }
+            66% { transform: rotate(6deg) translateY(-8px) translateX(7px); }
+        }
+        
+        @keyframes float3 {
+            0%, 100% { transform: rotate(3deg) translateY(0px) translateX(0px); }
+            40% { transform: rotate(5deg) translateY(-10px) translateX(-8px); }
+            80% { transform: rotate(1deg) translateY(-14px) translateX(4px); }
+        }
+        
+        @keyframes float4 {
+            0%, 100% { transform: rotate(-25deg) translateY(0px) translateX(0px); }
+            50% { transform: rotate(-20deg) translateY(-20px) translateX(10px); }
+        }
+        
+        @keyframes float5 {
+            0%, 100% { transform: rotate(20deg) translateY(0px) translateX(0px); }
+            30% { transform: rotate(25deg) translateY(-8px) translateX(-5px); }
+            70% { transform: rotate(15deg) translateY(-12px) translateX(8px); }
+        }
+        
+        @keyframes float6 {
+            0%, 100% { transform: rotate(-8deg) translateY(0px) translateX(0px); }
+            20% { transform: rotate(-5deg) translateY(-8px) translateX(6px); }
+            45% { transform: rotate(-11deg) translateY(-16px) translateX(-4px); }
+            70% { transform: rotate(-6deg) translateY(-12px) translateX(9px); }
+        }
+        
+        @keyframes float7 {
+            0%, 100% { transform: rotate(12deg) translateY(0px) translateX(0px); }
+            35% { transform: rotate(15deg) translateY(-14px) translateX(-7px); }
+            65% { transform: rotate(9deg) translateY(-10px) translateX(5px); }
+        }
     </style>
 
 </head>
@@ -879,7 +938,11 @@
                 <div class="content-left">
                     <h3>Academic & Organizations</h3>
                     <ul>
-                        <li>🎓 Double Major in Electrical Engineering & Business Information Management</li>
+                        <li>🎓 Double Major:</li>
+                            <ul>
+                                <li>⚡ Electrical Engineering</li>
+                                <li>💼 Business Information Management</li>
+                            </ul>
                         <li>🏛️ Engineering Student Council</li>
                         <li><strong>ΣΝ</strong> Sigma Nu</li>
                         <li>🏠 Resident Advisor in Middle Earth</li>
@@ -909,8 +972,8 @@
                         <li>✅ Finally passed an interview at LinkedIn</li>
                     </ul>
                 </div>
-                <div class="image-right">
-                    <img src="lecture/photos/sean_burke_graduating_and_car_breaking_down.jpg" alt="Sean Burke graduating and car breaking down" class="slide-image">
+                <div class="image-right" style="max-width: 500px; overflow: hidden;">
+                    <img src="lecture/photos/sean_burke_graduating_and_car_breaking_down.jpg" alt="Sean Burke graduating and car breaking down" class="slide-image-large" style="object-fit: cover;">
                     <div class="image-caption">Car breaking down literally on the day of graduation</div>
                 </div>
             </div>
@@ -924,16 +987,16 @@
                 <div class="content-left">
                     <ul>
                         <li>📚 Learned a lot of industry skills</li>
-                        <li>⚛️ Backbone.js, Ember.js, Large design systems</li>
-                        <li>📱 Worked on large conversion of Mobile Web app in 2015</li>
+                        <li>⚛️ Backbone.js, Ember.js, Big Company</li>
+                        <li>📱 Conversion to Mobile Web app in 2015</li>
                         <li>💰 Worked on the LinkedIn Ads Team</li>
-                        <li>📈 Company grew from 1,000 people to 10,000 people</li>
+                        <li>📈 Company grew from 1,000 to 10,000 people</li>
                         <li>🤝 Made life long connections</li>
                         <li>🚀 Foundation for entrepreneurial journey</li>
                     </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/animation-of-linkedin-onboarding-day.gif" alt="LinkedIn onboarding day animation" class="slide-image">
+                    <img src="lecture/photos/animation-of-linkedin-onboarding-day.gif" alt="LinkedIn onboarding day animation" class="slide-image-large">
                     <div class="image-caption">First day at LinkedIn</div>
                 </div>
             </div>
@@ -951,11 +1014,18 @@
                         <li>🚀 Got accepted into Y Combinator</li>
                         <li>🌱 Beginning of an amazing startup journey</li>
                         <li>🏛️ Running a company is a lot like running a Student Org</li>
-                        <li>📊 Networking, Marketing, Communications, Recruiting, Goals, Finances, etc.</li>
+                            <ul>
+                                <li>📊 Networking</li>
+                                <li>📢 Marketing</li>
+                                <li>💬 Communications</li>
+                                <li>👥 Recruiting</li>
+                                <li>🎯 Goals</li>
+                                <li>💰 Finances</li>
+                            </ul>
                     </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/sean_burke_standing_in_front_of_ycombinator_sign.jpeg" alt="Sean Burke at Y Combinator" class="slide-image">
+                    <img src="lecture/photos/sean_burke_standing_in_front_of_ycombinator_sign.jpeg" alt="Sean Burke at Y Combinator" class="slide-image-large">
                     <div class="image-caption">At Y Combinator with the GoLinks team</div>
                 </div>
             </div>
@@ -972,8 +1042,8 @@
             <div class="slide-title">
                 <h2>The GoLinks Story</h2>
             </div>
-            <div class="slide-content">
-                <div class="content-left">
+            <div class="slide-content" style="display: flex; gap: 2rem; align-items: flex-start;">
+                <div class="content-left" style="flex: 1;">
                     <ul>
                         <li>🎯 <strong>Mission</strong>: To connect employees with the information they need to be productive and successful at any place, at any time</li>
                     </ul>
@@ -1005,6 +1075,204 @@
                         </div>
                     </div>
                 </div>
+                <div class="slide-right" style="flex: 1;">
+                    <!-- Scattered AI Company Logos -->
+                    <div style="position: relative; height: 600px; width: 100%;">
+                        <!-- OpenAI Logo -->
+                        <div style="
+                            position: absolute;
+                            top: 80px;
+                            right: 120px;
+                            width: 160px;
+                            height: 160px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transform: rotate(0);
+                            transition: all 0.3s ease;
+                            border-radius: 25px;
+                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+                            animation: float1 6s ease-in-out infinite;
+                        " onmouseover="this.style.transform='rotate(0) scale(1.1)'" onmouseout="this.style.transform='rotate(0) scale(1)'">
+                            <img src="https://favicon-cdn.golinks.io/openai.com" alt="OpenAI Logo" style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                                image-rendering: high-quality;
+                            ">
+                        </div>
+                        
+                        <!-- Anthropic Logo -->
+                        <div style="
+                            position: absolute;
+                            top: 240px;
+                            left: 290px;
+                            width: 140px;
+                            height: 140px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transform: rotate(-1deg);
+                            transition: all 0.3s ease;
+                            border-radius: 25px;
+                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+                            animation: float2 7s ease-in-out infinite;
+                        " onmouseover="this.style.transform='rotate(8deg) scale(1.1)'" onmouseout="this.style.transform='rotate(8deg) scale(1)'">
+                            <img src="https://favicon-cdn.golinks.io/anthropic.com" alt="Anthropic Logo" style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                                image-rendering: high-quality;
+                            ">
+                        </div>
+                        
+                        <!-- Asana Logo -->
+                        <div style="
+                            position: absolute;
+                            top: 320px;
+                            right: 60px;
+                            width: 180px;
+                            height: 120px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transform: rotate(3deg);
+                            transition: all 0.3s ease;
+                            border-radius: 25px;
+                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+                            animation: float3 8s ease-in-out infinite;
+                        " onmouseover="this.style.transform='rotate(3deg) scale(1.1)'" onmouseout="this.style.transform='rotate(3deg) scale(1)'">
+                            <img src="https://favicon-cdn.golinks.io/asana.com" alt="Asana Logo" style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                                image-rendering: high-quality;
+                            ">
+                        </div>
+                        
+                        <!-- Abnormal Security Logo -->
+                        <div style="
+                            position: absolute;
+                            top: 50px;
+                            left: 60px;
+                            width: 150px;
+                            height: 100px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transform: rotate(-8deg);
+                            transition: all 0.3s ease;
+                            border-radius: 25px;
+                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+                            animation: float6 9s ease-in-out infinite;
+                        " onmouseover="this.style.transform='rotate(-8deg) scale(1.1)'" onmouseout="this.style.transform='rotate(-8deg) scale(1)'">
+                            <img src="https://favicon-cdn.golinks.io/abnormalsecurity.com" alt="Abnormal Security Logo" style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                                image-rendering: high-quality;
+                            ">
+                        </div>
+                        
+                        <!-- Marqeta Logo -->
+                        <div style="
+                            position: absolute;
+                            top: 460px;
+                            left: 120px;
+                            width: 130px;
+                            height: 130px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transform: rotate(12deg);
+                            transition: all 0.3s ease;
+                            border-radius: 25px;
+                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+                            animation: float7 7.5s ease-in-out infinite;
+                        " onmouseover="this.style.transform='rotate(12deg) scale(1.1)'" onmouseout="this.style.transform='rotate(12deg) scale(1)'">
+                            <img src="https://favicon-cdn.golinks.io/marqeta.com" alt="Marqeta Logo" style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                                image-rendering: high-quality;
+                            ">
+                        </div>
+                        
+                        <!-- Additional floating elements for visual interest -->
+                        <div style="
+                            position: absolute;
+                            top: 140px;
+                            left: 240px;
+                            width: 40px;
+                            height: 40px;
+                            background-color: rgba(255, 255, 255, 0.15);
+                            border: 1px solid rgba(255, 255, 255, 0.4);
+                            border-radius: 50%;
+                            transform: rotate(-25deg);
+                            opacity: 0.7;
+                            animation: float4 5s ease-in-out infinite;
+                        "></div>
+                        
+                        <div style="
+                            position: absolute;
+                            top: 260px;
+                            left: 200px;
+                            width: 30px;
+                            height: 30px;
+                            background-color: rgba(255, 193, 7, 0.3);
+                            border: 1px solid rgba(255, 193, 7, 0.5);
+                            border-radius: 8px;
+                            transform: rotate(20deg);
+                            opacity: 0.6;
+                            animation: float5 9s ease-in-out infinite;
+                        "></div>
+                    </div>
+                    
+                    <style>
+                        @keyframes float1 {
+                            0%, 100% { transform: rotate(-10deg) translateY(0px) translateX(0px); }
+                            25% { transform: rotate(-8deg) translateY(-10px) translateX(5px); }
+                            50% { transform: rotate(-12deg) translateY(-15px) translateX(-3px); }
+                            75% { transform: rotate(-9deg) translateY(-8px) translateX(8px); }
+                        }
+                        
+                        @keyframes float2 {
+                            0%, 100% { transform: rotate(8deg) translateY(0px) translateX(0px); }
+                            33% { transform: rotate(10deg) translateY(-12px) translateX(-5px); }
+                            66% { transform: rotate(6deg) translateY(-8px) translateX(7px); }
+                        }
+                        
+                        @keyframes float3 {
+                            0%, 100% { transform: rotate(3deg) translateY(0px) translateX(0px); }
+                            40% { transform: rotate(5deg) translateY(-10px) translateX(-8px); }
+                            80% { transform: rotate(1deg) translateY(-14px) translateX(4px); }
+                        }
+                        
+                        @keyframes float4 {
+                            0%, 100% { transform: rotate(-25deg) translateY(0px) translateX(0px); }
+                            50% { transform: rotate(-20deg) translateY(-20px) translateX(10px); }
+                        }
+                        
+                        @keyframes float5 {
+                            0%, 100% { transform: rotate(20deg) translateY(0px) translateX(0px); }
+                            30% { transform: rotate(25deg) translateY(-8px) translateX(-5px); }
+                            70% { transform: rotate(15deg) translateY(-12px) translateX(8px); }
+                        }
+                        
+                        @keyframes float6 {
+                            0%, 100% { transform: rotate(-8deg) translateY(0px) translateX(0px); }
+                            20% { transform: rotate(-5deg) translateY(-8px) translateX(6px); }
+                            45% { transform: rotate(-11deg) translateY(-16px) translateX(-4px); }
+                            70% { transform: rotate(-6deg) translateY(-12px) translateX(9px); }
+                        }
+                        
+                        @keyframes float7 {
+                            0%, 100% { transform: rotate(12deg) translateY(0px) translateX(0px); }
+                            35% { transform: rotate(15deg) translateY(-14px) translateX(-7px); }
+                            65% { transform: rotate(9deg) translateY(-10px) translateX(5px); }
+                        }
+                    </style>
+                </div>
             </div>
         </div>
 
@@ -1016,25 +1284,24 @@
                 <div class="content-left">
                     <h3>Company Overview</h3>
                     <ul>
-                        <li>👥 38 employees across the United States</li>
+                        <li>👥 38 employees, 18 engineers across the U.S.</li>
                         <li>💻 Fully-remote work environment</li>
-                        <li>🔧 Engineering team: 18 people</li>
                         <li>🤖 Embracing AI in the workplace</li>
                         <li>✈️ Quarterly Offsites to get together</li>
                     </ul>
                     
                     <h3>Our Values</h3>
                     <ul>
-                        <li>👥 <strong>Focus on users</strong> - Our users come first, create products they love</li>
-                        <li>🏆 <strong>Be an owner</strong> - Work and deliver as if everything has your name on it</li>
-                        <li>🌱 <strong>Grow together</strong> - Knowledge is meant to be shared</li>
-                        <li>🤝 <strong>Transparency builds trust</strong> - It's okay to be wrong. Share both successes and failures</li>
-                        <li>🚀 <strong>Deliver and delight constantly</strong> - Launch frequently and optimize rapidly</li>
-                        <li>😂 <strong>Have fun</strong> - Don't take yourself too seriously</li>
+                        <li>👥 <strong>Focus on users</strong></li>
+                        <li>🏆 <strong>Be an owner</strong></li>
+                        <li>🌱 <strong>Grow together</strong></li>
+                        <li>🤝 <strong>Transparency builds trust</strong></li>
+                        <li>🚀 <strong>Deliver and delight constantly</strong></li>
+                        <li>😂 <strong>Have fun</strong></li>
                     </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/golinks-team-offsite-in-hawaii-on-a-boat.jpg" alt="GoLinks team offsite in Hawaii" class="slide-image">
+                    <img src="lecture/photos/golinks-team-offsite-in-hawaii-on-a-boat.jpg" alt="GoLinks team offsite in Hawaii" class="slide-image-large">
                     <div class="image-caption">GoLinks team offsite in Hawaii</div>
                 </div>
             </div>
@@ -1042,11 +1309,11 @@
 
         <div id="golinks-tech-stack" class="step" data-x="6000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h2>Tech Stack & Infrastructure</h2>
+                <h2>GoLinks Tech Stack</h2>
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <h3>GoLinks' Application Tech Stack</h3>
+                    <h3>Architecture</h3>
                     <ul>
                         <li>☁️ AWS as infrastructure</li>
                         <li>⚛️ React Frontend</li>
@@ -1054,50 +1321,119 @@
                         <li>🗄️ MySQL Database</li>
                         <li>💾 Redis Cache</li>
                     </ul>
-                    
-                    <h3>Common Web Tech Stacks</h3>
-                    <ul>
-                        <li>⚛️ Frontend: React (Most popular), Vue.js, Angular, Svelte (up and coming)</li>
-                        <li>☕ Backend: Node.js, Python, Go, Rust, PHP</li>
-                        <li>🐘 PHP still used by: Facebook, Instagram, Etsy, Tumblr, Slack, Wikipedia, Yahoo, Shopify</li>
-                        <li>Learn the stacks of the companies you want to work for: <a href="https://stackshare.io/" target="_blank">stackshare.io</a></li>
-                    </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/Golinks AWS Cloud.pptx.png" alt="GoLinks AWS Cloud Architecture" class="slide-image">
+                    <img src="lecture/photos/Golinks AWS Cloud.pptx.png" alt="GoLinks AWS Cloud Architecture" class="slide-image-large">
                     <div class="image-caption">GoLinks AWS Infrastructure</div>
                 </div>
             </div>
         </div>
 
-        <div id="gosearch-architecture" class="step" data-x="6000" data-y="8000" data-z="0" data-scale="1">
+        <div id="common-tech-stacks" class="step" data-x="6000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h2>GoSearch Architecture</h2>
+                <h2>Common Web Tech Stacks</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Popular Frontend Frameworks</h3>
+                    <ul>
+                        <li>⚛️ React (Most popular)</li>
+                        <li>🖼️ Vue.js</li>
+                        <li>🅰️ Angular</li>
+                        <li>⚡ Svelte (up and coming)</li>
+                    </ul>
+                    
+                    <h3>Backend Technologies</h3>
+                    <ul>
+                        <li>☕ Node.js</li>
+                        <li>🐍 Python</li>
+                        <li>🐹 Go</li>
+                        <li>🐘 PHP</li>
+                    </ul>
+                    
+                    <h3>Cloud Technologies</h3>
+                    <ul>
+                        <li>☁️ AWS</li>
+                        <li>☁️ GCP</li>
+                        <li>☁️ Azure</li>
+                    </ul>
+                </div>
+                <div class="content-right">
+                    <h3>Companies Using PHP</h3>
+                    <ul>
+                        <li>📘 Facebook</li>
+                        <li>📷 Instagram</li>
+                        <li>🛍️ Etsy</li>
+                        <li>📝 Tumblr</li>
+                        <li>💬 Slack</li>
+                        <li>📚 Wikipedia</li>
+                        <li>🌐 Yahoo</li>
+                        <li>🛒 Shopify</li>
+                    </ul>
+                    
+                    <h3>Research Tool</h3>
+                    <p>Learn the stacks of companies you want to work for: <a href="https://stackshare.io/" target="_blank">stackshare.io</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="gosearch-indexer-architecture" class="step" data-x="6000" data-y="10000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoSearch Indexer Architecture</h2>
             </div>
             <div class="slide-content">
                 <div class="content-left">
                     <h3>Indexer Architecture</h3>
                     <ul>
-                        <li>🔍 Think Google Search for your internal company data</li>
-                        <li>📊 Indexer: Connect and index data from SaaS Applications</li>
-                        <li>📈 Search Ranking: Recency, Frequency, Semantic Search, Term Frequency-Inverse Document Frequency, BM25, etc.</li>
+                        <li>🔍 Google Search for company data</li>
+                        <li>📊 Indexer: Extract, Transform, Load (ETL)</li>
+                        <li>📈 Search Ranking:
+                            <ul>
+                                <li>⏰ Recent & Frequent</li>
+                                <li>🧠 Semantic Search</li>
+                                <li>📊 TF-IDF</li>
+                                <li>🎯 BM25</li>
+                            </ul>
+                        </li>
                         <li>🕸️ Knowledge Graphs, Graph Databases</li>
                         <li>🔢 Vector Databases</li>
+                        <li>🔍 Data Connectors</li>
                     </ul>
-                    
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/Indexer-architecture.png" alt="GoSearch Indexer Architecture" class="slide-image-large">
+                    <div class="image-caption">GoSearch Indexer Architecture</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gosearch-ai-architecture" class="step" data-x="6000" data-y="12000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoSearch AI Architecture</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
                     <h3>AI Architecture</h3>
                     <ul>
                         <li>🪟 Context Windows</li>
                         <li>🧩 Document Chunking</li>
                         <li>💾 Prompt Caching</li>
                         <li>🤖 LLM Integration</li>
-                        <li>🔄 Retrieval Augmented Generation (RAG)</li>
+                        <li>🔄 Retrieval Augmented Gen (RAG)</li>
                         <li>📜 Model Context Protocol (MCP)</li>
                         <li>🗃️ Multi-Modal Integrations</li>
                     </ul>
+                    
+                    <h3>AI Features</h3>
+                    <ul>
+                        <li>💬 Natural language queries</li>
+                        <li>📝 AI Document summarization</li>
+                        <li>🎯 AI Summarized Answers</li>
+                        <li>🔗 AI Agents</li>
+                    </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/GoSearch AI data flow diagram.png" alt="GoSearch AI Data Flow Diagram" class="slide-image">
+                    <img src="lecture/photos/Ai-data-flow-gosearch.png" alt="GoSearch AI Data Flow Diagram" class="slide-image-large">
                     <div class="image-caption">GoSearch AI Architecture and Data Flow</div>
                 </div>
             </div>
@@ -1360,7 +1696,7 @@
                         <source src="lecture/photos/github-profile.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="image-caption">Github is a software engineer's resume, fill it out</div>
+                    <div class="image-caption">GitHub is a software engineer's resume</div>
                 </div>
             </div>
         </div>
@@ -1392,7 +1728,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/Sean's Professional Linkedin Network Map.jpeg" alt="Sean's Professional LinkedIn Network Map" class="slide-image">
+                    <img src="lecture/photos/Sean's Professional Linkedin Network Map.jpeg" 
+                    alt="Sean's Professional LinkedIn Network Map" class="slide-image">
                     <div class="image-caption">The power of professional networking on LinkedIn</div>
                 </div>
             </div>
