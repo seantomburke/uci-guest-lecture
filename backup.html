@@ -1,0 +1,1871 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>From College to Career: A Tech Journey</title>
+
+    <!-- Basic Meta Tags -->
+    <meta name="description" content="A presentation on tech career journey and advice for graduates" />
+    <meta name="author" content="Sean Burke" />
+    <meta name="keywords" content="tech career, college to career, tech industry, job search" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://seantomburke.github.io/uci-guest-lecture" />
+    <meta property="og:title" content="From College to Career: A Tech Journey" />
+    <meta property="og:description" content="A presentation on tech career journey and advice for graduates" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://seantomburke.github.io/uci-guest-lecture" />
+    <meta name="twitter:title" content="From College to Career: A Tech Journey" />
+    <meta name="twitter:description" content="A presentation on tech career journey and advice for graduates" />
+    <meta name="twitter:image" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="lecture/favicon.ico" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link href="lecture/styles.css" rel="stylesheet" />
+
+    <style>
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Bootstrap-inspired Typography */
+        * {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        
+        /* Typography Scale - Bootstrap inspired */
+        h1, .h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+        
+        h2, .h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+        }
+        
+        h3, .h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        
+        h4, .h4 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.35;
+            margin-bottom: 0.5rem;
+        }
+        
+        h5, .h5 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+        
+        h6, .h6 {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+        
+        p, .p {
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .lead {
+            font-size: 2.25rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        small, .small {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        /* Text Colors - Bootstrap inspired */
+        .text-primary { color: #0d6efd !important; }
+        .text-secondary { color: #6c757d !important; }
+        .text-success { color: #198754 !important; }
+        .text-info { color: #0dcaf0 !important; }
+        .text-warning { color: #ffc107 !important; }
+        .text-danger { color: #dc3545 !important; }
+        .text-light { color: #f8f9fa !important; }
+        .text-dark { color: #212529 !important; }
+        .text-muted { color: #6c757d !important; }
+        .text-white { color: #ffffff !important; }
+        
+        /* Font Weights */
+        .fw-light { font-weight: 300 !important; }
+        .fw-normal { font-weight: 400 !important; }
+        .fw-medium { font-weight: 500 !important; }
+        .fw-semibold { font-weight: 600 !important; }
+        .fw-bold { font-weight: 700 !important; }
+        .fw-bolder { font-weight: 800 !important; }
+        
+        /* Lists */
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        
+        ul {
+            list-style-type: disc;
+        }
+        
+        ol {
+            list-style-type: decimal;
+        }
+        
+        li {
+            font-size: 2rem;
+            line-height: 1.6;
+            margin-bottom: 0.25rem;
+        }
+        
+        li strong {
+            font-weight: bold;
+            color: white;
+        }
+        
+        /* Layout */
+        .step {
+            width: 100vw;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow-y: hidden;
+            background: linear-gradient(135deg, #091f32 0%, #000000 100%);
+            color: rgb(180, 180, 180);
+        }
+        
+        .slide-title {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        
+        .slide-title h1,
+        .slide-title h2 {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .slide-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            flex: 1;
+        }
+        
+        .content-left {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .content-left h3 {
+            color: #ffc107;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .content-left p,
+        .content-left li {
+            color: rgb(150, 150, 150, .95);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .image-right {
+            flex: 0 0 600px;
+            align-self: flex-start;
+        }
+        
+        /* Special layouts for specific slide types */
+        .step.single-column {
+            align-items: center;
+            text-align: center;
+        }
+        
+        .step.single-column .slide-content {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .step.single-column .image-placeholder {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+        
+        /* Bootstrap-inspired Components */
+        .image-placeholder {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 1.5rem;
+            box-sizing: border-box;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-column {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .comparison-column h3 {
+            color: #ffc107;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: #212529;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.25rem;
+            font-weight: 300;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 0.5rem;
+            border-left: 4px solid #ffc107;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+        
+        /* Bootstrap-inspired Badges and Labels */
+        .badge {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+        }
+        
+        .badge-primary { background-color: #0d6efd; }
+        .badge-secondary { background-color: #6c757d; }
+        .badge-success { background-color: #198754; }
+        .badge-warning { background-color: #ffc107; color: #212529; }
+        .badge-danger { background-color: #dc3545; }
+        .badge-info { background-color: #0dcaf0; }
+        
+        /* Bootstrap-inspired Buttons */
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        .btn-primary {
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        
+        /* Bootstrap-inspired Image and Caption Styles */
+        .slide-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        
+        .slide-image-large {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .image-caption {
+            font-style: italic;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+        }
+        
+        .image-caption-large {
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+        }
+        
+        /* Bootstrap-inspired Spacing Utilities */
+        .mb-1 { margin-bottom: 0.25rem !important; }
+        .mb-2 { margin-bottom: 0.5rem !important; }
+        .mb-3 { margin-bottom: 1rem !important; }
+        .mb-4 { margin-bottom: 1.5rem !important; }
+        .mb-5 { margin-bottom: 3rem !important; }
+        
+        .mt-1 { margin-top: 0.25rem !important; }
+        .mt-2 { margin-top: 0.5rem !important; }
+        .mt-3 { margin-top: 1rem !important; }
+        .mt-4 { margin-top: 1.5rem !important; }
+        .mt-5 { margin-top: 3rem !important; }
+        
+        .p-1 { padding: 0.25rem !important; }
+        .p-2 { padding: 0.5rem !important; }
+        .p-3 { padding: 1rem !important; }
+        .p-4 { padding: 1.5rem !important; }
+        .p-5 { padding: 3rem !important; }
+        
+        /* Bootstrap-inspired Text Alignment */
+        .text-left { text-align: left !important; }
+        .text-center { text-align: center !important; }
+        .text-right { text-align: right !important; }
+        .text-justify { text-align: justify !important; }
+        
+        /* Bootstrap-inspired Display Utilities */
+        .d-block { display: block !important; }
+        .d-inline { display: inline !important; }
+        .d-inline-block { display: inline-block !important; }
+        .d-flex { display: flex !important; }
+        .d-none { display: none !important; }
+        
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            h1, .h1 { font-size: 2rem; }
+            h2, .h2 { font-size: 1.75rem; }
+            h3, .h3 { font-size: 1.5rem; }
+            .step { padding: 2rem; }
+            .slide-content { flex-direction: column; gap: 2rem; }
+            .image-right { flex: none; width: 100%; }
+        }
+    </style>
+
+</head>
+
+<body class="impress-not-supported">
+
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="fallback-message">
+        <p>Your browser doesn't support the features required by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+
+    <div id="impress" data-transition-duration="500">
+
+        <!-- Title Slide -->
+        <div id="title" class="step single-column" data-x="3000" data-y="-4000" data-z="0" data-scale="1">
+            <div class="slide-title" style="position: absolute; bottom: 0; left: 0; text-align: left;">
+                <div style="margin: 30px; padding: 30px;">
+                    <h1>Sean Thomas Burke</h1>
+                    <h2>Head of Engineering at GoLinks</h2>
+                </div>
+            </div>
+            <div class="slide-content">
+                
+            </div>
+        </div>
+
+        <!-- Overview Slide -->
+        <div id="overview-slide" class="step" data-x="3000" data-y="-2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Presentation Overview</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li>🎓 My Journey: UCI to Now</li>
+                        <li>🚀 GoLinks</li>
+                        <li>⚡ Tech Stack</li>
+                        <li>📈 Industry Technology Trends</li>
+                        <li>💼 <strong>The Job Market</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: My Journey (5 slides) -->
+        <div id="journey-1" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>My Journey</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Academic Foundation</h3>
+                    <ul>
+                        <li>⚡ Electrical Engineering & Business Information Management</li>
+                        <li>🏛️ Engineering Student Council</li>
+                        <li>🤝 ΣΝ (Sigma Nu)</li>
+                        <li>🏠 Resident Advisor in Middle Earth</li>
+                        <li>🌟 UC LEADS</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/sean_burke_giving_the_commencement_speech.JPG" alt="Sean Burke Graduation" class="slide-image">
+                </div>
+            </div>
+        </div>
+
+        <div id="journey-2" class="step" data-x="3000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Struggled to find a job</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>❌ <strong>Failed interviews</strong>: Microsoft, Facebook, Google, SpaceX, Twitter, Redfin, Thumbtack, Pinterest...</li>
+                        <li>🎯 <strong>The numbers game</strong>: Rejections are part of the journey</li>
+                        <li>✅ <strong>One success</strong>: LinkedIn UI Engineer (the only offer that mattered)</li>
+                        <li>💡 <strong>Key insight</strong>: It only takes one "yes"</li>
+                    </ul>
+                </div>
+
+                <div class="image-right">
+                    <img src="lecture/photos/sean_burke_graduating_and_car_breaking_down.jpg" alt="Sean Burke Graduation" class="slide-image">
+                    <p class="image-caption">The journey begins - graduation day (and yes, my car broke down that day!)</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="journey-3" class="step" data-x="3000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>From Employee to Entrepreneur</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>💼 <strong>LinkedIn (5 years)</strong>: UI Engineer → Understanding Big Tech</li>
+                        <li>🚀 <strong>The leap</strong>: Starting GoLinks with UCI fraternity brothers</li>
+                        <li>🏗️ <strong>YC startup</strong>: Building something from scratch</li>
+                    </ul>
+                </div>
+
+                <div class="image-right">
+                    <img src="lecture/photos/animation-of-linkedin-onboarding-day.gif" alt="LinkedIn Onboarding Day" class="slide-image">
+                    <p class="image-caption">Finally! My first day at LinkedIn after all those rejections</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="journey-4" class="step" data-x="3000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Key Lessons from My Journey</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>💪 You will face a lot of rejection, it is part of the process</li>
+                        <li>🤝 Relationships matter, build your network</li>
+                        <li>📈 Always build your brand and skills</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/sean_burke_standing_in_front_of_ycombinator_sign.jpeg" alt="Y Combinator" class="slide-image">
+                    <p class="image-caption">At Y Combinator - the startup accelerator that changed everything</p>
+                </div>
+            </div>
+        </div>
+<!-- 
+        <div id="journey-5" class="step" data-x="3000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Power of One "Yes"</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="quote">
+                        "It only takes one 'yes' to change your entire career trajectory"
+                    </div>
+                    <ul>
+                        <li>Focus on quality applications over quantity</li>
+                        <li>Each rejection brings you closer to the right fit</li>
+                        <li>Your unique background is an asset, not a liability</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div id="rejection-acceptance-viz" style="width: 500px; height: 400px;"></div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Section 2: The Power of Networks (5 slides) -->
+        <div id="networks-1" class="step" data-x="6000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>2. The Power of Networks: Your UCI Advantage</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Relationships Are Everything</h3>
+                    <ul>
+                        <li>🤝 <strong>Fraternity connections</strong> → Co-founders at GoLinks</li>
+                        <li>🎓 <strong>UCI alumni network</strong> → Opportunities everywhere</li>
+                        <li>🚀 <strong>Professional relationships</strong> → Career acceleration</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/UCI Alumni at LinkedIn booth.jpg" alt="UCI Alumni Network" class="slide-image">
+                    <p class="image-caption">UCI Alumni networking at LinkedIn - your future colleagues are everywhere</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="networks-2" class="step" data-x="6000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Building Your Network Starting Now</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🏛️ Join student organizations</li>
+                        <li>🎪 Attend career fairs and meetups</li>
+                        <li>👥 Connect with classmates (they'll be your future colleagues)</li>
+                        <li>👨‍🏫 Engage with professors and TAs</li>
+                        <li>💻 Participate in hackathons and competitions</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Student Networking Activities Collage]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="networks-3" class="step" data-x="6000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Compound Effect of Relationships</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="quote">
+                        "The person sitting next to you in class could be your future co-founder"
+                    </div>
+                    <ul>
+                        <li>🌱 Invest in relationships early</li>
+                        <li>🤲 Help others before you need help</li>
+                        <li>🔗 Stay connected after graduation</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div id="relationship-timeline-viz" style="width: 500px; height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="networks-4" class="step" data-x="6000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>UCI Alumni Success Stories</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>💰 Levels.fyi founders - UCI alumni creating salary transparency</li>
+                        <li>🚀 Countless startups founded by UCI graduates</li>
+                        <li>👑 Leadership positions at major tech companies</li>
+                        <li>💎 Your network is your net worth</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: UCI Alumni Success Map - Companies and Startups]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="networks-5" class="step" data-x="6000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Networking Best Practices</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>💯 Be genuine - focus on building real relationships</li>
+                        <li>🎁 Give before you receive</li>
+                        <li>📞 Follow up and stay in touch</li>
+                        <li>💼 Use LinkedIn strategically</li>
+                        <li>🎯 Attend industry events and conferences</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/Sean's Professional Linkedin Network Map.jpeg" alt="Professional Network Map" class="slide-image">
+                    <p class="image-caption">The power of professional networking - connections lead to opportunities</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: GoLinks Story (5 slides) -->
+        <div id="golinks-1" class="step" data-x="9000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>3. GoLinks: From Idea to 50-Person Company</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>What is GoLinks?</h3>
+                    <ul>
+                        <li>🧠 <strong>Knowledge management platform</strong> serving thousands of companies</li>
+                        <li>🛠️ <strong>Four core products</strong>:
+                            <ul>
+                                <li>🔗 GoLinks: Short link management</li>
+                                <li>🔍 GoSearch: Enterprise search</li>
+                                <li>👥 GoProfiles: Team directory</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/golinks-current-customers.png" alt="GoLinks Current Customers" class="slide-image">
+                    <p class="image-caption">Trusted by thousands of companies worldwide</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-2" class="step" data-x="9000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Growth Story</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🌱 <strong>Started</strong>: 2-3 people (UCI friends)</li>
+                        <li>🏢 <strong>Today</strong>: ~50 employees</li>
+                        <li>👨‍💻 <strong>My role</strong>: Built and scaled the engineering team</li>
+                        <li>💡 <strong>Key learning</strong>: Hiring and team building is as important as coding</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/3-cofounders.jpg" alt="Co-founders" class="slide-image">
+                    <p class="image-caption">The three co-founders - all UCI alumni</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-3" class="step" data-x="9000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Startup vs. Big Tech</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="comparison-table">
+                        <div class="comparison-column">
+                            <h3>Big Tech (LinkedIn)</h3>
+                            <ul>
+                                <li>📋 Structured processes</li>
+                                <li>🎯 Specialized roles</li>
+                                <li>🏛️ Established resources</li>
+                                <li>📊 Scale optimization</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-column">
+                            <h3>Startup (GoLinks)</h3>
+                            <ul>
+                                <li>🎩 Wear all hats</li>
+                                <li>🥞 Full-stack expectations</li>
+                                <li>🔨 Build everything</li>
+                                <li>⚡ Speed and iteration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Big Tech vs Startup Environment Comparison]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-4" class="step" data-x="9000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Technical Challenges at Scale</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🏢 Building for thousands of enterprise customers</li>
+                        <li>📈 Scaling infrastructure and team simultaneously</li>
+                        <li>⚖️ Maintaining product quality while moving fast</li>
+                        <li>🔧 Creating robust engineering processes</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Technical Architecture and Scaling Challenges]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-5" class="step" data-x="9000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Lessons from Building a Team</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎯 Hiring is the most important skill for leaders</li>
+                        <li>🌱 Culture scales, processes don't always</li>
+                        <li>🌈 Diverse perspectives drive innovation</li>
+                        <li>💬 Remote-first requires intentional communication</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/3-cofounders-at-a-wework.jpg" alt="Early Days at WeWork" class="slide-image">
+                    <p class="image-caption">Early days at WeWork - building the dream</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: What Hiring Managers Look For (5 slides) -->
+        <div id="hiring-1" class="step" data-x="12000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>4. What Hiring Managers Actually Look For</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Recent Intern Hiring Insights (2024)</h3>
+                    <ul>
+                        <li>📊 <strong>Application volume</strong>: 2,594 applicants → 7 final hires</li>
+                        <li>🔍 <strong>The funnel</strong>: 313 screened → 210 quiz → 30 passed → 20 projects → 7 selected</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/AWS-conference-with-hiring-a-uci-amuni.jpg" alt="AWS Conference Hiring" class="slide-image">
+                    <p class="image-caption">Hiring UCI alumni at AWS conference - the network effect in action</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="hiring-2" class="step" data-x="12000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Beyond the Resume</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                    <li>🧩 <strong>Problem-solving ability</strong> over memorized algorithms</li>
+                    <li>🔄 <strong>Adaptability</strong> in uncertain situations</li>
+                    <li>💬 <strong>Communication skills</strong> - can you explain your thinking?</li>
+                    <li>🌱 <strong>Growth mindset</strong> - how do you handle feedback?</li>
+                    <li>🤝 <strong>Cultural fit</strong> - will you thrive in our environment?</li>
+                </ul>
+                </div>  
+                <div class="image-right">
+                    <div id="skills-matrix-viz" style="width: 500px; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hiring-3" class="step" data-x="12000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>What Engineering Managers Want</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🏆 <strong>Ownership mentality</strong>: Take responsibility for your work</li>
+                        <li>🔍 <strong>Curiosity</strong>: Ask questions, dig deeper</li>
+                        <li>🤝 <strong>Collaboration</strong>: Work well with others</li>
+                        <li>⚡ <strong>Learning agility</strong>: Pick up new technologies quickly</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div id="priorities-wheel-viz" style="width: 400px; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hiring-4" class="step" data-x="12000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Red Flags in Interviews</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🚫 Can't explain their own code or projects</li>
+                        <li>👎 Blames others for failures</li>
+                        <li>😴 Shows no curiosity about the company or role</li>
+                        <li>🧱 Rigid thinking - only one way to solve problems</li>
+                        <li>💔 Poor communication or attitude</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Interview Red Flags Warning Signs]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hiring-5" class="step" data-x="12000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>How to Stand Out</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🔥 Show genuine passion for technology and learning</li>
+                        <li>💪 Demonstrate impact in previous projects</li>
+                        <li>🤔 Ask thoughtful questions about the role and company</li>
+                        <li>📈 Show how you've grown from challenges</li>
+                        <li>💯 Be authentic - don't try to be someone you're not</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Standout Candidate Characteristics]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Industry Trends (5 slides) -->
+        <div id="trends-1" class="step" data-x="15000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>5. Industry Trends: The AI Revolution Changes Everything</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>The Current Landscape</h3>
+                    <ul>
+                        <li>🤖 <strong>AI-assisted development</strong> is now the norm</li>
+                        <li>🥞 <strong>Full-stack expectations</strong> for all engineers</li>
+                        <li>⚛️ <strong>React Server Components</strong> and modern frameworks</li>
+                        <li>🔧 <strong>DevOps integration</strong> into developer workflows</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div id="tech-stack-timeline-viz" style="width: 500px; height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="trends-2" class="step" data-x="15000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Leveling Effect of AI</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Good news: AI democratizes access</h3>
+                    <ul>
+                        <li>🚀 Junior developers can write senior-level code with AI assistance</li>
+                        <li>⚡ Learning new technologies is faster than ever</li>
+                        <li>📚 Documentation and debugging are significantly improved</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: AI Democratization - Leveling the Playing Field]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="trends-3" class="step" data-x="15000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Challenge: Higher Expectations</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>⚠️ Basic coding skills are table stakes</li>
+                        <li>🧩 Problem-solving and system design become differentiators</li>
+                        <li>💼 Understanding business context becomes crucial</li>
+                        <li>🤖 AI literacy is now a requirement, not a bonus</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Evolving Skill Requirements - Before and After AI]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="trends-4" class="step" data-x="15000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Industry-Relevant Skills (2024-2025)</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎨 <strong>Frontend</strong>: React, TypeScript, modern CSS</li>
+                        <li>⚙️ <strong>Backend</strong>: Node.js, Python, cloud platforms</li>
+                        <li>🐳 <strong>DevOps</strong>: Docker, CI/CD, cloud deployment</li>
+                        <li>🧠 <strong>AI/ML</strong>: Understanding capabilities and limitations</li>
+                        <li>🏗️ <strong>System Design</strong>: Thinking at scale</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: 2024-2025 Tech Skills Roadmap]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="trends-5" class="step" data-x="15000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Preparing for the Future</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎯 Focus on fundamentals that don't change</li>
+                        <li>🧠 Learn to learn - adaptability is key</li>
+                        <li>⚖️ Understand AI tools but don't become dependent</li>
+                        <li>🧩 Develop strong problem-solving skills</li>
+                        <li>🔍 Stay curious about emerging technologies</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Future-Proof Career Strategy]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Creators vs Consumers (5 slides) -->
+        <div id="creators-1" class="step" data-x="18000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>6. Creators vs. Consumers: Your Competitive Edge</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>The Creator Mindset</h3>
+                    <ul>
+                        <li>🔨 Build projects and share them</li>
+                        <li>📝 Write technical blogs about their learning</li>
+                        <li>🌍 Contribute to open source</li>
+                        <li>📚 Create tutorials and help others</li>
+                        <li>🤖 Use AI as a tool to amplify their capabilities</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Creator vs Consumer Mindset Comparison]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="creators-2" class="step" data-x="18000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Consumer Trap</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Consumers:</h3>
+                    <ul>
+                        <li>📺 Only consume content and tutorials</li>
+                        <li>📋 Copy code without understanding</li>
+                        <li>🤖 Rely entirely on AI without learning fundamentals</li>
+                        <li>🤐 Don't share their knowledge or experiences</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Consumer Trap - Passive Learning Cycle]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="creators-3" class="step" data-x="18000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>How to Become a Creator</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📝 <strong>Document your learning journey</strong> through blogs</li>
+                        <li>🔨 <strong>Build projects</strong> that solve real problems</li>
+                        <li>💻 <strong>Share your code</strong> on GitHub with detailed READMEs</li>
+                        <li>👨‍🏫 <strong>Teach others</strong> what you've learned</li>
+                        <li>🎯 <strong>Use AI strategically</strong> to learn faster, not as a crutch</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/golinks-co-founders-at-hackathon.jpg" alt="Hackathon Team" class="slide-image">
+                    <p class="image-caption">Co-founders at hackathons - building and creating together</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="creators-4" class="step" data-x="18000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Building Your Creator Portfolio</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎓 Start with class projects - document your process</li>
+                        <li>❤️ Build something you're passionate about</li>
+                        <li>📝 Write about challenges and solutions</li>
+                        <li>💡 Share your failures and what you learned</li>
+                        <li>🤝 Help other students with similar problems</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Creator Portfolio Examples - Projects and Content]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="creators-5" class="step" data-x="18000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Compound Effect of Creating</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📁 Your content becomes your portfolio</li>
+                        <li>🧠 Teaching others solidifies your own learning</li>
+                        <li>🌟 You build a reputation in the community</li>
+                        <li>🎯 Opportunities find you instead of you chasing them</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/linkedin-developer-hackathon.jpg" alt="LinkedIn Developer Hackathon" class="slide-image">
+                    <p class="image-caption">LinkedIn developer hackathon - where ideas come to life</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Important Distinctions (5 slides) -->
+        <div id="distinctions-1" class="step" data-x="21000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>7. Important Distinctions for Your Career</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Computer Science ≠ Coding</h3>
+                    <ul>
+                        <li>🧠 <strong>CS fundamentals</strong>: Algorithms, data structures, system design</li>
+                        <li>🧩 <strong>Problem-solving</strong>: Breaking down complex problems</li>
+                        <li>🔢 <strong>Mathematical thinking</strong>: Logic and optimization</li>
+                        <li>💻 <strong>Coding</strong>: Just the implementation tool</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div id="venn-diagram-viz" style="width: 400px; height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="distinctions-2" class="step" data-x="21000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>"Vibe Coding" vs "Engineering Excellence"</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Vibe Coding (What to avoid):</h3>
+                    <ul>
+                        <li>🤷‍♂️ Writing code without understanding the problem</li>
+                        <li>📋 Copying solutions without learning principles</li>
+                        <li>🚫 No consideration for maintainability or scale</li>
+                        <li>🤖 Using AI to generate code you can't explain</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/evolution-of-ai-coding-strategies-industry-prediction-of-vibe-coding.png" alt="AI Coding Evolution" class="slide-image">
+                    <p class="image-caption">The evolution of AI coding strategies - from vibe coding to engineering excellence</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="distinctions-3" class="step" data-x="21000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Engineering Excellence</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🤔 Understanding the "why" behind every decision</li>
+                        <li>🏗️ Writing maintainable, scalable code</li>
+                        <li>🏛️ Considering system design and architecture</li>
+                        <li>🤖 Using AI to enhance your understanding, not replace it</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Engineering Excellence Principles]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="distinctions-4" class="step" data-x="21000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Importance of Fundamentals</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🔄 Frameworks change, principles endure</li>
+                        <li>💪 Strong fundamentals enable quick adaptation</li>
+                        <li>🔍 Understanding "why" helps you debug and optimize</li>
+                        <li>🏆 Fundamentals are your competitive advantage</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Technology Stack Evolution - Fundamentals vs Trends]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="distinctions-5" class="step" data-x="21000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Building Strong Foundations</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🧠 Master data structures and algorithms</li>
+                        <li>🏗️ Understand system design principles</li>
+                        <li>🔧 Learn debugging and problem-solving methodologies</li>
+                        <li>💬 Practice explaining complex concepts simply</li>
+                        <li>✨ Focus on code quality and best practices</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Strong Foundation Building Blocks]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Modern Interview Processes (5 slides) -->
+        <div id="interviews-1" class="step" data-x="24000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>8. Modern Interview Processes</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Technical Assessments</h3>
+                    <ul>
+                        <li>💻 <strong>HackerRank style</strong>: No AI allowed, fundamentals testing</li>
+                        <li>🔨 <strong>Project-based</strong>: Build something real (AI allowed)</li>
+                        <li>🧩 <strong>Adaptation exercises</strong>: Problem-solving with constraints</li>
+                        <li>🏗️ <strong>System design</strong>: How do you think about scale?</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Modern Interview Process Flow]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interviews-2" class="step" data-x="24000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Standing Out in Interviews</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎯 <strong>Show, don't tell</strong>: Have projects that demonstrate your skills</li>
+                        <li>📖 <strong>Tell a compelling story</strong>: Connect your experiences</li>
+                        <li>❓ <strong>Ask thoughtful questions</strong>: Show genuine interest</li>
+                        <li>📈 <strong>Demonstrate learning</strong>: How do you grow from feedback?</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Interview Success Strategies]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interviews-3" class="step" data-x="24000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The New Reality: AI in Interviews</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>⚖️ Some assessments allow AI, others don't</li>
+                        <li>🤹‍♂️ You need to be comfortable both ways</li>
+                        <li>❓ Interviewers will ask about your AI usage</li>
+                        <li>🧩 Focus on problem-solving process, not just solutions</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: AI in Interview Process - When and How]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interviews-4" class="step" data-x="24000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Project-Based Assessments</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎮 Build a real application (e.g., Wordle clone)</li>
+                        <li>🥞 Demonstrate full-stack capabilities</li>
+                        <li>✨ Show code quality and documentation</li>
+                        <li>🤔 Explain your technical decisions</li>
+                        <li>🚀 Deploy and share your work</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Project Assessment Examples and Criteria]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interviews-5" class="step" data-x="24000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Interview Preparation Strategy</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>💻 Practice coding without AI first</li>
+                        <li>📁 Build a portfolio of diverse projects</li>
+                        <li>📖 Prepare stories about your experiences</li>
+                        <li>🔍 Research the company and role thoroughly</li>
+                        <li>💭 Practice explaining your thought process</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Interview Preparation Checklist]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Building Digital Presence (5 slides) -->
+        <div id="presence-1" class="step" data-x="27000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>9. Building Your Digital Presence</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>GitHub Portfolio</h3>
+                    <ul>
+                        <li>🟢 <strong>Green squares</strong>: Consistent contributions matter</li>
+                        <li>⭐ <strong>Quality projects</strong>: Complete, documented, deployed</li>
+                        <li>🌍 <strong>Open source participation</strong>: Show collaboration skills</li>
+                        <li>📄 <strong>Professional README</strong>: Tell your story</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Excellent GitHub Profile Examples]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="presence-2" class="step" data-x="27000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>LinkedIn Optimization</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📸 <strong>Professional imagery</strong>: First impressions count</li>
+                        <li>🔗 <strong>Portfolio integration</strong>: Link to your best work</li>
+                        <li>📝 <strong>Content creation</strong>: Share your learning journey</li>
+                        <li>🤝 <strong>Network actively</strong>: Connect with classmates and professionals</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Optimized LinkedIn Profile Example]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="presence-3" class="step" data-x="27000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Technical Blog</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📝 <strong>Document your projects</strong>: Explain your decisions</li>
+                        <li>🎓 <strong>Share learning experiences</strong>: Others learn from your journey</li>
+                        <li>🧩 <strong>Showcase problem-solving</strong>: Walk through challenges</li>
+                        <li>🎤 <strong>Build your voice</strong>: Establish thought leadership</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Technical Blog Examples and Platforms]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="presence-4" class="step" data-x="27000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Personal Website/Portfolio</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🌟 Showcase your best projects</li>
+                        <li>📖 Tell your story and background</li>
+                        <li>🎨 Demonstrate your design and development skills</li>
+                        <li>📞 Make it easy for recruiters to contact you</li>
+                        <li>🔄 Keep it updated with recent work</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Personal Portfolio Website Examples]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="presence-5" class="step" data-x="27000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Content Strategy</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎓 Share your class projects and learnings</li>
+                        <li>💪 Write about challenges you've overcome</li>
+                        <li>📚 Create tutorials for concepts you've mastered</li>
+                        <li>🤝 Engage with the developer community</li>
+                        <li>✨ Be consistent but authentic</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Content Creation Strategy Timeline]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Practical Next Steps (5 slides) -->
+        <div id="next-steps-1" class="step" data-x="30000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>10. Practical Next Steps</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>For Current Students</h3>
+                    <ul>
+                        <li>🚀 <strong>Start building today</strong>: Don't wait for the "perfect" project</li>
+                        <li>🎯 <strong>Use AI strategically</strong>: Learn with it, don't let it replace learning</li>
+                        <li>🤝 <strong>Network intentionally</strong>: Your classmates are your future colleagues</li>
+                        <li>📝 <strong>Document everything</strong>: Your learning journey is valuable content</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Student Action Plan Roadmap]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="next-steps-2" class="step" data-x="30000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Focus on Fundamentals</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🔄 AI changes, principles don't</li>
+                        <li>🧠 Master data structures and algorithms</li>
+                        <li>🏗️ Understand system design concepts</li>
+                        <li>🔧 Learn debugging and problem-solving methodologies</li>
+                        <li>💬 Practice explaining complex concepts simply</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Fundamental Skills Priority Matrix]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="next-steps-3" class="step" data-x="30000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Build Your First Portfolio Project</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>❤️ Choose a problem you're passionate about</li>
+                        <li>🥞 Build a full-stack solution</li>
+                        <li>🚀 Deploy it and make it accessible</li>
+                        <li>📝 Document your process and decisions</li>
+                        <li>🌍 Share it with the community</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Portfolio Project Development Cycle]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="next-steps-4" class="step" data-x="30000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Start Your Professional Network</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>💼 Connect with classmates on LinkedIn</li>
+                        <li>💬 Join relevant Discord/Slack communities</li>
+                        <li>🎪 Attend virtual and in-person meetups</li>
+                        <li>💻 Participate in hackathons</li>
+                        <li>🌍 Engage with open source projects</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Professional Networking Action Items]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="next-steps-5" class="step" data-x="30000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Create Your Learning Plan</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎯 Identify skills gaps for your target roles</li>
+                        <li>📅 Set up a consistent learning schedule</li>
+                        <li>⚖️ Mix theoretical learning with practical projects</li>
+                        <li>📊 Track your progress publicly</li>
+                        <li>🔄 Adjust based on industry feedback</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Personal Learning Plan Template]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 11: Resources and Community (5 slides) -->
+        <div id="resources-1" class="step" data-x="33000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>11. Resources and Community</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Essential Platforms</h3>
+                    <ul>
+                        <li>💰 <strong>Levels.fyi</strong>: Salary transparency (founded by UCI alumni!)</li>
+                        <li>💻 <strong>GitHub</strong>: Your professional portfolio</li>
+                        <li>💼 <strong>LinkedIn</strong>: Professional networking</li>
+                        <li>❓ <strong>Stack Overflow</strong>: Technical community</li>
+                        <li>💬 <strong>Discord/Slack</strong>: Developer communities</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Essential Platform Logos and Uses]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resources-2" class="step" data-x="33000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Continuous Learning</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li><strong>Documentation</strong>: Always read the official docs</li>
+                        <li><strong>Open source</strong>: Learn from real codebases</li>
+                        <li><strong>YouTube/tutorials</strong>: Visual learning</li>
+                        <li><strong>Books</strong>: Deep technical knowledge</li>
+                        <li><strong>Conferences</strong>: Industry trends and networking</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Learning Resources Ecosystem]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resources-3" class="step" data-x="33000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>UCI-Specific Resources</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>UCI Alumni Network in tech</li>
+                        <li>Career Center resources and events</li>
+                        <li>Student organizations and clubs</li>
+                        <li>Professor office hours and research opportunities</li>
+                        <li>Industry partnerships and internship programs</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: UCI Resources Map and Connections]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resources-4" class="step" data-x="33000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Building Your Learning Community</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>Form study groups with classmates</li>
+                        <li>Join coding bootcamp communities</li>
+                        <li>Participate in online forums and discussions</li>
+                        <li>Find mentors in your field of interest</li>
+                        <li>Become a mentor to others when you can</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div id="network-viz" style="width: 500px; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resources-5" class="step" data-x="33000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Staying Current with Industry</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>Follow tech leaders on Twitter/LinkedIn</li>
+                        <li>Subscribe to industry newsletters</li>
+                        <li>Listen to developer podcasts</li>
+                        <li>Attend virtual conferences and webinars</li>
+                        <li>Read technical blogs and case studies</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Industry Information Sources and Feeds]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 12: Final Thoughts (5 slides) -->
+        <div id="final-1" class="step" data-x="36000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>12. Final Thoughts: The Long Game</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Success Metrics That Matter</h3>
+                    <ul>
+                        <li><strong>Impact</strong>: What problems are you solving?</li>
+                        <li><strong>Growth</strong>: How fast are you learning?</li>
+                        <li><strong>Relationships</strong>: Who are you building with?</li>
+                        <li><strong>Value creation</strong>: What are you contributing?</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div id="success-metrics-viz" style="width: 500px; height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="final-2" class="step" data-x="36000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The UCI Advantage</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li><strong>Strong technical foundation</strong>: EE, CS, and interdisciplinary programs</li>
+                        <li><strong>Alumni network</strong>: Successful graduates everywhere</li>
+                        <li><strong>Innovation culture</strong>: Start something new</li>
+                        <li><strong>Location</strong>: Heart of tech in Southern California</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: UCI Campus and Tech Industry Connections]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="final-3" class="step" data-x="36000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Remember These Key Points</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li><strong>Rejection is redirection</strong>: Every "no" leads to the right "yes"</li>
+                        <li><strong>Networks compound</strong>: Invest in relationships early</li>
+                        <li><strong>Technology changes, fundamentals don't</strong>: Focus on problem-solving</li>
+                        <li><strong>Your journey is unique</strong>: Don't compare your chapter 1 to someone's chapter 20</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Key Principles Visual Summary]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="final-4" class="step" data-x="36000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>The Power of Starting Now</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="quote">
+                        "The best time to plant a tree was 20 years ago. The second best time is now."
+                    </div>
+                    <ul>
+                        <li>Start building your career today</li>
+                        <li>Every small step compounds over time</li>
+                        <li>Your future self will thank you</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div id="compound-effect-viz" style="width: 500px; height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="final-5" class="step" data-x="36000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Your Next Action</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>Choose one thing from this presentation to implement this week</li>
+                        <li>Connect with one new person in your field</li>
+                        <li>Start documenting your learning journey</li>
+                        <li>Build something, no matter how small</li>
+                        <li>Share your progress with others</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <div class="image-placeholder">
+                        <p>[Image: Action Plan - This Week's Goals]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q&A Slide -->
+        <div id="qa" class="step single-column" data-x="39000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Q&A</h1>
+                <h2>Questions? Let's discuss your specific challenges and opportunities.</h2>
+            </div>
+            <div class="slide-content">
+                <div class="image-placeholder">
+                    <p>[Image: Contact Information and Social Links]</p>
+                </div>
+                <p><strong>Connect with me</strong>: [Your contact information]</p>
+                <p><strong>GoLinks</strong>: Check out what we're building at golinks.io</p>
+            </div>
+        </div>
+
+        <!-- Thank You Slide -->
+        <div id="thank-you" class="step single-column" data-x="39000" data-y="2000" data-z="0" data-scale="1">
+            <h1>Thank You!</h1>
+            <h2>Start Building Your Future Today</h2>
+            <div class="image-placeholder">
+                <p>[Image: Inspirational Career Journey Visualization]</p>
+            </div>
+            <div class="quote">
+                "Your journey from college to career starts with a single step. Take it today."
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div id="overview" class="step" data-x="21000" data-y="4000" data-z="1000" data-scale="20">
+            <!-- This slide provides an overview of the entire presentation -->
+        </div>
+
+    </div>
+    
+    <div class="hint">
+        <p>Use a spacebar or arrow keys to navigate</p>
+    </div>
+
+    <script>
+        if ("ontouchstart" in document.documentElement) {
+            document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+        }
+    </script>
+
+    <script src="lecture/svg.js"></script>
+    <script src="lecture/svg-graphics.js"></script>
+    <script src="lecture/d3.v7.min.js"></script>
+    <script src="lecture/d3-graphics.js"></script>
+    <script src="lecture/impress2.js"></script>
+    <script>
+        var api = impress();
+        api.init();
+
+        function start() {
+            api.goto("start");
+        }
+    </script>
+
+    <script>
+        // Track loading progress
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const loadingOverlay = document.querySelector('.loading-overlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        loadingOverlay.remove();
+                    }, 500);
+                }
+            }, 1000);
+        });
+    </script>
+
+</body>
+
+</html>
