@@ -27,7 +27,6 @@ class PresentationGraphics {
         this.createInterviewTipsGraphic();
         this.createTimelineGraphic();
         this.createMotivationalQuoteGraphic();
-        this.createFloatingParticles();
         this.createInteractiveElements();
         this.createDynamicBackgrounds();
     }

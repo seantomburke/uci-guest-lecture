@@ -813,16 +813,36 @@
     <div id="impress" data-transition-duration="500">
 
         <!-- 1. Title Slide -->
-        <div id="title" class="step single-column" data-x="0" data-y="0" data-z="0" data-scale="1">
-            <div class="slide-title">
-                <h1>From UCI to GoLinks</h1>
-                <h2 class="lead">A journey from student to startup founder</h2>
+        <div id="title" class="step" data-x="0" data-y="0" data-z="0" data-scale="1">
+            <!-- Large Hero Image -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 75%; overflow: hidden;">
+                <img src="lecture/photos/golinks-at-the-uci-career-fair.jpg" 
+                     alt="GoLinks at the UCI Career Fair" 
+                     style="width: 120%; height: 130%; object-fit: contain; object-position: center 30%;">
+                
             </div>
-            <div class="slide-content">
-                <img src="lecture/photos/golinks-at-the-uci-career-fair.jpg" alt="GoLinks at the UCI Career Fair" class="slide-image-large">
-                <div class="image-caption-large">The GoLinks founding team at the UCI Career Fair</div>
+            
+            <!-- Title positioned lower than default header-slide-title -->
+            <div style="position: absolute; bottom: 2rem; left: 5rem; width: calc(100% - 6rem);">
+                <h1 style="font-size: 5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1rem; color: white;">
+                    From UCI to GoLinks
+                </h1>
+                <h2 style="font-size: 2.5rem; font-weight: 300; color: rgba(255, 255, 255, 0.9); margin: 0;">
+                    A startup founder's journey
+                </h2>
+
+                <!-- Author info overlay on image -->
+                <div style="position: absolute; bottom: 0.5rem; right: 3rem; text-align: right; 
+                           background: rgba(0, 0, 0, 0.7); padding: 1.5rem 2rem; border-radius: 1rem;
+                           backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="font-size: 1.8rem; color: white; font-weight: 600; margin-bottom: 0.5rem;">
+                        Sean Thomas Burke
+                    </div>
+                    <div style="font-size: 1.4rem; color: rgba(255, 255, 255, 0.9); font-weight: 400;">
+                        Head of Engineering at GoLinks
+                    </div>
+                </div>
             </div>
-            <p>Sean Thomas Burke<br>Head of Engineering at GoLinks</p>
         </div>
 
         <!-- Overview Slide -->
@@ -870,14 +890,14 @@
                 </div>
                 <div class="image-right">
                     <img src="lecture/photos/sean_burke_giving_the_commencement_speech.JPG" alt="Sean Burke giving commencement speech at UCI" class="slide-image">
-                    <div class="image-caption">Sean giving the commencement speech at UCI</div>
+                    <div class="image-caption">2013 Commencement speech at UCI</div>
                 </div>
             </div>
         </div>
 
         <div id="my-journey-struggles" class="step" data-x="3000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h2>Early Career Struggles</h2>
+                <h2>Grad School 2014</h2>
             </div>
             <div class="slide-content">
                 <div class="content-left">
@@ -971,7 +991,7 @@
                             <img src="lecture/images/GoSearch Glyph Color.png" alt="GoSearch Logo" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
                             <span style="display: none; color: #ffc107; font-weight: bold;">🔍</span>
                             <div>
-                                <strong style="color: #ffc107;"><a href="https://gosearch.ai" target="_blank" style="color: #ffc107; text-decoration: none;">GoSearch</a></strong>: Enterprise Search
+                                <strong style="color: #ffc107;"><a href="https://gosearch.ai" target="_blank" style="color: #ffc107; text-decoration: none;">GoSearch</a></strong> Enterprise Search
                                 <div style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">AI-powered search across all company data</div>
                             </div>
                         </div>
@@ -979,7 +999,7 @@
                             <img src="lecture/images/GoProfiles Glyph Color.png" alt="GoProfiles Logo" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
                             <span style="display: none; color: #ffc107; font-weight: bold;">👥</span>
                             <div>
-                                <strong style="color: #ffc107;"><a href="https://goprofiles.io" target="_blank" style="color: #ffc107; text-decoration: none;">GoProfiles</a></strong>: Employee Profiles
+                                <strong style="color: #ffc107;"><a href="https://goprofiles.io" target="_blank" style="color: #ffc107; text-decoration: none;">GoProfiles</a></strong> Employee Profiles
                                 <div style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">AI employee directory and recognition platform</div>
                             </div>
                         </div>
@@ -1275,11 +1295,11 @@
 
         <div id="essential-skills" class="step" data-x="9000" data-y="10000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h2>Essential Skills for New Graduates</h2>
+                <h2>Understanding How Business Works</h2>
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <h3>Understanding How a Business Works</h3>
+                    <h3>A unique approach</h3>
                     <ul>
                         <li>🏢 Every business requires 3 things:
                             <ul>
@@ -1291,12 +1311,12 @@
                         <li>🤖 Engineers traditionally fall into Product</li>
                         <li>🔄 Adapting to evolving roles</li>
                         <li>🤝 Product Departments might not need as many engineers</li>
-                        <li>🤖 Opportunities as Sales Engineers, Marketing Engineers, AI Engineers, Data Engineers</li>
+                        <li>🤖 Opportunities as Sales Engineer, Marketing Engineer, AI Engineer, Data Engineer, Growth Engineer</li>
                         <li>🎯 Focusing on industry-relevant skills: <a href="https://roadmap.sh/" target="_blank">roadmap.sh</a></li>
                     </ul>
                 </div>
                 <div class="image-right">
-                    <div id="business-venn-diagram" style="width: 500px; height: 400px;"></div>
+                    <div id="business-venn-diagram" style="width: 600px; height: 500px;"></div>
                     <div class="image-caption">The three pillars of business and their intersections</div>
                 </div>
             </div>
@@ -1336,7 +1356,10 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/github-green-squares.png" alt="GitHub Green Squares showing consistent contributions" class="slide-image">
+                    <video src="lecture/photos/github-profile.mp4" class="slide-image-large" autoplay muted loop>
+                        <source src="lecture/photos/github-profile.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <div class="image-caption">Github is a software engineer's resume, fill it out</div>
                 </div>
             </div>
@@ -1532,6 +1555,66 @@
                 <div class="image-right">
                     <img src="lecture/photos/uci-alumni-event-at-Linkedin.jpg" alt="UCI Alumni event at LinkedIn" class="slide-image">
                     <div class="image-caption">UCI Alumni networking event at LinkedIn</div>
+                </div>
+            </div>
+            
+            <!-- Student Pack QR Code Toast for Resources slide -->
+            <div id="student-pack-qr-toast" style="
+                position: fixed;
+                bottom: 80px;
+                right: 40px;
+                background-color: #1a1a1a;
+                border: 1px solid #404040;
+                border-radius: 40px;
+                padding: 64px;
+                box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease-out;
+                z-index: 1001;
+                max-width: 500px;
+            ">
+                <!-- Close Button -->
+                <button onclick="hideStudentPackQRToast()" style="
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    background: none;
+                    border: none;
+                    color: #888888;
+                    cursor: pointer;
+                    padding: 12px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: color 0.2s ease;
+                " onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#888888'">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+                
+                <!-- QR Code Image -->
+                <div style="flex-shrink: 0;">
+                    <img src="lecture/photos/student-pack-qr-code.png" alt="QR Code for GitHub Student Pack" style="
+                        width: 320px;
+                        height: 320px;
+                        border-radius: 20px;
+                        background-color: white;
+                        padding: 16px;
+                    ">
+                </div>
+                
+                <!-- Toast Content -->
+                <div style="text-align: center;">
+                    <div style="color: #888888; font-size: 24px; line-height: 1.4;">
+                        Free developer tools and resources for students
+                    </div>
                 </div>
             </div>
         </div>
@@ -1756,7 +1839,7 @@
                         setTimeout(() => {
                             toast.style.opacity = '1';
                             toast.style.transform = 'translateY(0)';
-                        }, 2000); // Show after 2 seconds
+                        }, 5000); // Show after 5 seconds
                     }
                 }
                 
@@ -1775,6 +1858,9 @@
                         setTimeout(typewriterAnimation, 500);
                         showQRToast(); // Show QR toast when entering contact slide
                     }
+                    if (event.target.id === 'resources') {
+                        showStudentPackQRToast(); // Show student pack QR toast when entering resources slide
+                    }
                 });
                 
                 // Hide QR toast when leaving contact slide
@@ -1782,9 +1868,39 @@
                     if (event.target.id === 'contact') {
                         hideQRToast();
                     }
+                    if (event.target.id === 'resources') {
+                        hideStudentPackQRToast(); // Hide student pack QR toast when leaving resources slide
+                    }
                 });
             </script>
         </div>
+
+        <script>
+            // Show Student Pack QR toast when resources slide becomes active
+            function showStudentPackQRToast() {
+                console.log('showStudentPackQRToast called');
+                const toast = document.getElementById('student-pack-qr-toast');
+                console.log('Toast element found:', toast);
+                if (toast) {
+                    setTimeout(() => {
+                        console.log('Showing toast');
+                        toast.style.opacity = '1';
+                        toast.style.transform = 'translateY(0)';
+                    }, 5000); // Show after 5 seconds
+                } else {
+                    console.log('Toast element not found!');
+                }
+            }
+            
+            // Hide Student Pack QR toast
+            function hideStudentPackQRToast() {
+                const toast = document.getElementById('student-pack-qr-toast');
+                if (toast) {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(20px)';
+                }
+            }
+        </script>
 
 
         <!-- Overview -->
@@ -1951,6 +2067,33 @@
                     createBusinessVennDiagram();
                 }, 500);
             }
+            
+            // Check if this is the resources slide for student pack QR toast
+            if (currentSlide.id === 'resources') {
+                console.log('Resources slide detected, calling showStudentPackQRToast');
+                showStudentPackQRToast();
+            }
+            
+            // Check if this is the contact slide for personal QR toast
+            if (currentSlide.id === 'contact') {
+                setTimeout(typewriterAnimation, 500);
+                showQRToast();
+            }
+        });
+        
+        // Listen for slide leave events to hide QR toasts
+        document.addEventListener('impress:stepleave', function(event) {
+            const currentSlide = event.target;
+            
+            // Hide student pack QR toast when leaving resources slide
+            if (currentSlide.id === 'resources') {
+                hideStudentPackQRToast();
+            }
+            
+            // Hide personal QR toast when leaving contact slide
+            if (currentSlide.id === 'contact') {
+                hideQRToast();
+            }
         });
         
         // Business Venn Diagram Function
@@ -1958,8 +2101,8 @@
             const container = document.getElementById('business-venn-diagram');
             if (!container || container.querySelector('svg')) return; // Already created
             
-            const width = 500;
-            const height = 400;
+            const width = 600;
+            const height = 500;
             const margin = 40;
             
             // Clear any existing content
@@ -1971,10 +2114,10 @@
                 .attr('height', height);
             
             // Circle parameters
-            const radius = 80;
+            const radius = 110;
             const centerX = width / 2;
             const centerY = height / 2;
-            const offset = 50;
+            const offset = 85;
             
             // Define circle centers
             const circles = [
@@ -2029,17 +2172,18 @@
                 .append('text')
                 .attr('class', 'circle-label')
                 .attr('x', d => {
-                    if (d.id === 'product') return d.cx - 60;
-                    if (d.id === 'marketing') return d.cx + 60;
+                    if (d.id === 'product') return d.cx - 120;
+                    if (d.id === 'marketing') return d.cx + 120;
                     return d.cx;
                 })
                 .attr('y', d => {
-                    if (d.id === 'sales') return d.cy + 100;
-                    return d.cy - 60;
+                    if (d.id === 'product') return d.cy - 120;
+                    if (d.id === 'marketing') return d.cy - 120;
+                    return d.cy + 150;
                 })
                 .attr('text-anchor', 'middle')
                 .attr('font-family', 'Manrope, sans-serif')
-                .attr('font-size', '18px')
+                .attr('font-size', '24px')
                 .attr('font-weight', '600')
                 .attr('fill', d => d.color)
                 .attr('opacity', 0)
@@ -2048,38 +2192,6 @@
                 .duration(800)
                 .delay((d, i) => i * 200 + 500)
                 .attr('opacity', 1);
-            
-            // Add intersection labels
-            const intersections = [
-                { x: centerX - 25, y: centerY - 15, text: 'Growth\nEngineering', size: '12px' },
-                { x: centerX + 25, y: centerY - 15, text: 'Marketing\nTech', size: '12px' },
-                { x: centerX, y: centerY + 25, text: 'Sales\nEngineering', size: '12px' },
-                { x: centerX, y: centerY - 5, text: 'Business\nStrategy', size: '14px', weight: '700', color: '#ffc107' }
-            ];
-            
-            intersections.forEach((intersection, i) => {
-                const lines = intersection.text.split('\n');
-                const textGroup = svg.append('g')
-                    .attr('opacity', 0);
-                
-                lines.forEach((line, lineIndex) => {
-                    textGroup.append('text')
-                        .attr('x', intersection.x)
-                        .attr('y', intersection.y + (lineIndex * 14) - ((lines.length - 1) * 7))
-                        .attr('text-anchor', 'middle')
-                        .attr('font-family', 'Manrope, sans-serif')
-                        .attr('font-size', intersection.size)
-                        .attr('font-weight', intersection.weight || '500')
-                        .attr('fill', intersection.color || '#ffffff')
-                        .attr('text-shadow', '0 1px 2px rgba(0,0,0,0.5)')
-                        .text(line);
-                });
-                
-                textGroup.transition()
-                    .duration(600)
-                    .delay(1500 + i * 150)
-                    .attr('opacity', 1);
-            });
             
             // Add hover interactions
             circleElements.on('mouseover', function(event, d) {
