@@ -194,6 +194,11 @@
             color: rgb(180, 180, 180);
         }
         
+        /* Transparent background override */
+        .step.transparent-bg {
+            background: transparent;
+        }
+        
         .slide-title {
             width: 100%;
             margin-bottom: 2rem;
@@ -211,19 +216,22 @@
             gap: 3rem;
             flex: 1;
         }
-        
-        .content-left {
+        .content-left,
+        .content-right {
             flex: 1;
             min-width: 0;
         }
         
-        .content-left h3 {
+        .content-left h3,
+        .content-right h3 {
             color: #ffc107;
             text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         
         .content-left p,
-        .content-left li {
+        .content-left li,
+        .content-right p,
+        .content-right li {
             color: rgb(150, 150, 150, .95);
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
@@ -433,6 +441,188 @@
         .d-flex { display: flex !important; }
         .d-none { display: none !important; }
         
+        /* Interview Funnel Styles */
+        .interview-funnel {
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .funnel-container {
+            position: relative;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+        
+        .funnel-stage-visual {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2px 0;
+        }
+        
+        .funnel-trapezoid {
+            position: relative;
+            height: 100%;
+            background-color: var(--color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            overflow: visible;
+        }
+        
+        /* Create trapezoid shapes using clip-path */
+        .funnel-stage-visual[data-stage="1"] .funnel-trapezoid {
+            width: var(--top-width);
+            clip-path: polygon(5% 0%, 95% 0%, 90% 100%, 10% 100%);
+        }
+        
+        .funnel-stage-visual[data-stage="2"] .funnel-trapezoid {
+            width: var(--top-width);
+            clip-path: polygon(8% 0%, 92% 0%, 87% 100%, 13% 100%);
+        }
+        
+        .funnel-stage-visual[data-stage="3"] .funnel-trapezoid {
+            width: var(--top-width);
+            clip-path: polygon(12% 0%, 88% 0%, 82% 100%, 18% 100%);
+        }
+        
+        .funnel-stage-visual[data-stage="4"] .funnel-trapezoid {
+            width: var(--top-width);
+            clip-path: polygon(15% 0%, 85% 0%, 78% 100%, 22% 100%);
+        }
+        
+        .funnel-stage-visual[data-stage="5"] .funnel-trapezoid {
+            width: var(--top-width);
+            clip-path: polygon(20% 0%, 80% 0%, 72% 100%, 28% 100%);
+        }
+        
+        .funnel-stage-visual[data-stage="6"] .funnel-trapezoid {
+            width: var(--top-width);
+            clip-path: polygon(25% 0%, 75% 0%, 65% 100%, 35% 100%);
+        }
+        
+        .funnel-trapezoid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+            clip-path: inherit;
+        }
+        
+        .funnel-trapezoid:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .funnel-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        
+        .funnel-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+        
+        .funnel-label {
+            font-size: 1rem;
+            font-weight: 500;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+        
+        .funnel-percentage {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1;
+        }
+        
+        .funnel-stats {
+            margin-top: 1.5rem;
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-item {
+            display: inline-block;
+            margin: 0 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: #ffc107;
+            font-size: 1.1rem;
+        }
+        
+        .stat-value {
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive adjustments for funnel */
+        @media (max-width: 768px) {
+            .funnel-container {
+                height: 350px;
+            }
+            
+            .funnel-stage-visual {
+                height: 50px;
+            }
+            
+            .funnel-number {
+                font-size: 1.2rem;
+            }
+            
+            .funnel-label {
+                font-size: 0.9rem;
+            }
+            
+            .funnel-percentage {
+                font-size: 0.7rem;
+            }
+            
+            .stat-item {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+        
         /* Responsive Typography */
         @media (max-width: 768px) {
             h1, .h1 { font-size: 2rem; }
@@ -441,6 +631,63 @@
             .step { padding: 2rem; }
             .slide-content { flex-direction: column; gap: 2rem; }
             .image-right { flex: none; width: 100%; }
+        }
+        
+        /* Typewriter Animation Styles */
+        .typewriter-container {
+            font-family: 'Courier New', monospace;
+        }
+        
+        .typewriter-item {
+            opacity: 0;
+            display: inline-block;
+            position: relative;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 3px;
+        }
+        
+        .typewriter-item.typing {
+            opacity: 1;
+        }
+        
+        .typewriter-item.typing::after {
+            content: '|';
+            color: #ffc107;
+            font-weight: bold;
+            animation: blink-caret 0.75s step-end infinite;
+            position: absolute;
+            margin-left: 0.1em;
+            display: inline;
+        }
+        
+        .typewriter-item.typed {
+            opacity: 1;
+        }
+        
+        @keyframes typewriter-appear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Ensure typewriter items maintain proper spacing */
+        .typewriter-container ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .typewriter-container li {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            line-height: 1.6;
+            display: block;
+            width: 100%;
         }
     </style>
 
@@ -475,8 +722,7 @@
         <!-- Overview Slide -->
         <div id="overview-agenda" class="step" data-x="0" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h1>Today's Journey</h1>
-                <h2 class="lead">What We'll Cover</h2>
+                <h1>Overview</h1>
             </div>
             <div class="slide-content">
                 <div class="content-left">
@@ -512,15 +758,15 @@
 
         <div id="my-journey-uci" class="step" data-x="3000" data-y="2000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h2>UCI Foundation</h2>
+                <h2>UC Irvine 2008-2013</h2>
             </div>
             <div class="slide-content">
                 <div class="content-left">
                     <h3>Academic & Organizations</h3>
                     <ul>
-                        <li>🎓 Graduated UCI with Electrical Engineering & Business Information Management</li>
+                        <li>🎓 Double Major in Electrical Engineering & Business Information Management</li>
                         <li>🏛️ Engineering Student Council</li>
-                        <li>🤝 Sigma Nu</li>
+                        <li><strong>ΣΝ</strong> Sigma Nu</li>
                         <li>🏠 Resident Advisor in Middle Earth</li>
                         <li>💼 MAISS (Management Information Science Society)</li>
                         <li>💻 HACK@UCI</li>
@@ -539,18 +785,16 @@
                     <ul>
                         <li>❌ Failed interviews (Microsoft, Facebook, and others)</li>
                         <li>🤔 The choice: Western Digital vs. Graduate School</li>
-                        <li>🎓 Graduate studies at UCSD</li>
-                        <li>❌ More interview challenges: rejected from Redfin, Twitter, Google, SpaceX, Thumbtack, Pinterest, etc.</li>
-                        <li>✅ Passed 1 and only 1 interview at LinkedIn</li>
-                        <li>💡 <strong>Key insight</strong>: It only takes one "yes"</li>
+                        <li>🎓 Graduated UCSD Master's in Computer Science 2014</li>
+                        <li>❌ More failed interviews: rejected from Redfin, Twitter, Google, SpaceX, Thumbtack, Pinterest, etc.</li>
+                        <li>✅ Finally passed an interview at LinkedIn</li>
                     </ul>
                 </div>
             </div>
         </div>
-
         <div id="my-journey-linkedin" class="step" data-x="3000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h2>LinkedIn Experience</h2>
+                <h2>LinkedIn 2015-2019</h2>
             </div>
             <div class="slide-content">
                 <div class="content-left">
@@ -560,8 +804,26 @@
                         <li>📱 Worked on large conversion of Mobile Web app in 2015</li>
                         <li>💰 Worked on the LinkedIn Ads Team</li>
                         <li>📈 Company grew from 1,000 people to 10,000 people</li>
-                        <li>🤝 Made great connections</li>
+                        <li>🤝 Made life long connections</li>
                         <li>🚀 Foundation for entrepreneurial journey</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="my-journey-golinks-start" class="step" data-x="3000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoLinks 2019-Today</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🤝 3 UCI friends founded GoLinks</li>
+                        <li>💪 Left our full-time jobs to pursue a startup</li>
+                        <li>🚀 Got accepted into Y Combinator</li>
+                        <li>🌱 Beginning of an amazing startup journey</li>
+                        <li>🏛️ Running a company is a lot like running a Student Org</li>
+                        <li>📊 Networking, Marketing, Communications, Recruiting, Goals, Finances, etc.</li>
                     </ul>
                 </div>
             </div>
@@ -588,15 +850,37 @@
             <div class="slide-content">
                 <div class="content-left">
                     <ul>
-                        <li>🤝 Met with 2 friends from Sigma Nu at UCI</li>
-                        <li>🚀 Started a company</li>
-                        <li>🏛️ A lot like running a student Org/fraternity</li>
-                        <li>📊 Networking, Marketing, Communications, Recruiting, Objectives</li>
+                        <li><strong>Problem</strong>: Within large companies, information is scattered or siloed within different systems.</li>
+                        <li><strong>Solution</strong>: A single place to access all information.</li>
                         <li>🎯 <strong>Mission</strong>: Allow employees to access important information at anytime, anywhere</li>
-                        <li>👨‍💻 Jorge and I technical founders</li>
-                        <li>🏆 We went to a lot of Hackathons</li>
-                        <li>🔨 Always built something, always present something</li>
                     </ul>
+                    <h3>3 Products</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; background-color: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 0.5rem;">
+                            <img src="lecture/images/GoLinks Glyph Color.png" alt="GoLinks Logo" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                            <span style="display: none; color: #ffc107; font-weight: bold;">🔗</span>
+                            <div>
+                                <strong style="color: #ffc107;">GoLinks</strong>: Link Directory
+                                <div style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">Memorable short links for instant access</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; background-color: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 0.5rem;">
+                            <img src="lecture/images/GoSearch Glyph Color.png" alt="GoSearch Logo" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                            <span style="display: none; color: #ffc107; font-weight: bold;">🔍</span>
+                            <div>
+                                <strong style="color: #ffc107;">GoSearch</strong>: Enterprise Search
+                                <div style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">AI-powered search across all company data</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; background-color: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 0.5rem;">
+                            <img src="lecture/images/GoProfiles Glyph Color.png" alt="GoProfiles Logo" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                            <span style="display: none; color: #ffc107; font-weight: bold;">👥</span>
+                            <div>
+                                <strong style="color: #ffc107;">GoProfiles</strong>: Employee Profiles
+                                <div style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">AI employee directory and recognition platform</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -607,83 +891,50 @@
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <h3>Core Technologies</h3>
+                    <h3>GoLinks' Application Tech Stack</h3>
                     <ul>
                         <li>☁️ AWS as infrastructure</li>
                         <li>⚛️ React Frontend</li>
                         <li>🐘 PHP Backend</li>
+                        <li>🗄️ MySQL Database</li>
+                        <li>💾 Redis Cache</li>
                     </ul>
                     
-                    <h3>Infrastructure & Frontend</h3>
+                    <h3>Common Web Tech Stacks</h3>
                     <ul>
-                        <li>🌐 VPC, Networking, EC2, Containers</li>
-                        <li>⚛️ React (Most popular), Vue.js, Angular, Svelte (up and coming)</li>
-                        <li>⚠️ Don't always learn the new shiny language - wait for adoption</li>
+                        <li>⚛️ Frontend: React (Most popular), Vue.js, Angular, Svelte (up and coming)</li>
+                        <li>☕ Backend: Node.js, Python, Go, Rust, PHP</li>
                         <li>🐘 PHP still used by: Facebook, Instagram, Etsy, Tumblr, Slack, Wikipedia, Yahoo, Shopify</li>
-                        <li>☕ Also: Java, Python, Go, Rust</li>
+                        <li>Learn the stacks of the companies you want to work for: <a href="https://stackshare.io/" target="_blank">https://stackshare.io/</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div id="golinks-day-to-day" class="step" data-x="6000" data-y="6000" data-z="0" data-scale="1">
-            <div class="slide-title">
-                <h2>Day-to-Day Software Engineering</h2>
-            </div>
-            <div class="slide-content">
-                <div class="content-left">
-                    <h3>Daily Activities</h3>
-                    <ul>
-                        <li>🗣️ Standups</li>
-                        <li>📋 Sprint plannings</li>
-                        <li>🔄 Retrospectives</li>
-                        <li>🎯 Demos</li>
-                    </ul>
-                    
-                    <h3>Startup vs Big Tech</h3>
-                    <div class="comparison-table">
-                        <div class="comparison-column">
-                            <h4>Big Tech (LinkedIn)</h4>
-                            <ul>
-                                <li>📋 Structured processes</li>
-                                <li>🎯 Specialized roles</li>
-                                <li>🏛️ Established resources</li>
-                            </ul>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>Startup (GoLinks)</h4>
-                            <ul>
-                                <li>🎩 Wear all hats</li>
-                                <li>🥞 Full-stack expectations</li>
-                                <li>⚡ Speed and iteration</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="gosearch-architecture" class="step" data-x="6000" data-y="8000" data-z="0" data-scale="1">
+        <div id="gosearch-architecture" class="step" data-x="6000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>GoSearch Architecture</h2>
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <h3>Overview</h3>
+                    <h3>Indexer Architecture</h3>
                     <ul>
                         <li>🔍 Think Google Search for your internal company data</li>
-                        <li>📊 Indexer: Connects to 100+ data connectors</li>
-                        <li>📈 Search Ranking: Recency, Frequency, Semantic Search</li>
+                        <li>📊 Indexer: Connect and index data from SaaS Applications</li>
+                        <li>📈 Search Ranking: Recency, Frequency, Semantic Search, Term Frequency-Inverse Document Frequency, BM25, etc.</li>
                         <li>🕸️ Knowledge Graphs, Graph Databases</li>
+                        <li>🔢 Vector Databases</li>
                     </ul>
                     
-                    <h3>AI Components</h3>
+                    <h3>AI Architecture</h3>
                     <ul>
                         <li>🪟 Context Windows</li>
-                        <li>🧩 Chunking</li>
-                        <li>📊 Data Retrieval</li>
+                        <li>🧩 Document Chunking</li>
                         <li>💾 Prompt Caching</li>
                         <li>🤖 LLM Integration</li>
+                        <li>🔄 Retrieval Augmented Generation (RAG)</li>
+                        <li>📜 Model Context Protocol (MCP)</li>
+                        <li>🗃️ Multi-Modal Integrations</li>
                     </ul>
                 </div>
             </div>
@@ -711,8 +962,8 @@
                 <div class="content-left">
                     <h3>Current Technology Landscape</h3>
                     <ul>
-                        <li>🤖 AI-assisted development is now the norm</li>
-                        <li>🧠 AI Engineering as a new discipline</li>
+                        <li>🤖 AI-assisted development quickly becoming the norm</li>
+                        <li>🧠 AI Engineering as a new discipline, new concepts coming out every week</li>
                         <li>⚛️ Frontend trends: React Server Components</li>
                         <li>🥞 Full-stack expectations for all engineers</li>
                         <li>🎨 Frontend, Backend, DevOps, Design convergence</li>
@@ -723,14 +974,14 @@
                     <ul>
                         <li>🚀 Junior developers can write senior-level code with AI assistance</li>
                         <li>⚡ Learning new technologies is faster than ever</li>
-                        <li>⚠️ But basic coding skills are now table stakes</li>
                         <li>🧩 Problem-solving and system design become differentiators</li>
+                        <li>🆕 New AI concepts coming out every day, no one is an expert</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div id="industry-changes" class="step" data-x="9000" data-y="4000" data-z="0" data-scale="1">
+        <div id="industry-changes" class="step" data-x="9000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Industry Changes & Impact</h2>
             </div>
@@ -741,9 +992,8 @@
                         <li>💻 Interviews are changing, coding interviews evolving</li>
                         <li>🏢 In Person vs fully remote work</li>
                         <li>🤖 AI usage within companies</li>
-                        <li>🔧 Go, Python, Rust gaining popularity</li>
-                        <li>🐳 DevOps: Docker, Kubernetes, Terraform, Cloud Architects</li>
                         <li>📉 Less engineers to do the same amount of work</li>
+                        <li>"All code will be written by AI in 2026"</li>
                     </ul>
                     
                     <h3>Good or Bad for New Grads?</h3>
@@ -751,40 +1001,141 @@
                         <li>📈 More expectations - not just frontend or backend, Fullstack</li>
                         <li>⬆️ With less Engineers required, the bar will rise</li>
                         <li>🏆 Those willing to learn and adapt will win</li>
-                        <li>🤖 A new grad with AI can achieve what a Senior engineer could achieve</li>
-                        <li>👨‍🏫 Opportunity to teach industry professionals</li>
+                        <li>🤖 It's possible for a new grad assisted with AI to perform Senior level engineering work</li>
+                        <li>🎓 With new AI concepts weekly, anyone can spend time to become an expert</li>
+                        <li>👨‍🏫 Coding ≠ Engineering, Engineers will still be needed</li>
                     </ul>
                 </div>
             </div>
         </div>
-
-        <div id="interview-processes" class="step" data-x="9000" data-y="6000" data-z="0" data-scale="1">
+        <div id="interview-processes" class="step" data-x="9000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h2>Modern Interview Processes</h2>
+                <h2>Interview Funnel Reality</h2>
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <h3>GoLinks Interview Numbers</h3>
+                    <h3>The Reality</h3>
                     <ul>
-                        <li>📊 2594 applicants → 313 screened → 210 invited to quiz → 30 passed quiz → 20 projects → 7 selected</li>
-                        <li>💻 Technical assessments (Hacker Rank, no AI)</li>
-                        <li>🎮 Project-based challenges (e.g., Wordle clone) AI allowed</li>
-                        <li>🔄 Adaptation exercises (with AI allowed)</li>
+                        <li>🎯 Only 1 in 370 applicants gets selected</li>
+                        <li>📊 Most filtering happens at the resume stage</li>
+                        <li>💪 Persistence and preparation are key</li>
+                        <li>🔄 Each rejection is practice for the next opportunity</li>
                     </ul>
-                    
-                    <h3>What to Expect Generally</h3>
+                </div>
+
+                <div class="content-right">
+                    <div class="interview-funnel">
+                        <div class="funnel-container">
+                            <div class="funnel-stage-visual" data-stage="1">
+                                <div class="funnel-trapezoid" style="--top-width: 90%; --bottom-width: 80%; --color: #3498db;">
+                                    <div class="funnel-content">
+                                        <span class="funnel-number">2,594</span>
+                                        <span class="funnel-label">Applicants</span>
+                                        <span class="funnel-percentage">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="funnel-stage-visual" data-stage="2">
+                                <div class="funnel-trapezoid" style="--top-width: 80%; --bottom-width: 65%; --color: #2ecc71;">
+                                    <div class="funnel-content">
+                                        <span class="funnel-number">313</span>
+                                        <span class="funnel-label">Screened</span>
+                                        <span class="funnel-percentage">12.1%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="funnel-stage-visual" data-stage="3">
+                                <div class="funnel-trapezoid" style="--top-width: 65%; --bottom-width: 50%; --color: #f39c12;">
+                                    <div class="funnel-content">
+                                        <span class="funnel-number">210</span>
+                                        <span class="funnel-label">Invited to Quiz</span>
+                                        <span class="funnel-percentage">8.1%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="funnel-stage-visual" data-stage="4">
+                                <div class="funnel-trapezoid" style="--top-width: 50%; --bottom-width: 35%; --color: #e74c3c;">
+                                    <div class="funnel-content">
+                                        <span class="funnel-number">30</span>
+                                        <span class="funnel-label">Passed Quiz</span>
+                                        <span class="funnel-percentage">1.2%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="funnel-stage-visual" data-stage="5">
+                                <div class="funnel-trapezoid" style="--top-width: 35%; --bottom-width: 25%; --color: #9b59b6;">
+                                    <div class="funnel-content">
+                                        <span class="funnel-number">20</span>
+                                        <span class="funnel-label">Projects</span>
+                                        <span class="funnel-percentage">0.8%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="funnel-stage-visual" data-stage="6">
+                                <div class="funnel-trapezoid" style="--top-width: 25%; --bottom-width: 15%; --color: #1abc9c;">
+                                    <div class="funnel-content">
+                                        <span class="funnel-number">7</span>
+                                        <span class="funnel-label">Selected</span>
+                                        <span class="funnel-percentage">0.27%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="funnel-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Success Rate:</span>
+                                <span class="stat-value">0.27%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Competition:</span>
+                                <span class="stat-value">370:1 ratio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interview-details" class="step" data-x="9000" data-y="10000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Modern Interview Process Details</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Common Interview Stages</h3>
                     <ul>
-                        <li>💻 Might still do Hacker rank tests, prep for it</li>
-                        <li>🤖 May or may not allow AI, prep for both</li>
-                        <li>❓ Ask the recruiter what their policy on AI is</li>
-                        <li>📝 Always ask for feedback</li>
+                        <li>📋 Resume screening and initial review</li>
+                        <li>📞 Phone/video screening with recruiter</li>
+                        <li>💻 Technical assessments (HackerRank, Codility)</li>
+                        <li>🎮 Project-based challenges (e.g., Wordle clone)</li>
+                        <li>🔄 Live coding or adaptation exercises</li>
+                        <li>🤝 Cultural fit and behavioral interviews</li>
+                        <li>👥 Final round with team/leadership</li>
+                    </ul>
+                </div>
+                <div class="content-right">
+                    <h3>What to Expect & How to Prepare</h3>
+                    <ul>
+                        <li>💻 Might still do HackerRank tests - prep for algorithms</li>
+                        <li>🤖 May or may not allow AI - prepare for both scenarios</li>
+                        <li>❓ Always ask the recruiter about their AI policy</li>
+                        <li>📝 Always ask for feedback after each stage</li>
                         <li>🖊️ Could be whiteboard coding in person</li>
+                        <li>🎯 Practice explaining your thought process clearly</li>
+                        <li>🔄 Be ready to adapt and iterate on solutions</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div id="essential-skills" class="step" data-x="9000" data-y="8000" data-z="0" data-scale="1">
+        <div id="essential-skills" class="step" data-x="9000" data-y="12000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Essential Skills for New Graduates</h2>
             </div>
@@ -873,9 +1224,9 @@
                     
                     <h3>The Power of Relationships</h3>
                     <ul>
-                        <li>🤝 Fraternity connections → Co-founders at GoLinks</li>
+                        <li>🤝 UCI connections → Co-founders at GoLinks</li>
                         <li>🎓 UCI alumni network → Opportunities everywhere</li>
-                        <li>💎 Your network is your net worth</li>
+                        <li>🌎 Connections are made in the real world</li>
                     </ul>
                 </div>
             </div>
@@ -946,7 +1297,52 @@
             </div>
         </div>
 
-        <div id="resources" class="step" data-x="12000" data-y="10000" data-z="0" data-scale="1">
+        <div id="creator-examples" class="step" data-x="12000" data-y="10000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Being a Creator - Real Examples</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Our Journey as Creators</h3>
+                    <ul>
+                        <li>👨‍💻 Jorge and I started as technical founders</li>
+                        <li>🏆 Attended and competed in many hackathons</li>
+                        <li>🔨 Always built something concrete to present</li>
+                        <li>🌱 Each project was a learning opportunity</li>
+                        <li>🚀 Built momentum through consistent creation</li>
+                        <li>💡 Created solutions to real problems</li>
+                        <li>🤝 Connected with other creators and builders</li>
+                    </ul>
+
+                    <div class="quote">
+                        "Every opportunity is a chance to become a creator"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="creator-mindset" class="step transparent-bg" data-x="12000" data-y="3500" data-z="12500" data-rotate-y="5" data-rotate-z="5" data-scale="2" data-transition-duration="2000">
+            <div class="slide-title">
+                <h2>This Presentation was an Opportunity to Learn and Create</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Technologies</h3>
+                    <div class="typewriter-container">
+                        <ul>
+                            <li class="typewriter-item" data-text="• Could have easily built this with Google Slides"></li>
+                            <li class="typewriter-item" data-text="• Built with Cursor IDE"></li>
+                            <li class="typewriter-item" data-text="• Learned to use Claude Code with Sonnet 4 (Launched last Thursday)"></li>
+                            <li class="typewriter-item" data-text="• Learning new presentation technologies"></li>
+                            <li class="typewriter-item" data-text="• Learning how to improve prompts"></li>
+                            <li class="typewriter-item" data-text="• Always build, always present"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resources" class="step" data-x="12000" data-y="12000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Resources & Tools</h2>
             </div>
@@ -1060,26 +1456,140 @@
     <script src="lecture/d3-graphics.js"></script>
     <script src="lecture/impress2.js"></script>
     <script>
+        // Initialize impress.js but don't start yet
         var api = impress();
-        api.init();
+        
+        // Track if we need to navigate to a specific slide from URL hash
+        var targetSlideFromHash = null;
+        
+        // Function to get slide ID from URL hash
+        function getSlideIdFromHash() {
+            var hash = window.location.hash;
+            if (hash) {
+                // Remove # or #/ from the beginning
+                return hash.replace(/^#\/?/, '');
+            }
+            return null;
+        }
+        
+        // Function to properly initialize and navigate
+        function initializePresentation() {
+            // Get target slide from hash before initialization
+            targetSlideFromHash = getSlideIdFromHash();
+            
+            // Initialize impress.js
+            api.init();
+            
+            // If we have a target slide from hash, navigate to it after a short delay
+            // to ensure impress.js is fully initialized
+            if (targetSlideFromHash) {
+                setTimeout(function() {
+                    var targetElement = document.getElementById(targetSlideFromHash);
+                    if (targetElement) {
+                        api.goto(targetElement, 0); // 0 duration for immediate navigation
+                    }
+                }, 100);
+            }
+        }
 
         function start() {
             api.goto("start");
         }
-    </script>
-
-    <script>
-        // Track loading progress
+        
+        // Handle loading overlay and initialization
         document.addEventListener('DOMContentLoaded', function() {
+            // Start initialization immediately but keep overlay
+            initializePresentation();
+            
+            // Remove loading overlay after ensuring everything is set up
             setTimeout(() => {
                 const loadingOverlay = document.querySelector('.loading-overlay');
                 if (loadingOverlay) {
                     loadingOverlay.classList.add('hidden');
                     setTimeout(() => {
                         loadingOverlay.remove();
+                        
+                        // Final navigation to ensure we're on the right slide
+                        if (targetSlideFromHash) {
+                            var targetElement = document.getElementById(targetSlideFromHash);
+                            if (targetElement) {
+                                api.goto(targetElement, 0);
+                            }
+                        }
                     }, 500);
                 }
-            }, 1000);
+            }, 800); // Reduced from 1000ms to 800ms
+        });
+        
+        // Handle hash changes after initialization
+        window.addEventListener('hashchange', function() {
+            var slideId = getSlideIdFromHash();
+            if (slideId) {
+                var targetElement = document.getElementById(slideId);
+                if (targetElement) {
+                    api.goto(targetElement);
+                }
+            }
+        });
+        
+        // Typewriter Animation Functions
+        function typewriterEffect(element, text, speed = 50) {
+            return new Promise((resolve) => {
+                element.textContent = '';
+                element.classList.add('typing');
+                
+                let i = 0;
+                const timer = setInterval(() => {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(timer);
+                        element.classList.remove('typing');
+                        element.classList.add('typed');
+                        resolve();
+                    }
+                }, speed);
+            });
+        }
+        
+        async function startTypewriterSequence(container) {
+            const items = container.querySelectorAll('.typewriter-item');
+            
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                const text = item.getAttribute('data-text');
+                
+                // Add a delay between items
+                if (i > 0) {
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                }
+                
+                await typewriterEffect(item, text, 80);
+            }
+        }
+        
+        // Listen for slide changes to trigger typewriter animation
+        document.addEventListener('impress:stepenter', function(event) {
+            const currentSlide = event.target;
+            
+            // Check if this is the creator-mindset slide
+            if (currentSlide.id === 'creator-mindset') {
+                const typewriterContainer = currentSlide.querySelector('.typewriter-container');
+                if (typewriterContainer) {
+                    // Reset all items
+                    const items = typewriterContainer.querySelectorAll('.typewriter-item');
+                    items.forEach(item => {
+                        item.textContent = '';
+                        item.classList.remove('typing', 'typed');
+                    });
+                    
+                    // Start the typewriter sequence after a short delay
+                    setTimeout(() => {
+                        startTypewriterSequence(typewriterContainer);
+                    }, 500);
+                }
+            }
         });
     </script>
 
