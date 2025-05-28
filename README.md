@@ -1,4 +1,4 @@
-# Life after Graduation: A Guide for New Graduates
+# From UCI to GoLinks
 
 A presentation by Sean Thomas Burke, Head of Engineering at GoLinks, delivered as a guest lecture at UC Irvine.
 

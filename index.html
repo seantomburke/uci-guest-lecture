@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>From College to Career: A Tech Journey</title>
+    <title>From UCI to GoLinks</title>
 
     <!-- Basic Meta Tags -->
     <meta name="description" content="A presentation on tech career journey and advice for graduates" />
@@ -16,7 +16,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://seantomburke.github.io/uci-guest-lecture" />
-    <meta property="og:title" content="From College to Career: A Tech Journey" />
+    <meta property="og:title" content="From UCI to GoLinks" />
     <meta property="og:description" content="A presentation on tech career journey and advice for graduates" />
     <meta property="og:image" content="" />
     <meta property="og:image:width" content="1200" />
@@ -25,7 +25,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://seantomburke.github.io/uci-guest-lecture" />
-    <meta name="twitter:title" content="From College to Career: A Tech Journey" />
+    <meta name="twitter:title" content="From UCI to GoLinks" />
     <meta name="twitter:description" content="A presentation on tech career journey and advice for graduates" />
     <meta name="twitter:image" content="" />
 
@@ -815,12 +815,12 @@
         <!-- 1. Title Slide -->
         <div id="title" class="step single-column" data-x="0" data-y="0" data-z="0" data-scale="1">
             <div class="slide-title">
-                <h1>Life after Graduation</h1>
-                <h2 class="lead">A Guide for New Graduates</h2>
+                <h1>From UCI to GoLinks</h1>
+                <h2 class="lead">A journey from student to startup founder</h2>
             </div>
             <div class="slide-content">
                 <img src="lecture/photos/golinks-at-the-uci-career-fair.jpg" alt="GoLinks at the UCI Career Fair" class="slide-image-large">
-                <div class="image-caption-large">GoLinks team at the UCI Career Fair</div>
+                <div class="image-caption-large">The GoLinks founding team at the UCI Career Fair</div>
             </div>
             <p>Sean Thomas Burke<br>Head of Engineering at GoLinks</p>
         </div>
@@ -1296,8 +1296,8 @@
                     </ul>
                 </div>
                 <div class="image-right">
-                    <img src="lecture/photos/golinks-current-customers.png" alt="GoLinks current customers" class="slide-image">
-                    <div class="image-caption">GoLinks serving customers across industries</div>
+                    <div id="business-venn-diagram" style="width: 500px; height: 400px;"></div>
+                    <div class="image-caption">The three pillars of business and their intersections</div>
                 </div>
             </div>
         </div>
@@ -1944,7 +1944,159 @@
                     }, 500);
                 }
             }
+            
+            // Check if this is the essential-skills slide for Venn diagram
+            if (currentSlide.id === 'essential-skills') {
+                setTimeout(() => {
+                    createBusinessVennDiagram();
+                }, 500);
+            }
         });
+        
+        // Business Venn Diagram Function
+        function createBusinessVennDiagram() {
+            const container = document.getElementById('business-venn-diagram');
+            if (!container || container.querySelector('svg')) return; // Already created
+            
+            const width = 500;
+            const height = 400;
+            const margin = 40;
+            
+            // Clear any existing content
+            container.innerHTML = '';
+            
+            const svg = d3.select('#business-venn-diagram')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+            
+            // Circle parameters
+            const radius = 80;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const offset = 50;
+            
+            // Define circle centers
+            const circles = [
+                { id: 'product', cx: centerX - offset, cy: centerY - offset/2, r: radius, color: '#3498db', label: 'Product' },
+                { id: 'marketing', cx: centerX + offset, cy: centerY - offset/2, r: radius, color: '#e74c3c', label: 'Marketing' },
+                { id: 'sales', cx: centerX, cy: centerY + offset, r: radius, color: '#2ecc71', label: 'Sales' }
+            ];
+            
+            // Create gradient definitions
+            const defs = svg.append('defs');
+            
+            circles.forEach(circle => {
+                const gradient = defs.append('radialGradient')
+                    .attr('id', `gradient-${circle.id}`)
+                    .attr('cx', '50%')
+                    .attr('cy', '50%')
+                    .attr('r', '50%');
+                
+                gradient.append('stop')
+                    .attr('offset', '0%')
+                    .attr('stop-color', circle.color)
+                    .attr('stop-opacity', 0.3);
+                
+                gradient.append('stop')
+                    .attr('offset', '100%')
+                    .attr('stop-color', circle.color)
+                    .attr('stop-opacity', 0.1);
+            });
+            
+            // Create the circles
+            const circleElements = svg.selectAll('.venn-circle')
+                .data(circles)
+                .enter()
+                .append('circle')
+                .attr('class', 'venn-circle')
+                .attr('cx', d => d.cx)
+                .attr('cy', d => d.cy)
+                .attr('r', d => d.r)
+                .attr('fill', d => `url(#gradient-${d.id})`)
+                .attr('stroke', d => d.color)
+                .attr('stroke-width', 2)
+                .attr('opacity', 0)
+                .transition()
+                .duration(1000)
+                .delay((d, i) => i * 200)
+                .attr('opacity', 1);
+            
+            // Add circle labels
+            svg.selectAll('.circle-label')
+                .data(circles)
+                .enter()
+                .append('text')
+                .attr('class', 'circle-label')
+                .attr('x', d => {
+                    if (d.id === 'product') return d.cx - 60;
+                    if (d.id === 'marketing') return d.cx + 60;
+                    return d.cx;
+                })
+                .attr('y', d => {
+                    if (d.id === 'sales') return d.cy + 100;
+                    return d.cy - 60;
+                })
+                .attr('text-anchor', 'middle')
+                .attr('font-family', 'Manrope, sans-serif')
+                .attr('font-size', '18px')
+                .attr('font-weight', '600')
+                .attr('fill', d => d.color)
+                .attr('opacity', 0)
+                .text(d => d.label)
+                .transition()
+                .duration(800)
+                .delay((d, i) => i * 200 + 500)
+                .attr('opacity', 1);
+            
+            // Add intersection labels
+            const intersections = [
+                { x: centerX - 25, y: centerY - 15, text: 'Growth\nEngineering', size: '12px' },
+                { x: centerX + 25, y: centerY - 15, text: 'Marketing\nTech', size: '12px' },
+                { x: centerX, y: centerY + 25, text: 'Sales\nEngineering', size: '12px' },
+                { x: centerX, y: centerY - 5, text: 'Business\nStrategy', size: '14px', weight: '700', color: '#ffc107' }
+            ];
+            
+            intersections.forEach((intersection, i) => {
+                const lines = intersection.text.split('\n');
+                const textGroup = svg.append('g')
+                    .attr('opacity', 0);
+                
+                lines.forEach((line, lineIndex) => {
+                    textGroup.append('text')
+                        .attr('x', intersection.x)
+                        .attr('y', intersection.y + (lineIndex * 14) - ((lines.length - 1) * 7))
+                        .attr('text-anchor', 'middle')
+                        .attr('font-family', 'Manrope, sans-serif')
+                        .attr('font-size', intersection.size)
+                        .attr('font-weight', intersection.weight || '500')
+                        .attr('fill', intersection.color || '#ffffff')
+                        .attr('text-shadow', '0 1px 2px rgba(0,0,0,0.5)')
+                        .text(line);
+                });
+                
+                textGroup.transition()
+                    .duration(600)
+                    .delay(1500 + i * 150)
+                    .attr('opacity', 1);
+            });
+            
+            // Add hover interactions
+            circleElements.on('mouseover', function(event, d) {
+                d3.select(this)
+                    .transition()
+                    .duration(200)
+                    .attr('stroke-width', 3)
+                    .attr('opacity', 0.8);
+            })
+            .on('mouseout', function(event, d) {
+                d3.select(this)
+                    .transition()
+                    .duration(200)
+                    .attr('stroke-width', 2)
+                    .attr('opacity', 1);
+            });
+        }
     </script>
 
 </body>
