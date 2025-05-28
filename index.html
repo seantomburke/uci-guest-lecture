@@ -696,6 +696,9 @@
         /* Typewriter Animation Styles */
         .typewriter-container {
             font-family: 'Courier New', monospace;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
         }
         
         .typewriter-item {
@@ -704,7 +707,6 @@
             position: relative;
             margin-bottom: 0.5rem;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
             padding: 3px;
         }
         
@@ -713,10 +715,10 @@
         }
         
         .typewriter-item.typing::after {
-            content: '|';
-            color: #ffc107;
-            font-weight: bold;
-            animation: blink-caret 0.75s step-end infinite;
+            content: '│';
+            color: #00d4aa;
+            font-weight: normal;
+            animation: blink-caret 1.2s step-end infinite;
             position: absolute;
             margin-left: 0.1em;
             display: inline;
@@ -724,6 +726,21 @@
         
         .typewriter-item.typed {
             opacity: 1;
+        }
+        
+        /* New class to keep the blinking cursor permanently */
+        .typewriter-item.typed-with-cursor {
+            opacity: 1;
+        }
+        
+        .typewriter-item.typed-with-cursor::after {
+            content: '│';
+            color: #00d4aa;
+            font-weight: normal;
+            animation: blink-caret 1.2s step-end infinite;
+            position: absolute;
+            margin-left: 0.1em;
+            display: inline;
         }
         
         @keyframes typewriter-appear {
@@ -748,6 +765,35 @@
             line-height: 1.6;
             display: block;
             width: 100%;
+        }
+        
+        /* Unstyled link class to remove all link styling */
+        .unstyled-link {
+            color: inherit !important;
+            text-decoration: none !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            font: inherit !important;
+            cursor: inherit !important;
+            outline: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            transition: none !important;
+        }
+        
+        .unstyled-link:hover,
+        .unstyled-link:focus,
+        .unstyled-link:active,
+        .unstyled-link:visited {
+            color: inherit !important;
+            text-decoration: none !important;
+            background: none !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
         }
     </style>
 
@@ -1436,13 +1482,13 @@
                 <div class="content-left">
                     <div class="typewriter-container">
                         <ul>
-                            <li class="typewriter-item" data-text="• Could have easily built this with Google Slides"></li>
-                            <li class="typewriter-item" data-text="• Built A Web app with Cursor IDE"></li>
-                            <li class="typewriter-item" data-text="• Learned Claude Code with Opus 4 (Launched last Thursday)"></li>
-                            <li class="typewriter-item" data-text="• Learned new presentation technologies"></li>
-                            <li class="typewriter-item" data-text="• Learning how to improve prompts"></li>
-                            <li class="typewriter-item" data-text="• Went overboard 🚢 with the emojis 🙃"></li>
-                            <li class="typewriter-item" data-text="• Always build, always present"></li>
+                            <li class="typewriter-item" data-text="# Could have easily built this with Google Slides"></li>
+                            <li class="typewriter-item" data-text="# Built A Web app with Cursor IDE"></li>
+                            <li class="typewriter-item" data-text="# Learned Claude Code with Opus 4 (Launched last Thursday)"></li>
+                            <li class="typewriter-item" data-text="# Learned new presentation technologies"></li>
+                            <li class="typewriter-item" data-text="# Learning how to improve prompts"></li>
+                            <li class="typewriter-item" data-text="# Went overboard 🚢 with the emojis 🙃"></li>
+                            <li class="typewriter-item" data-text="# Always build, always present"></li>
                         </ul>
                     </div>
                 </div>
@@ -1521,31 +1567,216 @@
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 300px; gap: 20px;">
-                        <!-- Google Logo -->
-                        <svg width="272" height="92" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: pixelated; shape-rendering: geometricPrecision;">
-                            <g fill="none" fill-rule="evenodd">
-                                <path d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#EA4335"/>
-                                <path d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#FBBC05"/>
-                                <path d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" fill="#34A853"/>
-                                <path d="M225 3v65h-9.5V3h9.5z" fill="#EA4335"/>
-                                <path d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" fill="#FBBC05"/>
-                                <path d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z" fill="#4285F4"/>
-                            </g>
-                        </svg>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 600px; gap: 60px;">
+                        <!-- Perplexity Logo -->
+                        <div style="width: 400px; height: auto; margin-bottom: 40px;">
+                            <svg viewBox="0 0 962 202" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                                <path d="M310.846 43.922H320.632V63.8822H307.966C298.037 63.8822 290.638 66.2483 285.737 70.9803C280.852 75.7123 278.401 83.4772 278.401 94.2751V159.698H258.4V44.3666H278.401V62.7707C278.401 63.8028 278.926 64.3269 279.961 64.3269C280.549 64.3269 280.995 64.1839 281.297 63.8822C281.6 63.5805 281.886 62.993 282.188 62.1038C286.039 49.9879 295.602 43.922 310.862 43.922H310.846ZM441.502 68.646C446.753 77.8877 449.395 89.0191 449.395 102.024C449.395 115.029 446.769 126.161 441.502 135.402C436.235 144.644 429.425 151.552 421.055 156.141C412.685 160.73 403.679 163.016 394.052 163.016C375.084 163.016 361.75 155.474 354.048 140.388C353.459 139.213 352.712 138.61 351.82 138.61C350.929 138.61 350.484 139.055 350.484 139.944V201.825H330.482V44.3666H350.484V64.1045C350.484 64.9938 350.929 65.4384 351.82 65.4384C352.712 65.4384 353.444 64.8509 354.048 63.6599C361.75 48.5746 375.084 41.032 394.052 41.032C403.679 41.032 412.685 43.3186 421.055 47.9077C429.425 52.4968 436.235 59.4043 441.502 68.646ZM429.393 102.024C429.393 88.4157 425.733 77.8083 418.397 70.2022C411.062 62.596 401.403 58.785 389.389 58.785C377.376 58.785 367.717 62.596 360.381 70.2022C353.046 77.8242 350.357 88.4316 350.357 102.024C350.357 115.617 353.046 126.24 360.381 133.846C367.717 141.468 377.392 145.263 389.389 145.263C401.387 145.263 411.062 141.452 418.397 133.846C425.733 126.24 429.393 115.617 429.393 102.024ZM111.004 68.8207C116.255 78.0624 118.897 89.1938 118.897 102.199C118.897 115.204 116.271 126.335 111.004 135.577C105.737 144.819 98.9266 151.726 90.5568 156.315C82.1869 160.904 73.1806 163.191 63.5536 163.191C44.5862 163.191 31.2517 155.648 23.5502 140.563C22.9614 139.388 22.2135 138.785 21.3225 138.785C20.4314 138.785 19.9858 139.229 19.9858 140.119V202H0V44.5413H20.0017V64.2792C20.0017 65.1685 20.4473 65.6131 21.3384 65.6131C22.2295 65.6131 22.9614 65.0256 23.5661 63.8346C31.2676 48.7493 44.6021 41.2067 63.5696 41.2067C73.1965 41.2067 82.2028 43.4933 90.5727 48.0824C98.9426 52.6715 105.753 59.579 111.02 68.8207H111.004ZM98.8948 102.199C98.8948 88.5904 95.235 77.983 87.8994 70.3769C80.5639 62.7707 70.9051 58.9597 58.8913 58.9597C46.8776 58.9597 37.2188 62.7707 29.8833 70.3769C22.5477 77.9989 19.8585 88.6062 19.8585 102.199C19.8585 115.792 22.5477 126.415 29.8833 134.021C37.2188 141.643 46.8776 145.438 58.8913 145.438C70.9051 145.438 80.5639 141.627 87.8994 134.021C95.235 126.415 98.8948 115.792 98.8948 102.199ZM221.578 123.08H242.694C239.878 133.878 234.133 143.231 225.477 151.139C216.805 159.047 204.393 163.001 188.242 163.001C176.085 163.001 165.392 160.523 156.131 155.569C146.87 150.615 139.726 143.564 134.682 134.386C129.637 125.224 127.123 114.426 127.123 102.008C127.123 89.5908 129.574 78.7929 134.459 69.6305C139.344 60.4682 146.202 53.4019 155.017 48.4476C163.833 43.4933 174.16 41.0161 186.015 41.0161C197.869 41.0161 207.687 43.4615 215.914 48.3365C224.14 53.2114 230.283 59.6901 234.356 67.7409C238.43 75.8076 240.466 84.6364 240.466 94.2434V107.55H148.239C148.971 119.079 152.869 128.257 159.902 135.053C166.936 141.849 176.388 145.263 188.242 145.263C197.869 145.263 205.252 143.31 210.36 139.388C215.468 135.466 219.208 130.035 221.578 123.08ZM148.462 90.9246H218.253C218.253 80.873 215.659 72.9969 210.472 67.2963C205.284 61.6115 197.137 58.7532 186.03 58.7532C175.656 58.7532 167.174 61.5321 160.587 67.074C153.999 72.6158 149.957 80.5713 148.477 90.9087L148.462 90.9246ZM465.227 159.682H485.229V0H465.227V159.698V159.682ZM742.753 31.7744H766.113V6.8122H742.753V31.7744ZM825.163 142.5C821.535 142.866 819.339 143.056 818.607 143.056C817.573 143.056 816.745 142.755 816.157 142.167C815.568 141.579 815.266 140.77 815.266 139.722C815.266 138.991 815.457 136.8 815.823 133.179C816.189 129.559 816.379 123.969 816.379 116.443V61.2622H844.91L839.293 44.3666H816.395V13.3068H796.394V44.3508H774.642V61.2463H796.394V121.969C796.394 134.688 799.512 144.152 805.734 150.361C811.956 156.569 821.44 159.682 834.185 159.682H849.748V141.945H841.966C834.408 141.945 828.807 142.135 825.179 142.5H825.163ZM942.198 44.3508L909.084 141.119C908.639 142.31 907.939 143.866 905.663 143.866C903.388 143.866 902.688 142.31 902.242 141.119L869.129 44.3508H848.729L887.078 159.682H900.635C901.526 159.682 902.194 159.761 902.64 159.904C903.086 160.047 903.451 160.412 903.754 161.016C904.343 161.905 904.263 163.239 903.531 165.001L897.309 181.849C896.418 184.072 894.716 185.184 892.201 185.184C891.31 185.184 889.242 184.993 885.98 184.628C882.718 184.263 878.501 184.072 873.314 184.072H857.083V201.809H878.421C890.865 201.809 898.359 199.698 904.804 195.49C911.248 191.281 916.245 183.85 919.809 173.195L961.229 48.7652V44.3349H942.198V44.3508ZM677.418 87.3835L646.086 44.3508H624.08V48.7811L661.633 98.6896L615.853 155.251V159.682H638.305L674.76 113.33L708.765 159.682H730.326V155.251L690.545 102.024L733.667 49.0193V44.3666H711.215L677.433 87.3994L677.418 87.3835ZM744.886 159.682H764.887V44.3666H744.886V159.698V159.682ZM616.76 123.08C613.943 133.878 608.199 143.231 599.543 151.139C590.871 159.047 578.459 163.001 562.308 163.001C550.151 163.001 539.458 160.523 530.197 155.569C520.936 150.615 513.792 143.564 508.747 134.386C503.703 125.224 501.189 114.426 501.189 102.008C501.189 89.5908 503.64 78.7929 508.525 69.6305C513.41 60.4682 520.268 53.4019 529.083 48.4476C537.899 43.4933 548.226 41.0161 560.08 41.0161C571.935 41.0161 581.753 43.4615 589.98 48.3365C598.206 53.2114 604.348 59.6901 608.422 67.7409C612.495 75.8076 614.532 84.6364 614.532 94.2434V107.55H522.305C523.037 119.079 526.935 128.257 533.968 135.053C541.002 141.849 550.453 145.263 562.308 145.263C571.935 145.263 579.318 143.31 584.426 139.388C589.534 135.466 593.273 130.035 595.644 123.08H616.76ZM522.527 90.9246H592.319C592.319 80.873 589.725 72.9969 584.538 67.2963C579.35 61.6115 571.203 58.7532 560.096 58.7532C549.721 58.7532 541.24 61.5321 534.653 67.074C528.065 72.6158 524.023 80.5713 522.543 90.9087L522.527 90.9246Z" fill="#ffffff"/>
+                            </svg>
+                        </div>
                         
-                        <!-- Google Search Box -->
-                        <div style="background-color: #fff; border-radius: 24px; box-shadow: 0 2px 5px 1px rgba(64,60,67,.16); padding: 12px 16px; width: 100%; max-width: 584px; border: 1px solid #dfe1e5; -webkit-backface-visibility: hidden; backface-visibility: hidden; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <svg style="width: 20px; height: 20px; color: #9aa0a6; shape-rendering: geometricPrecision;" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                                </svg>
-                                <a href="https://www.linkedin.com/in/seantomburke/" target="_blank" style="color: #202124; text-decoration: none; font-size: 16px; font-family: arial, sans-serif; flex: 1; outline: none; border: none; background: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;" class="typewriter">@seantomburke</a>
+                        <!-- Perplexity Search Box -->
+                        <div style="background-color: #2a2a2a; border-radius: 48px; padding: 8px; width: 100%; max-width: 1200px; border: 2px solid #404040; position: relative; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);">
+                            <!-- Search Input Area -->
+                            <div style="background-color: #2a2a2a; border-radius: 40px; padding: 24px 32px; margin-bottom: 16px;">
+                                <div style="color: white; font-size: 32px; font-family: 'Manrope', sans-serif; font-weight: 400;">
+                                    <a href="https://go.golinks.com/seantomburke" target="_blank" class="unstyled-link" style="color: white;">
+                                        <span id="typewriter-text" class="typewriter-item"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                // Typewriter animation for seantomburke
+                                function typewriterAnimation() {
+                                    // Add 1 second delay before starting the animation
+                                    setTimeout(() => {
+                                        const text = "seantomburke";
+                                        const element = document.getElementById('typewriter-text');
+                                        let index = 0;
+                                        
+                                        // Add typing class to show cursor
+                                        element.classList.add('typing');
+                                        
+                                        function typeChar() {
+                                            if (index < text.length) {
+                                                element.textContent = text.substring(0, index + 1);
+                                                index++;
+                                                setTimeout(typeChar, 100); // 100ms delay between characters
+                                            } else {
+                                                // Remove typing class and add typed-with-cursor class to keep the blinking cursor
+                                                element.classList.remove('typing');
+                                                element.classList.add('typed-with-cursor');
+                                            }
+                                        }
+                                        
+                                        typeChar();
+                                    }, 1000); // 1 second delay before starting
+                                }
+                                
+                                // Start animation when slide becomes active
+                                document.addEventListener('impress:stepenter', function(event) {
+                                    if (event.target.id === 'contact') {
+                                        setTimeout(typewriterAnimation, 500); // Small delay before starting
+                                    }
+                                });
+                            </script>
+                            
+                            <!-- Bottom Controls -->
+                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 32px;">
+                                <!-- Left side - Search and Research buttons -->
+                                <div style="display: flex; align-items: center; gap: 16px;">
+                                    <!-- Search Button (Active) -->
+                                    <div style="display: flex; align-items: center; gap: 12px; background-color: #00d4aa; color: #000; padding: 12px 24px; border-radius: 32px; font-size: 28px; font-weight: 500; cursor: pointer;">
+                                        <svg style="width: 32px; height: 32px;" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                        </svg>
+                                        Search
+                                    </div>
+                                    
+                                    <!-- Research Button (Inactive) -->
+                                    <div style="display: flex; align-items: center; gap: 12px; color: #888; padding: 12px 24px; border-radius: 32px; font-size: 28px; font-weight: 500; cursor: pointer;">
+                                        <svg style="width: 32px; height: 32px;" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                        </svg>
+                                        Research
+                                    </div>
+                                </div>
+                                
+                                <!-- Right side icons -->
+                                <div style="display: flex; align-items: center; gap: 24px;">
+                                    <!-- Attachment Icon -->
+                                    <svg style="width: 40px; height: 40px; color: #888; cursor: pointer;" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                    </svg>
+                                    
+                                    <!-- Globe Icon -->
+                                    <svg style="width: 40px; height: 40px; color: #888; cursor: pointer;" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A1,1 0 0,0 10,17H11V19.93M19.9,13.5C19.9,13.64 19.9,13.77 19.9,13.91A1,1 0 0,0 19,15V16.5H17.5C17.5,17.6 16.6,18.5 15.5,18.5H14V16.5A1,1 0 0,0 13,15.5H11V13.5H13A1,1 0 0,0 14,12.5V10.5H16A1,1 0 0,0 17,9.5A1,1 0 0,0 16,8.5H13.83C13.42,6.93 12.86,5.44 12.16,4.07C16.95,4.58 19.9,8.69 19.9,13.5Z"/>
+                                    </svg>
+                                    
+                                    <!-- Paperclip Icon -->
+                                    <svg style="width: 40px; height: 40px; color: #888; cursor: pointer;" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/>
+                                    </svg>
+                                    
+                                    <!-- Microphone Icon -->
+                                    <svg style="width: 40px; height: 40px; color: #888; cursor: pointer;" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+                                    </svg>
+                                    
+                                    <!-- Focus Button -->
+                                    <div style="width: 64px; height: 64px; border-radius: 50%; background-color: #00d4aa; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                        <svg style="width: 32px; height: 32px; color: #000;" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- QR Code Toast (Perplexity style) -->
+            <div id="qr-toast" style="
+                position: fixed;
+                bottom: 60px;
+                right: 60px;
+                background-color: #1a1a1a;
+                border: 1px solid #404040;
+                border-radius: 40px;
+                padding: 64px;
+                box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease-out;
+                z-index: 1000;
+                max-width: 640px;
+            ">
+                <!-- Close Button -->
+                <button onclick="hideQRToast()" style="
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    background: none;
+                    border: none;
+                    color: #888888;
+                    cursor: pointer;
+                    padding: 12px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: color 0.2s ease;
+                " onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#888888'">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+                
+                <!-- QR Code Image -->
+                <div style="flex-shrink: 0;">
+                    <img src="lecture/images/seantomburke.png" alt="QR Code for seantomburke" style="
+                        width: 320px;
+                        height: 320px;
+                        border-radius: 20px;
+                        background-color: white;
+                        padding: 16px;
+                    ">
+                </div>
+                
+                <!-- Toast Content -->
+                <div style="text-align: center;">
+                    <div style="color: #ffffff; font-size: 36px; font-weight: 600; margin-bottom: 12px;">
+                        Scan to connect
+                    </div>
+                    <div style="color: #888888; font-size: 24px; line-height: 1.4;">
+                        Quick access to my profile and contact info
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                // Show QR toast when contact slide becomes active
+                function showQRToast() {
+                    const toast = document.getElementById('qr-toast');
+                    if (toast) {
+                        setTimeout(() => {
+                            toast.style.opacity = '1';
+                            toast.style.transform = 'translateY(0)';
+                        }, 2000); // Show after 2 seconds
+                    }
+                }
+                
+                // Hide QR toast
+                function hideQRToast() {
+                    const toast = document.getElementById('qr-toast');
+                    if (toast) {
+                        toast.style.opacity = '0';
+                        toast.style.transform = 'translateY(20px)';
+                    }
+                }
+                
+                // Update the existing event listener to include QR toast
+                document.addEventListener('impress:stepenter', function(event) {
+                    if (event.target.id === 'contact') {
+                        setTimeout(typewriterAnimation, 500);
+                        showQRToast(); // Show QR toast when entering contact slide
+                    }
+                });
+                
+                // Hide QR toast when leaving contact slide
+                document.addEventListener('impress:stepleave', function(event) {
+                    if (event.target.id === 'contact') {
+                        hideQRToast();
+                    }
+                });
+            </script>
         </div>
 
 
