@@ -1,0 +1,1381 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>From College to Career: A Tech Journey</title>
+
+    <!-- Basic Meta Tags -->
+    <meta name="description" content="A presentation on tech career journey and advice for graduates" />
+    <meta name="author" content="Sean Burke" />
+    <meta name="keywords" content="tech career, college to career, tech industry, job search" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://seantomburke.github.io/uci-guest-lecture" />
+    <meta property="og:title" content="From College to Career: A Tech Journey" />
+    <meta property="og:description" content="A presentation on tech career journey and advice for graduates" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://seantomburke.github.io/uci-guest-lecture" />
+    <meta name="twitter:title" content="From College to Career: A Tech Journey" />
+    <meta name="twitter:description" content="A presentation on tech career journey and advice for graduates" />
+    <meta name="twitter:image" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="lecture/favicon.ico" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link href="lecture/styles.css" rel="stylesheet" />
+
+    <style>
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Bootstrap-inspired Typography */
+        * {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        
+        /* Typography Scale - Bootstrap inspired */
+        h1, .h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+        
+        h2, .h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+        }
+        
+        h3, .h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        
+        h4, .h4 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.35;
+            margin-bottom: 0.5rem;
+        }
+        
+        h5, .h5 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+        
+        h6, .h6 {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+        
+        p, .p {
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .lead {
+            font-size: 2.25rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        small, .small {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        /* Text Colors - Bootstrap inspired */
+        .text-primary { color: #0d6efd !important; }
+        .text-secondary { color: #6c757d !important; }
+        .text-success { color: #198754 !important; }
+        .text-info { color: #0dcaf0 !important; }
+        .text-warning { color: #ffc107 !important; }
+        .text-danger { color: #dc3545 !important; }
+        .text-light { color: #f8f9fa !important; }
+        .text-dark { color: #212529 !important; }
+        .text-muted { color: #6c757d !important; }
+        .text-white { color: #ffffff !important; }
+        
+        /* Font Weights */
+        .fw-light { font-weight: 300 !important; }
+        .fw-normal { font-weight: 400 !important; }
+        .fw-medium { font-weight: 500 !important; }
+        .fw-semibold { font-weight: 600 !important; }
+        .fw-bold { font-weight: 700 !important; }
+        .fw-bolder { font-weight: 800 !important; }
+        
+        /* Lists */
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        
+        ul {
+            list-style-type: disc;
+        }
+        
+        ol {
+            list-style-type: decimal;
+        }
+        
+        li {
+            font-size: 2rem;
+            line-height: 1.6;
+            margin-bottom: 0.25rem;
+        }
+        
+        li strong {
+            font-weight: bold;
+            color: white;
+        }
+        
+        /* Layout */
+        .step {
+            width: 100vw;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow-y: hidden;
+            background: linear-gradient(135deg, #091f32 0%, #000000 100%);
+            color: rgb(180, 180, 180);
+        }
+        
+        .slide-title {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        
+        .slide-title h1,
+        .slide-title h2 {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .slide-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            flex: 1;
+        }
+        
+        .content-left {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .content-left h3 {
+            color: #ffc107;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .content-left p,
+        .content-left li {
+            color: rgb(150, 150, 150, .95);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .image-right {
+            flex: 0 0 600px;
+            align-self: flex-start;
+        }
+        
+        /* Special layouts for specific slide types */
+        .step.single-column {
+            align-items: center;
+            text-align: center;
+        }
+        
+        .step.single-column .slide-content {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .step.single-column .image-placeholder {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+        
+        /* Bootstrap-inspired Components */
+        .image-placeholder {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 1.5rem;
+            box-sizing: border-box;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-column {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .comparison-column h3 {
+            color: #ffc107;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: #212529;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.25rem;
+            font-weight: 300;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 0.5rem;
+            border-left: 4px solid #ffc107;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+        
+        /* Bootstrap-inspired Badges and Labels */
+        .badge {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+        }
+        
+        .badge-primary { background-color: #0d6efd; }
+        .badge-secondary { background-color: #6c757d; }
+        .badge-success { background-color: #198754; }
+        .badge-warning { background-color: #ffc107; color: #212529; }
+        .badge-danger { background-color: #dc3545; }
+        .badge-info { background-color: #0dcaf0; }
+        
+        /* Bootstrap-inspired Buttons */
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        .btn-primary {
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        
+        /* Bootstrap-inspired Image and Caption Styles */
+        .slide-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        
+        .slide-image-large {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .image-caption {
+            font-style: italic;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+        }
+        
+        .image-caption-large {
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+        }
+        
+        /* Bootstrap-inspired Spacing Utilities */
+        .mb-1 { margin-bottom: 0.25rem !important; }
+        .mb-2 { margin-bottom: 0.5rem !important; }
+        .mb-3 { margin-bottom: 1rem !important; }
+        .mb-4 { margin-bottom: 1.5rem !important; }
+        .mb-5 { margin-bottom: 3rem !important; }
+        
+        .mt-1 { margin-top: 0.25rem !important; }
+        .mt-2 { margin-top: 0.5rem !important; }
+        .mt-3 { margin-top: 1rem !important; }
+        .mt-4 { margin-top: 1.5rem !important; }
+        .mt-5 { margin-top: 3rem !important; }
+        
+        .p-1 { padding: 0.25rem !important; }
+        .p-2 { padding: 0.5rem !important; }
+        .p-3 { padding: 1rem !important; }
+        .p-4 { padding: 1.5rem !important; }
+        .p-5 { padding: 3rem !important; }
+        
+        /* Bootstrap-inspired Text Alignment */
+        .text-left { text-align: left !important; }
+        .text-center { text-align: center !important; }
+        .text-right { text-align: right !important; }
+        .text-justify { text-align: justify !important; }
+        
+        /* Bootstrap-inspired Display Utilities */
+        .d-block { display: block !important; }
+        .d-inline { display: inline !important; }
+        .d-inline-block { display: inline-block !important; }
+        .d-flex { display: flex !important; }
+        .d-none { display: none !important; }
+        
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            h1, .h1 { font-size: 2rem; }
+            h2, .h2 { font-size: 1.75rem; }
+            h3, .h3 { font-size: 1.5rem; }
+            .step { padding: 2rem; }
+            .slide-content { flex-direction: column; gap: 2rem; }
+            .image-right { flex: none; width: 100%; }
+        }
+    </style>
+
+</head>
+
+<body class="impress-not-supported">
+
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="fallback-message">
+        <p>Your browser doesn't support the features required by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+
+    <div id="impress" data-transition-duration="500">
+
+        <!-- Title Slide -->
+        <div id="title" class="step single-column" data-x="0" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>From College to Career: A Tech Journey</h1>
+                <h2 class="lead">A Guide for New Graduates</h2>
+            </div>
+            <div class="slide-content">
+                <div class="image-placeholder">
+                    <p>Sean Thomas Burke<br>Head of Engineering at GoLinks</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Journey Section -->
+        <div id="my-journey" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>My Journey</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Overview of my career journey from UCI to GoLinks]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="my-journey-school" class="step" data-x="3000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>My Journey - School</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎓 Graduated UCI with Electrical Engineering & Business Information Management</li>
+                        <li>💼 Early career struggles
+                            <ul>
+                                <li>❌ Failed interviews (Microsoft, Facebook, and others)</li>
+                                <li>🤔 The choice: Western Digital vs. Graduate School</li>
+                            </ul>
+                        </li>
+                        <li>🎓 Graduate studies at UCSD</li>
+                        <li>❌ More interview challenges, rejected from Redfin, Twitter, Google, SpaceX, Thumbtack, Pinterest, etc.</li>
+                        <li>✅ Passed 1 and only 1 interview at LinkedIn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="my-journey-orgs" class="step" data-x="3000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>My Journey - Organizations</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🏛️ Engineering Student Council</li>
+                        <li>🤝 Sigma Nu</li>
+                        <li>🏠 Resident Advisor in Middle Earth</li>
+                        <li>💼 MAISS (Management Information Science Society)</li>
+                        <li>💻 HACK@UCI</li>
+                        <li>🔨 Participated in hackathons and enjoyed building</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="my-journey-linkedin" class="step" data-x="3000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>My Journey - LinkedIn</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📚 Learned a lot of industry skills</li>
+                        <li>⚛️ Backbone.js, Ember.js, Large design systems</li>
+                        <li>📱 Worked on large conversion of Mobile Web app in 2015</li>
+                        <li>💰 Worked on the LinkedIn Ads Team</li>
+                        <li>📈 Grew from 1,000 people to 10,000 people</li>
+                        <li>🤝 Made great connections</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="my-journey-golinks" class="step" data-x="3000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>My Journey - GoLinks</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🤝 Met with 2 friends from Sigma Nu at UCI</li>
+                        <li>🚀 Started a company</li>
+                        <li>🏛️ A lot like running a student Org/fraternity</li>
+                        <li>📊 Networking, Marketing, Communications, Recruiting, Objectives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- GoLinks Section -->
+        <div id="golinks" class="step" data-x="6000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>GoLinks</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[GoLinks company overview and mission]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-mission" class="step" data-x="6000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoLinks - Mission & Approach</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎯 <strong>Mission</strong>: Allow employees to access important information at anytime, anywhere</li>
+                        <li>👨‍💻 Jorge and I technical founders</li>
+                        <li>🏆 We went to a lot of Hackathons</li>
+                        <li>🔨 Always built something, always present something</li>
+                        <li>🤝 Make connections along the way</li>
+                        <li>📚 Learn new skills and industry trends</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-tech-stack" class="step" data-x="6000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoLinks - Tech Stack</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>☁️ AWS as infrastructure</li>
+                        <li>⚛️ React Frontend</li>
+                        <li>🐘 PHP Backend</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-infrastructure" class="step" data-x="6000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoLinks - Infrastructure</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>☁️ Cloud infrastructure, important to learn 1: Azure, GCP, AWS</li>
+                        <li>🌐 VPC, Networking, EC2, Containers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-frontend" class="step" data-x="6000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoLinks - Frontend</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>⚛️ React (Most popular), Vue.js, Angular, Svelte (up and coming)</li>
+                        <li>⚠️ Don't always learn the new shiny language</li>
+                        <li>📚 Learn it, but wait for adoption to implement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-backend" class="step" data-x="6000" data-y="10000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoLinks - Backend</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🐘 A lot of companies still use PHP: Facebook, Instagram, Etsy, Tumblr, Slack, Wikipedia, Yahoo, Shopify</li>
+                        <li>☕ Java, Python, Go, Rust</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- GoSearch Architecture Section -->
+        <div id="gosearch-architecture" class="step" data-x="9000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>GoSearch Architecture</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[GoSearch architecture overview diagram]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gosearch-overview" class="step" data-x="9000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoSearch Architecture - Overview</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🔍 Think Google Search for your internal company data</li>
+                        <li>📊 Indexer</li>
+                        <li>📈 Search Ranking</li>
+                        <li>🤖 AI Data Flow</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="gosearch-indexer" class="step" data-x="9000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoSearch Architecture - Indexer</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🔌 Connects to 100+ data connectors</li>
+                        <li>📊 Indexed Data</li>
+                        <li>🔍 Federated Search, Realtime data searches with API</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="gosearch-ranking" class="step" data-x="9000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoSearch Architecture - Search Ranking</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>⏰ Recency and Frequency</li>
+                        <li>🧠 Semantic Search Vector Embeddings</li>
+                        <li>🕸️ Knowledge Graphs, Graph Databases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="gosearch-ai" class="step" data-x="9000" data-y="8000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoSearch Architecture - AI</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🪟 Context Windows</li>
+                        <li>🧩 Chunking</li>
+                        <li>📊 Data Retrieval</li>
+                        <li>💾 Prompt Caching</li>
+                        <li>🤖 LLM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Life Section -->
+        <div id="work-life" class="step" data-x="12000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Work Life</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Day-to-day work life overview]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="work-life-day-to-day" class="step" data-x="12000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Work Life - Day to Day: Software Engineer</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🗣️ Standups</li>
+                        <li>📋 Sprint plannings</li>
+                        <li>🔄 Retrospectives</li>
+                        <li>🎯 Demos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Get a Job Section -->
+        <div id="how-to-get-job" class="step" data-x="15000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>How to Get a Job</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Job search strategy overview]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="job-overview" class="step" data-x="15000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>How to Get a Job - Overview</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📚 Learn Current Technology Trends</li>
+                        <li>📈 Learn Industry Trends</li>
+                        <li>📝 Preparation
+                            <ul>
+                                <li>📁 Portfolio</li>
+                                <li>📄 Resume</li>
+                                <li>💻 Github</li>
+                            </ul>
+                        </li>
+                        <li>📖 Tell a story</li>
+                        <li>🔨 Become a Creator vs Consumer
+                            <ul>
+                                <li>🏆 Build at a Hackathon</li>
+                            </ul>
+                        </li>
+                        <li>🤝 Network!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Industry Trends Section -->
+        <div id="industry-trends" class="step" data-x="18000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Current Industry Trends</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Industry trends visualization]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="industry-trends-overview" class="step" data-x="18000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Current Industry Trends - Overview</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>💻 Interviews is changing, coding interviews</li>
+                        <li>🏢 In Person, vs fully remote</li>
+                        <li>🤖 AI usage within companies</li>
+                        <li>⚛️ Frontend: React, React Server Components</li>
+                        <li>🔧 Go, Python, Rust</li>
+                        <li>🐳 DevOps: Docker, Kubernetes, Terraform, Cloud Architects</li>
+                        <li>🥞 Becoming more fullstack, more responsibilities</li>
+                        <li>📉 Less engineers to do the same amount of work</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="industry-trends-new-grads" class="step" data-x="18000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Current Industry Trends - Good or Bad for New Grads?</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📈 More expectations. Not just frontend or backend, Fullstack</li>
+                        <li>⬆️ With less Engineers required, the bar will rise</li>
+                        <li>🏆 Those willing to learn and adapt will win</li>
+                        <li>🔨 Creators vs Consumers</li>
+                        <li>🤖 A new grad, with AI can achieve what a Software II or Senior engineer could achieve</li>
+                        <li>👨‍🏫 Opportunity to teach industry professionals</li>
+                        <li>🎓 Students know more about cutting edge technology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Essential Skills Section -->
+        <div id="essential-skills" class="step" data-x="21000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Essential Skills for New Graduates</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Essential skills overview]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="essential-skills-business" class="step" data-x="21000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Essential Skills - Understanding Business</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🤝 Understanding How engineering connects with marketing, sales, and product</li>
+                        <li>🏢 Engineers can help different departments
+                            <ul>
+                                <li>Every business requires 3 things:
+                                    <ul>
+                                        <li>💰 Sales</li>
+                                        <li>📢 Marketing</li>
+                                        <li>📦 Product</li>
+                                    </ul>
+                                </li>
+                                <li>Everything else is optional</li>
+                                <li>Engineers typically fall into the product category</li>
+                                <li>There are still Opportunities as Sales Engineers, Marketing Engineers, Data</li>
+                                <li>🤖 AI Engineers</li>
+                            </ul>
+                        </li>
+                        <li>🔄 Adapting to evolving roles</li>
+                        <li>🎯 Focusing on industry-relevant skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Technology Trends Section -->
+        <div id="tech-trends" class="step" data-x="24000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Current Technology Trends</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Technology trends visualization]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tech-trends-overview" class="step" data-x="24000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Current Technology Trends - Overview</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🤖 AI-assisted development</li>
+                        <li>🧠 AI Engineering</li>
+                        <li>⚛️ Frontend trends: React Server Components</li>
+                        <li>🥞 Full-stack expectations</li>
+                        <li>🎨 Frontend, Backend, DevOps, Design</li>
+                        <li>📚 The importance of continuous learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prepare Section -->
+        <div id="prepare" class="step" data-x="27000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Prepare</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Preparation strategy overview]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="prepare-show-dont-tell" class="step" data-x="27000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Prepare - Show, Don't Tell</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎯 Demonstrating your abilities</li>
+                        <li>🌐 Building your digital presence:
+                            <ul>
+                                <li>💻 GitHub portfolio
+                                    <ul>
+                                        <li>🟢 Green Squares</li>
+                                        <li>🌍 Open source participation</li>
+                                        <li>🔗 Complete profile with links</li>
+                                        <li>📄 Fill out the README.md</li>
+                                    </ul>
+                                </li>
+                                <li>💼 LinkedIn optimization
+                                    <ul>
+                                        <li>📸 Professional imagery</li>
+                                        <li>📁 Portfolio integration</li>
+                                        <li>📝 Content creation</li>
+                                    </ul>
+                                </li>
+                                <li>🌐 Personal website/portfolio</li>
+                                <li>📝 Technical blog
+                                    <ul>
+                                        <li>📚 Sharing your learning journey</li>
+                                        <li>🎓 Showcasing class projects</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tell Your Story Section -->
+        <div id="tell-story" class="step" data-x="30000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Tell Your Story</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Personal branding overview]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tell-story-brand" class="step" data-x="30000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Tell Your Story - Building Your Brand</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📖 Create a compelling personal narrative</li>
+                        <li>🏆 Highlight key achievements and projects</li>
+                        <li>📈 Show growth and learning journey</li>
+                        <li>❤️ Demonstrate passion for technology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="tell-story-portfolio" class="step" data-x="30000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Tell Your Story - Portfolio Website</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🌐 Build a professional website to showcase your work
+                            <ul>
+                                <li>🎯 Project demos and case studies</li>
+                                <li>📝 Technical blog posts</li>
+                                <li>📄 Resume and skills</li>
+                                <li>📞 Contact information</li>
+                            </ul>
+                        </li>
+                        <li>📱 Make it visually appealing and mobile-friendly</li>
+                        <li>🔄 Keep it updated with latest work</li>
+                        <li>💻 Use it to demonstrate technical abilities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creator vs Consumer Section -->
+        <div id="creator-consumer" class="step" data-x="33000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Become a Creator vs Consumer</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Creator vs Consumer mindset comparison]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="creator-consumer-8020" class="step" data-x="33000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Become a Creator vs Consumer - The 80/20 Rule</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📊 80 v 20</li>
+                        <li>🔨 20% of a marketplace are Creators</li>
+                        <li>👀 80% of a marketplace are Consumers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="what-is-consumer" class="step" data-x="33000" data-y="4000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>What is a Consumer?</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>⏳ Waits for content to come to them</li>
+                        <li>💼 Waits for jobs to come to them</li>
+                        <li>📧 Waits to hear back from applications</li>
+                        <li>🚫 Stagnant</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="what-is-creator" class="step" data-x="33000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>What is a Creator?</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📝 Make Content
+                            <ul>
+                                <li>📝 Blogs</li>
+                                <li>🎥 Videos</li>
+                                <li>📱 Apps</li>
+                                <li>🎪 Events</li>
+                            </ul>
+                        </li>
+                        <li>🤝 Makes connections</li>
+                        <li>🎯 Gets involved</li>
+                        <li>🌍 Shares creations</li>
+                        <li>🏢 Creates a company</li>
+                        <li>📈 Continuously growing</li>
+                        <li>🎯 Curates their outreach to people</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- GoLinks Interview Process Section -->
+        <div id="golinks-interview" class="step" data-x="36000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>GoLinks Interview Process</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Interview process funnel visualization]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="golinks-interview-numbers" class="step" data-x="36000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>GoLinks Interview Process - Numbers & Process</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📊 2594 applicants → 313 screened → 210 invited to quiz → 30 passed quiz → 20 projects → 7 selected</li>
+                        <li>💻 Technical assessments (Hacker Rank, no AI)</li>
+                        <li>🎮 Project-based challenges (e.g., Wordle clone) AI allowed</li>
+                        <li>🔄 Adaptation exercises (with AI allowed)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company Interview Process Section -->
+        <div id="company-interview" class="step" data-x="39000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Company Interview Process</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[General interview process overview]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="company-interview-expect" class="step" data-x="39000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Company Interview Process - What to Expect</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>💻 Might still do Hacker rank tests, prep for it</li>
+                        <li>🤖 May or may not allow AI, prep for it</li>
+                        <li>❓ Ask the recruiter what their policy on AI is during the Interview</li>
+                        <li>📝 Always ask for feedback, might not receive, but good way to improve</li>
+                        <li>🖊️ Could be whiteboard coding in person</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Filter Section -->
+        <div id="resume-filter" class="step" data-x="42000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Resume Filter</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Resume filtering criteria]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resume-filter-out" class="step" data-x="42000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Resume Filter - What Gets You Filtered Out</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📸 No profile picture, no attention to detail</li>
+                        <li>📖 No story</li>
+                        <li>💻 No Github on Resume</li>
+                        <li>🚫 Github isn't filled out</li>
+                        <li>📁 No projects on Github</li>
+                        <li>🌐 No personal portfolio</li>
+                        <li>🔨 Hasn't built anything</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Network Section -->
+        <div id="network" class="step" data-x="45000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Network</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Networking strategy overview]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="network-build" class="step" data-x="45000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Network - How to Build Your Network</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>🎓 Get to know your classmates</li>
+                        <li>🏛️ Make connections in student Orgs</li>
+                        <li>🎪 Go to meetup Events</li>
+                        <li>🏢 Go to career fairs Early</li>
+                        <li>📞 Follow up with connections</li>
+                        <li>🎓 Alumni meetups</li>
+                        <li>⏰ It's never too late to Network</li>
+                        <li>💻 Go to Hack@UCI to build, but also meet people</li>
+                        <li>💼 Connect with me on LinkedIn, send me a message</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div id="resources" class="step" data-x="48000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Resources</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Resource links and platforms]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resources-salary" class="step" data-x="48000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Resources - Salary & Career Insights</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Levels.fyi - Comprehensive salary data and career insights</h3>
+                    <ul>
+                        <li>🎓 Founded by UCI Alumni Zaheer Mohiuddin</li>
+                        <li>💰 Detailed compensation data across tech companies</li>
+                        <li>📈 Career progression paths and levels</li>
+                        <li>📚 Interview preparation resources</li>
+                    </ul>
+                    
+                    <h3>WorkHap.com - Modern job search platform</h3>
+                    <ul>
+                        <li>🎓 Founded by UCI Alumni Sho Dowan</li>
+                        <li>💼 Career advice and industry insights</li>
+                        <li>🎯 Job search strategies</li>
+                        <li>📝 Interview preparation tips</li>
+                        <li>📱 Follow on social media for latest content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion Section -->
+        <div id="conclusion" class="step" data-x="51000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Conclusion</h1>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="image-placeholder">
+                        <p>[Key takeaways summary]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="conclusion-takeaways" class="step" data-x="51000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Conclusion - Key Takeaways</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <ul>
+                        <li>📚 Be prepared</li>
+                        <li>🔨 Be a creator</li>
+                        <li>📈 Understand Industry Trends</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q&A Slide -->
+        <div id="qa" class="step single-column" data-x="54000" data-y="0" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Q&A</h1>
+                <h2>Questions? Let's discuss your specific challenges and opportunities.</h2>
+            </div>
+            <div class="slide-content">
+                <div class="image-placeholder">
+                    <p>Connect with me on LinkedIn<br>Check out GoLinks at golinks.io</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thank You Slide -->
+        <div id="thank-you" class="step single-column" data-x="54000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h1>Thank You!</h1>
+                <h2>Start Building Your Future Today</h2>
+            </div>
+            <div class="slide-content">
+                <div class="quote">
+                    "Your journey from college to career starts with a single step. Take it today."
+                </div>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div id="overview" class="step" data-x="27000" data-y="1000" data-z="1000" data-scale="20">
+            <!-- This slide provides an overview of the entire presentation -->
+        </div>
+
+    </div>
+    
+    <div class="hint">
+        <p>Use a spacebar or arrow keys to navigate</p>
+    </div>
+
+    <script>
+        if ("ontouchstart" in document.documentElement) {
+            document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+        }
+    </script>
+
+    <script src="lecture/svg.js"></script>
+    <script src="lecture/svg-graphics.js"></script>
+    <script src="lecture/d3.v7.min.js"></script>
+    <script src="lecture/d3-graphics.js"></script>
+    <script src="lecture/impress2.js"></script>
+    <script>
+        var api = impress();
+        api.init();
+
+        function start() {
+            api.goto("start");
+        }
+    </script>
+
+    <script>
+        // Track loading progress
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const loadingOverlay = document.querySelector('.loading-overlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        loadingOverlay.remove();
+                    }, 500);
+                }
+            }, 1000);
+        });
+    </script>
+
+</body>
+
+</html>

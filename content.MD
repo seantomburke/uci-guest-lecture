@@ -60,6 +60,32 @@
 - A lot of companies still use PHP: Facebook, Instagram, Etsy, Tumblr, Slack, Wikipedia, Yahoo, Shopify
 - Java, Python, Go, Rust
 
+
+## GoSearch Architecture
+
+- Think Google Search for your internal company data
+- Indexer
+- Search Ranking
+- AI Data Flow
+
+# Indexer
+- Connects to 100+ data connectors
+- Indexed Data
+- Federated Search, Realtime data searches with API
+
+# Search Ranking
+- Recency and Frequency
+- Semantic Search Vector Embeddings
+- Knowledge Graphs, Graph Databases
+
+# AI
+- Context Windows
+- Chunking
+- Data Retrieval
+- Prompt Caching
+- LLM
+
+
 ## Work Life
 
 ### Day to Day: Software Engineer
@@ -98,7 +124,7 @@
 - Those willing to learn and adapt will win
 - Creators vs Consumers
 - A new grad, with AI can achieve what a Software II or Senior engineer could achieve
-- Huge opportunity to teach industry professionals
+- Opportunity to teach industry professionals
 - Students know more about cutting edge technology
 
 ### 3. Essential Skills for New Graduates
@@ -166,16 +192,18 @@
   - continuously growing
   - curates their outreach to people
 
-## Modern Interview Processes
-- GoLinks
+## GoLinks Interview Process
   - 2594 applicants -> 313 screened -> 210 invited to quiz -> 30 passed quiz -> 20 projects -> 7 selected
   - Technical assessments (Hacker Rank, no AI)
   - Project-based challenges (e.g., Wordle clone) AI allowed
   - Adaptation exercises (with AI allowed)
-- companies
+
+## Company interview Process
   - Might still do Hacker rank tests, prep for it
   - May or may not allow AI, prep for it
+  - Ask the recruiter what their policy on AI is during the Interview
   - Always ask for feedback, might not receive, but good way to improve
+  - Could be whiteboard coding in person
 
 ## Resume Filter
  - No profile picture, no attention to detail
@@ -192,9 +220,24 @@
   - Go to meetup Events
   - Go to career fairs Early
   - Follow up with connections
+  - Alumni meetups
   - It's never too late to Network
   - Go to Hack@UCI to build, but also meet people
   - Connect with me on Linkedin, send me a message
+
+## Levels.fyi
+- How many people have heard of Levels.fyi?
+- Founded by Zaheer Mohiuddin
+- Also a UCI Alumni, also worked at Linkedin with me
+- Connections matter
+- Great advice for Getting Hired
+
+## WorkHap
+- Workhap.com
+- Follow on social media
+- Founded by Sho Dowan 
+- Also a UCI Alumni
+- Modern content for getting hired
 
 ## Conclusion
 - Be prepared

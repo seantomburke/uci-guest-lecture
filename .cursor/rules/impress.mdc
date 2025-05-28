@@ -4,3 +4,7 @@ globs: *.html
 alwaysApply: false
 ---
 This rule applies to HTML presentation files that use Impress.js for slide layout and animation. Each slide should be defined as a 'div' with the class 'step'. Proper positioning of slides is essential, using x, y, and z coordinates to create a 3D presentation flow. Ensure that each slide has appropriate size and coordinates to maintain the layout. Generally, the next slide will be positioned to the right of the current slide.
+
+All header slides should exist at the same data-y location, and 3000 pixels apart left and right.
+
+All sub slides should exist at the same data-x and be 2000 pixels apart up and down.
