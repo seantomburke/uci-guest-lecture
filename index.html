@@ -71,6 +71,51 @@
             pointer-events: none;
         }
         
+        /* Image optimization for better performance */
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: bicubic;
+            max-width: 100%;
+            height: auto;
+            /* Add lazy loading support */
+            loading: lazy;
+        }
+        
+        /* Critical images should load immediately */
+        .critical-image {
+            loading: eager;
+        }
+        
+        /* Preload key images */
+        .preload-image::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background-image: var(--preload-src);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .typewriter-item::after {
+                animation: none;
+            }
+            
+            .ai-logo {
+                animation: none;
+            }
+        }
+        
         /* Bootstrap-inspired Typography */
         * {
             font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -1795,15 +1840,30 @@
             </div>
             <div class="slide-content">
                 <div class="content-left">
-                    <h3>Marketplaces</h3>
-                    <ul>
-                        <li>📊 20% Creators</li>
-                        <li>👀 80% Consumers</li>
-                    </ul>
+                    <!-- Visual 80/20 Split -->
+                    <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+                        <div style="flex: 1; text-align: center;">
+                            <div style="width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#e74c3c 0deg 288deg, #2ecc71 288deg 360deg); margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center;">
+                                <div style="width: 140px; height: 140px; border-radius: 50%; background: #091f32; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <div style="color: #2ecc71; font-size: 2rem; font-weight: bold;">20%</div>
+                                    <div style="color: white; font-size: 1rem;">Creators</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1rem; color: #888; font-size: 1rem;">
+                                <span style="color: #e74c3c;">●</span> 80% Consumers | 
+                                <span style="color: #2ecc71;">●</span> 20% Creators
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Insight Box -->
+                    <div class="quote">
+                        Being a creator versus a consumer gives you a 4x advantage in opportunities.
+                    </div>
                     
                     <div class="comparison-table">
-                        <div class="comparison-column">
-                            <h3>Consumers</h3>
+                        <div class="comparison-column" style="border: 2px solid #e74c3c;">
+                            <h3 style="color: #e74c3c;">❌ Consumer Mindset</h3>
                             <ul>
                                 <li>⏳ Wait for content to come to them</li>
                                 <li>💼 Wait for jobs to come to them</li>
@@ -1812,8 +1872,8 @@
                                 <li>🚫 Stagnant</li>
                             </ul>
                         </div>
-                        <div class="comparison-column">
-                            <h3>Creators</h3>
+                        <div class="comparison-column" style="border: 2px solid #2ecc71;">
+                            <h3 style="color: #2ecc71;">✅ Creator Mindset</h3>
                             <ul>
                                 <li>📝 Make Content (Blogs, Videos, Apps)</li>
                                 <li>🤝 Make connections</li>
@@ -2469,6 +2529,9 @@
         document.addEventListener('impress:stepenter', function(event) {
             const currentSlide = event.target;
             
+            // Update progress indicator and navigation
+            updateProgressAndNavigation(currentSlide);
+            
             // Add mobile debugging for creator-mindset slide
             if (currentSlide.id === 'creator-mindset') {
                 // Log memory usage if available
@@ -2574,6 +2637,55 @@
                 hideQRToast();
             }
         });
+        
+        // Progress and Navigation Update Functions
+        function updateProgressAndNavigation(currentSlide) {
+            const slideOrder = [
+                'title', 'overview-agenda', 'my-journey', 'my-journey-uci', 'my-journey-struggles', 
+                'my-journey-linkedin', 'my-journey-golinks-start', 'golinks', 'golinks-story', 
+                'golinks-culture', 'golinks-tech-stack', 'common-tech-stacks', 'gosearch-indexer-architecture',
+                'gosearch-ai-architecture', 'industry-trends', 'ai-trends', 'industry-changes', 
+                'interview-processes', 'interview-details', 'essential-skills', 'how-to-get-job',
+                'resume-filtering', 'networking', 'tell-your-story', 'creator-vs-consumer', 
+                'creator-examples', 'creator-mindset', 'conclusion', 'key-takeaways', 'resources', 'contact'
+            ];
+            
+            const sectionMap = {
+                'title': 'Introduction', 'overview-agenda': 'Overview',
+                'my-journey': 'My Journey', 'my-journey-uci': 'My Journey', 'my-journey-struggles': 'My Journey', 
+                'my-journey-linkedin': 'My Journey', 'my-journey-golinks-start': 'My Journey',
+                'golinks': 'GoLinks', 'golinks-story': 'GoLinks', 'golinks-culture': 'GoLinks', 
+                'golinks-tech-stack': 'GoLinks', 'common-tech-stacks': 'GoLinks', 'gosearch-indexer-architecture': 'GoLinks',
+                'gosearch-ai-architecture': 'GoLinks',
+                'industry-trends': 'Industry Trends', 'ai-trends': 'Industry Trends', 'industry-changes': 'Industry Trends', 
+                'interview-processes': 'Industry Trends', 'interview-details': 'Industry Trends', 'essential-skills': 'Industry Trends',
+                'how-to-get-job': 'How to Get a Job', 'resume-filtering': 'How to Get a Job', 'networking': 'How to Get a Job', 
+                'tell-your-story': 'How to Get a Job', 'creator-vs-consumer': 'How to Get a Job', 'creator-examples': 'How to Get a Job', 
+                'creator-mindset': 'How to Get a Job',
+                'conclusion': 'Conclusion', 'key-takeaways': 'Conclusion', 'resources': 'Conclusion', 'contact': 'Conclusion'
+            };
+            
+            const currentIndex = slideOrder.indexOf(currentSlide.id);
+            const progressPercent = currentIndex >= 0 ? (currentIndex / (slideOrder.length - 1)) * 100 : 0;
+            
+            // Update progress bar
+            const progressBar = document.getElementById('progress-bar');
+            if (progressBar) {
+                progressBar.style.width = progressPercent + '%';
+            }
+            
+            // Update slide navigation
+            const currentSection = document.getElementById('current-section');
+            const slideCounter = document.getElementById('slide-counter');
+            
+            if (currentSection) {
+                currentSection.textContent = sectionMap[currentSlide.id] || 'Presentation';
+            }
+            
+            if (slideCounter) {
+                slideCounter.textContent = `${currentIndex + 1} / ${slideOrder.length}`;
+            }
+        }
         
         // Business Venn Diagram Function
         function createBusinessVennDiagram() {
@@ -2689,6 +2801,47 @@
             });
         }
     </script>
+
+    <!-- Add Progress Indicator -->
+    <div id="progress-indicator" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        z-index: 1000;
+        transition: opacity 0.3s ease;
+    ">
+        <div id="progress-bar" style="
+            height: 100%;
+            background: linear-gradient(90deg, #00d4aa 0%, #ffc107 50%, #00d4aa 100%);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.5s ease;
+        "></div>
+    </div>
+
+    <!-- Add Slide Navigation -->
+    <div id="slide-nav" style="
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px 15px;
+        border-radius: 20px;
+        color: white;
+        font-size: 14px;
+        font-family: 'Manrope', sans-serif;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    ">
+        <span id="current-section">Introduction</span> 
+        <span style="color: #888;">•</span> 
+        <span id="slide-counter">1 / 25</span>
+    </div>
 
 </body>
 
