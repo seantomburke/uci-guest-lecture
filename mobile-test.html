@@ -1,1 +1,173 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 8px;
+        }
+        
+        .error {
+            color: #ff6b6b;
+        }
+        
+        .success {
+            color: #51cf66;
+        }
+        
+        .warning {
+            color: #ffd43b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mobile Debugging Test</h1>
+    
+    <div class="test-section">
+        <h3>Device Information</h3>
+        <div id="device-info"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Memory Information</h3>
+        <div id="memory-info"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Transform Performance Test</h3>
+        <div id="transform-test"></div>
+        <div id="test-element" style="
+            width: 100px; 
+            height: 100px; 
+            background: #3498db; 
+            margin: 10px 0;
+            transition: transform 0.3s ease;
+        "></div>
+        <button onclick="testTransforms()">Test Transforms</button>
+    </div>
+    
+    <div class="test-section">
+        <h3>Animation Performance Test</h3>
+        <div id="animation-test"></div>
+        <button onclick="testAnimation()">Test Typewriter Animation</button>
+        <div id="typewriter-test" style="margin: 10px 0;"></div>
+    </div>
+
+    <script>
+        function updateDeviceInfo() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            document.getElementById('device-info').innerHTML = `
+                <div>User Agent: ${navigator.userAgent}</div>
+                <div>Is Mobile: <span class="${isMobile ? 'warning' : 'success'}">${isMobile}</span></div>
+                <div>Screen Size: ${window.screen.width}x${window.screen.height}</div>
+                <div>Viewport: ${window.innerWidth}x${window.innerHeight}</div>
+                <div>Device Pixel Ratio: ${window.devicePixelRatio}</div>
+            `;
+        }
+        
+        function updateMemoryInfo() {
+            if (performance.memory) {
+                const used = Math.round(performance.memory.usedJSHeapSize / 1024 / 1024);
+                const total = Math.round(performance.memory.totalJSHeapSize / 1024 / 1024);
+                const limit = Math.round(performance.memory.jsHeapSizeLimit / 1024 / 1024);
+                const usage = (used / limit * 100).toFixed(1);
+                
+                const usageClass = usage > 70 ? 'error' : usage > 50 ? 'warning' : 'success';
+                
+                document.getElementById('memory-info').innerHTML = `
+                    <div>Used: ${used}MB</div>
+                    <div>Total: ${total}MB</div>
+                    <div>Limit: ${limit}MB</div>
+                    <div>Usage: <span class="${usageClass}">${usage}%</span></div>
+                `;
+            } else {
+                document.getElementById('memory-info').innerHTML = '<div class="warning">Memory API not available</div>';
+            }
+        }
+        
+        function testTransforms() {
+            const element = document.getElementById('test-element');
+            const testResults = document.getElementById('transform-test');
+            
+            try {
+                // Test the problematic transforms from creator-mindset slide
+                element.style.transform = 'translateZ(12500px) rotateY(5deg) rotateZ(5deg) scale(2)';
+                setTimeout(() => {
+                    element.style.transform = 'none';
+                    testResults.innerHTML = '<div class="success">Transform test passed</div>';
+                }, 1000);
+            } catch (error) {
+                testResults.innerHTML = `<div class="error">Transform test failed: ${error.message}</div>`;
+            }
+        }
+        
+        function testAnimation() {
+            const container = document.getElementById('typewriter-test');
+            const results = document.getElementById('animation-test');
+            
+            const texts = [
+                "# Could have easily built this with Google Slides",
+                "# Built A Web app with Cursor IDE",
+                "# Learned Claude Code with Opus 4"
+            ];
+            
+            try {
+                container.innerHTML = '';
+                
+                texts.forEach((text, index) => {
+                    const item = document.createElement('div');
+                    item.style.marginBottom = '5px';
+                    container.appendChild(item);
+                    
+                    setTimeout(() => {
+                        let i = 0;
+                        const timer = setInterval(() => {
+                            if (i < text.length) {
+                                item.textContent = text.substring(0, i + 1);
+                                i++;
+                            } else {
+                                clearInterval(timer);
+                            }
+                        }, 30);
+                    }, index * 1000);
+                });
+                
+                results.innerHTML = '<div class="success">Animation test started</div>';
+                
+            } catch (error) {
+                results.innerHTML = `<div class="error">Animation test failed: ${error.message}</div>`;
+            }
+        }
+        
+        // Update info on load and periodically
+        updateDeviceInfo();
+        updateMemoryInfo();
+        
+        setInterval(updateMemoryInfo, 2000);
+        
+        // Monitor for errors
+        window.addEventListener('error', function(e) {
+            console.error('Test page error:', e.error);
+            document.body.innerHTML += `<div class="test-section error">
+                <h3>Error Detected</h3>
+                <div>Message: ${e.message}</div>
+                <div>File: ${e.filename}</div>
+                <div>Line: ${e.lineno}</div>
+            </div>`;
+        });
+    </script>
+</body>
+</html>
