@@ -838,6 +838,46 @@
             35% { transform: rotate(15deg) translateY(-14px) translateX(-7px); }
             65% { transform: rotate(9deg) translateY(-10px) translateX(5px); }
         }
+        
+        /* Mobile Performance Optimizations */
+        @media (max-width: 768px), (pointer: coarse) {
+            /* Disable hardware acceleration for complex transforms on mobile */
+            .step {
+                transform-style: flat;
+                backface-visibility: visible;
+            }
+            
+            /* Reduce animation complexity on mobile */
+            .typewriter-item::after {
+                animation-duration: 2s; /* Slower blinking to reduce GPU load */
+            }
+            
+            /* Simplify floating animations on mobile */
+            .ai-logo {
+                animation: none; /* Disable floating animations */
+                transition: none; /* Disable hover transitions */
+            }
+            
+            /* Reduce image quality for mobile to save memory */
+            .slide-image,
+            .slide-image-large {
+                image-rendering: auto;
+                max-width: 90%;
+                height: auto;
+            }
+            
+            /* Simplify gradients on mobile */
+            .funnel-trapezoid::before {
+                background: none;
+            }
+            
+            /* Disable complex box shadows on mobile */
+            .step,
+            .comparison-column,
+            .quote {
+                box-shadow: none;
+            }
+        }
     </style>
 
 </head>
@@ -2222,7 +2262,7 @@
 
 
         <!-- Overview -->
-        <div id="overview" class="step" data-x="7500" data-y="3000" data-z="1000" data-scale="10">
+        <div id="overview" class="step" data-x="7500" data-y="5000" data-z="5000" data-scale="10">
             <!-- This slide provides an overview of the entire presentation -->
         </div>
 
@@ -2286,6 +2326,62 @@
         
         // Handle loading overlay and initialization
         document.addEventListener('DOMContentLoaded', function() {
+            // Add global error handler for mobile debugging
+            window.addEventListener('error', function(e) {
+                console.error('Global error caught:', e.error);
+                if (performance.memory) {
+                    console.log('Memory at error:', {
+                        used: Math.round(performance.memory.usedJSHeapSize / 1024 / 1024) + 'MB',
+                        total: Math.round(performance.memory.totalJSHeapSize / 1024 / 1024) + 'MB',
+                        limit: Math.round(performance.memory.jsHeapSizeLimit / 1024 / 1024) + 'MB'
+                    });
+                }
+            });
+            
+            // Add unhandled promise rejection handler
+            window.addEventListener('unhandledrejection', function(e) {
+                console.error('Unhandled promise rejection:', e.reason);
+                e.preventDefault(); // Prevent crash
+            });
+            
+            // Mobile detection and optimization
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            // Optimize creator-mindset slide for mobile
+            if (isMobile) {
+                const creatorSlide = document.getElementById('creator-mindset');
+                if (creatorSlide) {
+                    // Remove problematic attributes for mobile
+                    creatorSlide.removeAttribute('data-z');
+                    creatorSlide.removeAttribute('data-rotate-y');
+                    creatorSlide.removeAttribute('data-rotate-z');
+                    creatorSlide.setAttribute('data-scale', '1');
+                    creatorSlide.setAttribute('data-transition-duration', '500');
+                    
+                    // Also remove the transparent-bg class which might cause issues
+                    creatorSlide.classList.remove('transparent-bg');
+                    
+                    // Simplify the content for mobile
+                    const typewriterContainer = creatorSlide.querySelector('.typewriter-container');
+                    if (typewriterContainer) {
+                        // Replace complex typewriter with simple text
+                        typewriterContainer.innerHTML = `
+                            <h3>This Presentation was an Opportunity to Learn and Create</h3>
+                            <ul>
+                                <li>Could have easily built this with Google Slides</li>
+                                <li>Built A Web app with Cursor IDE</li>
+                                <li>Learned Claude Code with Opus 4</li>
+                                <li>Learned new presentation technologies</li>
+                                <li>Learning how to improve prompts</li>
+                                <li>Always build, always present</li>
+                            </ul>
+                        `;
+                    }
+                    
+                    console.log('Applied mobile optimizations to creator-mindset slide');
+                }
+            }
+            
             // Start initialization immediately but keep overlay
             initializePresentation();
             
@@ -2361,8 +2457,35 @@
         document.addEventListener('impress:stepenter', function(event) {
             const currentSlide = event.target;
             
-            // Check if this is the creator-mindset slide
+            // Add mobile debugging for creator-mindset slide
             if (currentSlide.id === 'creator-mindset') {
+                // Log memory usage if available
+                if (performance.memory) {
+                    console.log('Memory before creator-mindset:', {
+                        used: Math.round(performance.memory.usedJSHeapSize / 1024 / 1024) + 'MB',
+                        total: Math.round(performance.memory.totalJSHeapSize / 1024 / 1024) + 'MB',
+                        limit: Math.round(performance.memory.jsHeapSizeLimit / 1024 / 1024) + 'MB'
+                    });
+                }
+                
+                // Log device info
+                console.log('Device info:', {
+                    userAgent: navigator.userAgent,
+                    isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+                    screenSize: window.screen.width + 'x' + window.screen.height,
+                    viewport: window.innerWidth + 'x' + window.innerHeight
+                });
+                
+                // Monitor for potential issues
+                const observer = new PerformanceObserver((list) => {
+                    list.getEntries().forEach((entry) => {
+                        if (entry.entryType === 'measure' || entry.entryType === 'navigation') {
+                            console.log('Performance entry:', entry);
+                        }
+                    });
+                });
+                observer.observe({entryTypes: ['measure', 'navigation']});
+                
                 const typewriterContainer = currentSlide.querySelector('.typewriter-container');
                 if (typewriterContainer) {
                     // Reset all items
@@ -2372,10 +2495,36 @@
                         item.classList.remove('typing', 'typed');
                     });
                     
+                    // Check memory constraints on mobile before starting animation
+                    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                    let shouldAnimate = true;
+                    
+                    if (isMobile && performance.memory) {
+                        const memoryUsage = performance.memory.usedJSHeapSize / performance.memory.jsHeapSizeLimit;
+                        if (memoryUsage > 0.7) { // If using more than 70% of available memory
+                            console.warn('High memory usage detected, skipping typewriter animation');
+                            shouldAnimate = false;
+                            
+                            // Show all text immediately instead of animating
+                            items.forEach(item => {
+                                const text = item.getAttribute('data-text');
+                                item.textContent = text;
+                                item.classList.add('typed');
+                            });
+                        }
+                    }
+                    
                     // Start the typewriter sequence after a short delay
-                    setTimeout(() => {
-                        startTypewriterSequence(typewriterContainer);
-                    }, 500);
+                    if (shouldAnimate) {
+                        setTimeout(() => {
+                            console.log('Starting typewriter animation');
+                            try {
+                                startTypewriterSequence(typewriterContainer);
+                            } catch (error) {
+                                console.error('Typewriter animation error:', error);
+                            }
+                        }, 500);
+                    }
                 }
             }
             
