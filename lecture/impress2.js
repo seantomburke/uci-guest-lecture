@@ -4679,13 +4679,14 @@
 /**
  * Support for swipe and tap on touch devices
  *
- * This plugin implements navigation for plugin devices, via swiping left/right,
- * or tapping on the left/right edges of the screen.
+ * This plugin implements navigation for plugin devices, via swiping up/down,
+ * or tapping on the top/bottom edges of the screen.
  *
  *
  *
  * Copyright 2015: Andrew Dunai (@and3rson)
  * Modified to a plugin, 2016: Henrik Ingo (@henrikingo)
+ * Modified for vertical swipes, 2024
  *
  * MIT License
  */
@@ -4693,41 +4694,41 @@
 ( function( document, window ) {
     "use strict";
 
-    // Touch handler to detect swiping left and right based on window size.
-    // If the difference in X change is bigger than 1/20 of the screen width,
+    // Touch handler to detect swiping up and down based on window size.
+    // If the difference in Y change is bigger than 1/20 of the screen height,
     // we simply call an appropriate API function to complete the transition.
-    var startX = 0;
-    var lastX = 0;
-    var lastDX = 0;
-    var threshold = window.innerWidth / 20;
+    var startY = 0;
+    var lastY = 0;
+    var lastDY = 0;
+    var threshold = window.innerHeight / 20;
 
     document.addEventListener( "touchstart", function( event ) {
-        lastX = startX = event.touches[ 0 ].clientX;
+        lastY = startY = event.touches[ 0 ].clientY;
     } );
 
     document.addEventListener( "touchmove", function( event ) {
-         var x = event.touches[ 0 ].clientX;
-         var diff = x - startX;
+         var y = event.touches[ 0 ].clientY;
+         var diff = y - startY;
 
          // To be used in touchend
-         lastDX = lastX - x;
-         lastX = x;
+         lastDY = lastY - y;
+         lastY = y;
 
-         window.impress().swipe( diff / window.innerWidth );
+         window.impress().swipe( diff / window.innerHeight );
      } );
 
      document.addEventListener( "touchend", function() {
-         var totalDiff = lastX - startX;
-         if ( Math.abs( totalDiff ) > window.innerWidth / 5 && ( totalDiff * lastDX ) <= 0 ) {
-             if ( totalDiff > window.innerWidth / 5 && lastDX <= 0 ) {
+         var totalDiff = lastY - startY;
+         if ( Math.abs( totalDiff ) > window.innerHeight / 5 && ( totalDiff * lastDY ) <= 0 ) {
+             if ( totalDiff > window.innerHeight / 5 && lastDY <= 0 ) {
                  window.impress().prev();
-             } else if ( totalDiff < -window.innerWidth / 5 && lastDX >= 0 ) {
+             } else if ( totalDiff < -window.innerHeight / 5 && lastDY >= 0 ) {
                  window.impress().next();
              }
-         } else if ( Math.abs( lastDX ) > threshold ) {
-             if ( lastDX < -threshold ) {
+         } else if ( Math.abs( lastDY ) > threshold ) {
+             if ( lastDY < -threshold ) {
                  window.impress().prev();
-             } else if ( lastDX > threshold ) {
+             } else if ( lastDY > threshold ) {
                  window.impress().next();
              }
          } else {

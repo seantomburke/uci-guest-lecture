@@ -1854,7 +1854,7 @@
             </div>
         </div>
 
-        <div id="creator-mindset" class="step transparent-bg" data-x="12000" data-y="3500" data-z="12500" data-rotate-y="5" data-rotate-z="5" data-scale="2" data-transition-duration="2000">
+        <div id="creator-mindset" class="step transparent-bg" data-x="12000" data-y="12000" data-z="12500" data-rotate-y="5" data-rotate-z="5" data-rotate-x="-15" data-scale="2" data-transition-duration="2000">
             <div class="slide-title">
                 <h2>This Presentation was an Opportunity to Learn and Create</h2>
             </div>
@@ -1879,7 +1879,39 @@
             </div>
         </div>
 
-        <div id="resources" class="step" data-x="12000" data-y="12000" data-z="0" data-scale="1">
+        <!-- 6. Conclusion & Q&A Section -->
+        <div id="conclusion" class="step" data-x="15000" data-y="0" data-z="0" data-scale="1">
+            <div class="header-slide-title">
+                <h1>Conclusion</h1>
+            </div>
+        </div>
+
+        <div id="key-takeaways" class="step" data-x="15000" data-y="2000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Key Takeaways</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>Remember These Points</h3>
+                    <ul>
+                        <li>📚 Be prepared, don't wait!</li>
+                        <li>🔨 Be more of a creator and less of a consumer</li>
+                        <li>📈 Understand Industry Trends</li>
+                        <li>💪 Rejection is part of the process, yes it sucks</li>
+                        <li>🤝 Relationships matter - build your network in person</li>
+                        <li>📈 Always build your brand and skills</li>
+                        <li>🧠 Adapt to industry trends</li>
+                    </ul>
+                </div>
+                <div class="image-right">
+                    <img src="lecture/photos/3-cofounders-and-wives-all-from-uc-irvine.jpg" alt="3 co-founders and wives all from UC Irvine" class="slide-image">
+                    <div class="image-caption">The GoLinks co-founders and wives - all UCI alumni!</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="resources" class="step" data-x="15000" data-y="4000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Resources & Tools</h2>
             </div>
@@ -1977,39 +2009,8 @@
             </div>
         </div>
 
-        <!-- 6. Conclusion & Q&A Section -->
-        <div id="conclusion" class="step" data-x="15000" data-y="0" data-z="0" data-scale="1">
-            <div class="header-slide-title">
-                <h1>Conclusion</h1>
-            </div>
-        </div>
-
-        <div id="key-takeaways" class="step" data-x="15000" data-y="2000" data-z="0" data-scale="1">
-            <div class="slide-title">
-                <h2>Key Takeaways</h2>
-            </div>
-            <div class="slide-content">
-                <div class="content-left">
-                    <h3>Remember These Points</h3>
-                    <ul>
-                        <li>📚 Be prepared, don't wait!</li>
-                        <li>🔨 Be more of a creator and less of a consumer</li>
-                        <li>📈 Understand Industry Trends</li>
-                        <li>💪 Rejection is part of the process, yes it sucks</li>
-                        <li>🤝 Relationships matter - build your network in person</li>
-                        <li>📈 Always build your brand and skills</li>
-                        <li>🧠 Adapt to industry trends</li>
-                    </ul>
-                </div>
-                <div class="image-right">
-                    <img src="lecture/photos/3-cofounders-and-wives-all-from-uc-irvine.jpg" alt="3 co-founders and wives all from UC Irvine" class="slide-image">
-                    <div class="image-caption">The GoLinks co-founders and wives - all UCI alumni!</div>
-                </div>
-            </div>
-        </div>
-
         <!-- Contact Information Slide -->
-        <div id="contact" class="step" data-x="15000" data-y="4000" data-z="0" data-scale="1">
+        <div id="contact" class="step" data-x="15000" data-y="6000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Thank you!</h2>
             </div>
@@ -2274,7 +2275,7 @@
 
     <script>
         if ("ontouchstart" in document.documentElement) {
-            document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+            document.querySelector(".hint").innerHTML = "<p>Swipe up or down to navigate</p>";
         }
     </script>
 
@@ -2353,6 +2354,7 @@
                 if (creatorSlide) {
                     // Remove problematic attributes for mobile
                     creatorSlide.removeAttribute('data-z');
+                    creatorSlide.removeAttribute('data-rotate-x');
                     creatorSlide.removeAttribute('data-rotate-y');
                     creatorSlide.removeAttribute('data-rotate-z');
                     creatorSlide.setAttribute('data-scale', '1');
