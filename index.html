@@ -878,6 +878,17 @@
         }
     </style>
 
+    <!-- Mobile-specific styles to hide problematic slides -->
+    <style>
+        @media (max-width: 768px), (pointer: coarse) {
+            /* Hide the overview slide on mobile devices to prevent performance issues */
+            #overview {
+                display: none !important;
+                visibility: hidden !important;
+            }
+        }
+    </style>
+
 </head>
 
 <body class="impress-not-supported">
@@ -2345,6 +2356,19 @@
             
             // Mobile detection and optimization
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            // Hide overview slide on mobile devices to prevent performance issues
+            if (isMobile) {
+                const overviewSlide = document.getElementById('overview');
+                if (overviewSlide) {
+                    // Hide the slide completely
+                    overviewSlide.style.display = 'none';
+                    overviewSlide.style.visibility = 'hidden';
+                    // Mark it as mobile-skipped for any potential navigation logic
+                    overviewSlide.setAttribute('data-mobile-skip', 'true');
+                    console.log('Overview slide hidden on mobile device to prevent performance issues');
+                }
+            }
             
             // Optimize creator-mindset slide for mobile
             if (isMobile) {
