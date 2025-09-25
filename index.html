@@ -884,6 +884,226 @@
             65% { transform: rotate(9deg) translateY(-10px) translateX(5px); }
         }
         
+        /* iPhone Video Player Styles */
+        .iphone-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        
+        .iphone-frame {
+            width: 300px;
+            height: 600px;
+            background: linear-gradient(145deg, #2c2c2e, #1c1c1e);
+            border-radius: 45px;
+            padding: 8px;
+            position: relative;
+            box-shadow: 
+                0 0 0 2px #333,
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .iphone-screen {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 37px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .status-bar {
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .status-left .time {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 600;
+        }
+        
+        .status-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .signal-bars {
+            display: flex;
+            gap: 2px;
+            align-items: flex-end;
+        }
+        
+        .bar {
+            width: 3px;
+            background: white;
+            border-radius: 1px;
+        }
+        
+        .bar1 { height: 4px; }
+        .bar2 { height: 6px; }
+        .bar3 { height: 8px; }
+        .bar4 { height: 10px; }
+        
+        .wifi-icon {
+            font-size: 12px;
+        }
+        
+        .battery {
+            width: 24px;
+            height: 12px;
+            border: 1px solid white;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .battery::after {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 3px;
+            width: 2px;
+            height: 6px;
+            background: white;
+            border-radius: 0 1px 1px 0;
+        }
+        
+        .battery-level {
+            width: 80%;
+            height: 100%;
+            background: #30d158;
+            border-radius: 1px;
+        }
+        
+        .video-player {
+            flex: 1;
+            position: relative;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-element {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+            outline: none;
+        }
+        
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .play-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .play-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+        
+        .play-button svg {
+            margin-left: 4px; /* Slight offset to center the play triangle */
+        }
+        
+        .home-indicator {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: #333;
+            border-radius: 3px;
+        }
+        
+        .iphone-shadow {
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            right: 10px;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 45px;
+            z-index: -1;
+            filter: blur(20px);
+        }
+        
+        /* Responsive iPhone */
+        @media (max-width: 768px) {
+            .iphone-frame {
+                width: 250px;
+                height: 500px;
+                border-radius: 35px;
+                padding: 6px;
+            }
+            
+            .iphone-screen {
+                border-radius: 29px;
+            }
+            
+            .status-bar {
+                height: 36px;
+                padding: 0 16px;
+                font-size: 12px;
+            }
+            
+            .home-indicator {
+                width: 100px;
+                height: 4px;
+                bottom: 6px;
+            }
+            
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .play-button svg {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
         /* Mobile Performance Optimizations */
         @media (max-width: 768px), (pointer: coarse) {
             /* Disable hardware acceleration for complex transforms on mobile */
@@ -1573,7 +1793,40 @@
             </div>
         </div>
 
-        <div id="interview-processes" class="step" data-x="9000" data-y="6000" data-z="0" data-scale="1">
+        <div id="historical-parallels" class="step" data-x="9000" data-y="6000" data-z="0" data-scale="1">
+            <div class="slide-title">
+                <h2>Historical Parallels: App Store vs AI Revolution</h2>
+            </div>
+            <div class="slide-content">
+                <div class="content-left">
+                    <h3>📱 iOS App Store (2008)</h3>
+                    <ul>
+                        <li>🏪 Created a new marketplace overnight</li>
+                        <li>👨‍💻 Democratized software distribution</li>
+                        <li>💰 Enabled individual developers to reach millions</li>
+                        <li>🌍 Changed how we interact with technology</li>
+                        <li>📈 Created entirely new job categories</li>
+                        <li>⚡ Those who adapted early had massive advantages</li>
+                    </ul>
+                </div>
+                <div class="content-right">
+                    <h3>🤖 AI Revolution (2022)</h3>
+                    <ul>
+                        <li>🧠 Created new capabilities overnight</li>
+                        <li>👨‍💻 Democratized advanced programming</li>
+                        <li>💡 Enabled anyone to build complex solutions</li>
+                        <li>🌍 Changing how we work and create</li>
+                        <li>📈 Creating entirely new job categories</li>
+                        <li>⚡ Those adapting early have massive advantages</li>
+                    </ul>
+                    <div class="key-insight" style="margin-top: 20px; padding: 15px; background: rgba(255, 215, 0, 0.1); border-left: 4px solid #FFD700; border-radius: 5px;">
+                        <strong>💡 Key Insight:</strong> Both revolutions created opportunities for those willing to learn and adapt quickly
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interview-processes" class="step" data-x="9000" data-y="8000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Interview Funnel Reality</h2>
             </div>
@@ -1668,7 +1921,7 @@
             </div>
         </div>
 
-        <div id="interview-details" class="step" data-x="9000" data-y="8000" data-z="0" data-scale="1">
+        <div id="interview-details" class="step" data-x="9000" data-y="10000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Modern Interview Process Is Changing</h2>
             </div>
@@ -1697,7 +1950,7 @@
             </div>
         </div>
 
-        <div id="essential-skills" class="step" data-x="9000" data-y="10000" data-z="0" data-scale="1">
+        <div id="essential-skills" class="step" data-x="9000" data-y="12000" data-z="0" data-scale="1">
             <div class="slide-title">
                 <h2>Understanding How Business Works</h2>
             </div>
@@ -1858,7 +2111,7 @@
                     
                     <!-- Key Insight Box -->
                     <div class="quote">
-                        Being a creator versus a consumer gives you a 4x advantage in opportunities.
+                        Being a creator versus a consumer exposes you to more opportunities
                     </div>
                     
                     <div class="comparison-table">
@@ -1951,20 +2204,55 @@
                     
                     <h3>Sean's Examples</h3>
                     <ul>
+                        <li><a href="https://nvm.baby" target="_blank">Night Vision Baby Monitor App</a> - learned Vibe Coding iOS Development</li>
+                        <li><a href="https://github.com/seantomburke/storytime" target="_blank">Daily Children's Books</a> - learned AI image generation</li>
+                        <li><a href="https://shipit.today" target="_blank">https://shipit.today</a> - Get immediate shipit gifs - learned AWS Lambda</li>
                         <li><a href="https://github.com/seantomburke/kbb-craigslist" target="_blank">Car Price Chrome Extension</a> - Compare car prices - learned Chrome Extensions</li>
                         <li><a href="https://apps.apple.com/us/app/gasbro/id6679143408" target="_blank">GasBro</a> - Split gas with friends- learned Objective-C iOS Development</li>
-                        <li><a href="https://shipit.today" target="_blank">https://shipit.today</a> - Get immediate shipit gifs - learned AWS Lambda</li>
-                        <li><a href="https://github.com/seantomburke/storytime" target="_blank">Daily Children's Books</a> - learned AI image generation</li>
-                        <li><a href="https://nvm.baby" target="_blank">Night Vision Baby Monitor App</a> - learned Vibe Coding iOS Development</li>
                     </ul>
                     
                     <div class="quote">
                         "The best projects come from solving your own problems"
                     </div>
                 </div>
-                <div class="image-right">
-                    <img src="lecture/photos/trello.png" alt="Sean's Ideas" class="slide-image">
-                    <div class="image-caption">Start building - the ideas will come as you create</div>
+                <div class="slide-image">
+                    <!-- iPhone Video Player -->
+                    <div class="iphone-container">
+                        <!-- iPhone Frame -->
+                        <div class="iphone-frame">
+                            <!-- Screen -->
+                            <div class="iphone-screen">
+                                <!-- Status Bar -->
+                                <div class="status-bar">
+                                </div>
+                                
+                                <!-- Video Player -->
+                                <div class="video-player">
+                                    <video class="video-element" controls muted loop autoplay>
+                                        <source src="lecture/photos/nvm.MOV" type="video/quicktime">
+                                        <source src="lecture/photos/nvm.MOV" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    
+                                    <!-- Custom Play Button Overlay -->
+                                    <div class="play-overlay" onclick="playVideo(this)">
+                                        <div class="play-button">
+                                            <svg width="80" height="80" viewBox="0 0 24 24" fill="white">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Home Indicator -->
+                            <div class="home-indicator"></div>
+                        </div>
+                        
+                        <!-- iPhone Shadow -->
+                        <div class="iphone-shadow"></div>
+                    </div>
+                    <div class="image-caption">Night Vision Baby Monitor</div>
                 </div>
             </div>
         </div>
@@ -2650,6 +2938,23 @@
                 setTimeout(typewriterAnimation, 500);
                 showQRToast();
             }
+            
+            // Check if this is the what-do-i-build slide for video autoplay
+            if (currentSlide.id === 'what-do-i-build') {
+                setTimeout(() => {
+                    const video = currentSlide.querySelector('.video-element');
+                    const playOverlay = currentSlide.querySelector('.play-overlay');
+                    
+                    if (video && playOverlay) {
+                        video.play().then(() => {
+                            playOverlay.classList.add('hidden');
+                        }).catch(error => {
+                            console.log('Autoplay was prevented:', error);
+                            // Autoplay failed, keep the play button visible
+                        });
+                    }
+                }, 500); // Small delay to ensure slide transition is complete
+            }
         });
         
         // Listen for slide leave events to hide QR toasts
@@ -2665,6 +2970,19 @@
             if (currentSlide.id === 'contact') {
                 hideQRToast();
             }
+            
+            // Pause video when leaving what-do-i-build slide
+            if (currentSlide.id === 'what-do-i-build') {
+                const video = currentSlide.querySelector('.video-element');
+                const playOverlay = currentSlide.querySelector('.play-overlay');
+                
+                if (video && !video.paused) {
+                    video.pause();
+                    if (playOverlay) {
+                        playOverlay.classList.remove('hidden');
+                    }
+                }
+            }
         });
         
         // Progress and Navigation Update Functions
@@ -2674,7 +2992,7 @@
                 'my-journey-linkedin', 'my-journey-golinks-start', 'golinks', 'golinks-story', 
                 'golinks-culture', 'golinks-tech-stack', 'common-tech-stacks', 'gosearch-indexer-architecture',
                 'gosearch-ai-architecture', 'industry-trends', 'ai-trends', 'industry-changes', 
-                'interview-processes', 'interview-details', 'essential-skills', 'how-to-get-job',
+                'historical-parallels', 'interview-processes', 'interview-details', 'essential-skills', 'how-to-get-job',
                 'resume-filtering', 'networking', 'tell-your-story', 'creator-vs-consumer', 
                 'creator-examples', 'creator-mindset', 'what-do-i-build', 'conclusion', 'key-takeaways', 'resources', 'contact'
             ];
@@ -2687,7 +3005,7 @@
                 'golinks-tech-stack': 'GoLinks', 'common-tech-stacks': 'GoLinks', 'gosearch-indexer-architecture': 'GoLinks',
                 'gosearch-ai-architecture': 'GoLinks',
                 'industry-trends': 'Industry Trends', 'ai-trends': 'Industry Trends', 'industry-changes': 'Industry Trends', 
-                'interview-processes': 'Industry Trends', 'interview-details': 'Industry Trends', 'essential-skills': 'Industry Trends',
+                'historical-parallels': 'Industry Trends', 'interview-processes': 'Industry Trends', 'interview-details': 'Industry Trends', 'essential-skills': 'Industry Trends',
                 'how-to-get-job': 'How to Get a Job', 'resume-filtering': 'How to Get a Job', 'networking': 'How to Get a Job', 
                 'tell-your-story': 'How to Get a Job', 'creator-vs-consumer': 'How to Get a Job', 'creator-examples': 'How to Get a Job', 
                 'creator-mindset': 'How to Get a Job', 'what-do-i-build': 'How to Get a Job',
@@ -2713,6 +3031,26 @@
             
             if (slideCounter) {
                 slideCounter.textContent = `${currentIndex + 1} / ${slideOrder.length}`;
+            }
+        }
+        
+        // Video Player Function
+        function playVideo(overlay) {
+            const videoPlayer = overlay.parentElement;
+            const video = videoPlayer.querySelector('.video-element');
+            
+            if (video) {
+                video.play();
+                overlay.classList.add('hidden');
+                
+                // Show overlay again when video pauses or ends
+                video.addEventListener('pause', function() {
+                    overlay.classList.remove('hidden');
+                });
+                
+                video.addEventListener('ended', function() {
+                    overlay.classList.remove('hidden');
+                });
             }
         }
         
