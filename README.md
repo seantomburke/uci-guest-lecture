@@ -7,6 +7,7 @@ A presentation by Sean Thomas Burke, Head of Engineering at GoLinks, delivered a
 ### Job Search & Career
 - **[Levels.fyi](https://levels.fyi)** - Salary insights, career progression paths, and interview preparation resources (Founded by UCI Alumni Zaheer Mohiuddin)
 - **[WorkHap.com](https://workhap.com)** - Job search platform with strategies and interview tips (Founded by UCI Alumni Sho Dewan)
+- **[Y Combinator Internships](https://www.ycombinator.com/internships)** - Internship opportunities at Y Combinator startups to gain experience in the startup ecosystem
 - **[StackShare.io](https://stackshare.io/)** - Learn the tech stacks of companies you want to work for
 - **[Roadmap.sh](https://roadmap.sh/)** - Visual roadmaps to learn industry-relevant skills
 
